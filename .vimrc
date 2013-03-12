@@ -12,17 +12,31 @@ set number
 set mouse=a
 set mousehide
 
-set hlsearch
-set showmatch
-set incsearch
-set ignorecase
 set autoindent
-set history=1000
+set backup
+set backupdir=~/.vim_backup
 set cursorline
 set expandtab
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set fileformats=unix,dos,mac
+set history=1000
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set nocompatible
+set noerrorbells
+set noswapfile
+set ruler
+set showmatch
+set softtabstop=2 tabstop=2 shiftwidth=2
+set title
+set ttyfast
+set undolevels=1000
+set visualbell
+set wildignore=*.swp,*.bak
+set wildmode=longest,list
 
 "Keys
 imap jj <Esc>
