@@ -11,6 +11,8 @@ ZSH_THEME="robbyrussell"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 

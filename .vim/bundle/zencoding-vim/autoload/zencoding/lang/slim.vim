@@ -25,7 +25,10 @@ function! zencoding#lang#slim#toString(settings, current, type, inline, filters,
   endif
   if len(current.name) > 0
     let str .= current_name
-    for attr in keys(current.attr)
+    for attr in current.attrs_order
+      if !has_key(current.attr, attr)
+        continue
+      endif
       let val = current.attr[attr]
       if dollar_expr
         while val =~ '\$\([^#{]\|$\)'
@@ -103,7 +106,9 @@ function! zencoding#lang#slim#imageSize()
   endif
   let current.attr.width = width
   let current.attr.height = height
+  let current.attrs_order += ['width', 'height']
   let slim = zencoding#toString(current, 'slim', 1)
+  let slim = substitute(slim, '\${cursor}', '', '')
   call setline('.', substitute(matchstr(line, '^\s*') . slim, "\n", "", "g"))
 endfunction
 
@@ -111,7 +116,7 @@ function! zencoding#lang#slim#encodeImage()
 endfunction
 
 function! zencoding#lang#slim#parseTag(tag)
-  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0 }
+  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'attrs_order': ['id', 'class'] }
   let mx = '\([a-zA-Z][a-zA-Z0-9]*\)\s\+\(.*\)'
   let match = matchstr(a:tag, mx)
   let current.name = substitute(match, mx, '\1', 'i')
@@ -128,6 +133,7 @@ function! zencoding#lang#slim#parseTag(tag)
     let current.attr[name] = value
     let attrs = attrs[stridx(attrs, match) + len(match):]
   endwhile
+  let current.attrs_order = keys(current.attr)
   return current
 endfunction
 

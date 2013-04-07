@@ -212,7 +212,7 @@ finish
         },
         {
           'query': "div#wrapper.box.current[title=TITLE rel]",
-          'result': "<div id=\"wrapper\" rel=\"\" class=\"box current\" title=\"TITLE\"></div>\n",
+          'result': "<div id=\"wrapper\" class=\"box current\" title=\"TITLE\" rel=\"\"></div>\n",
         },
         {
           'query': "div#main+div#sub",
@@ -248,7 +248,7 @@ finish
         },
         {
           'query': "a[href=http://www.google.com/].foo#hoge",
-          'result': "<a id=\"hoge\" href=\"http://www.google.com/\" class=\"foo\"></a>\n",
+          'result': "<a id=\"hoge\" class=\"foo\" href=\"http://www.google.com/\"></a>\n",
         },
         {
           'query': "a[href=http://www.google.com/]{Google}",
@@ -288,15 +288,15 @@ finish
         },
         {
           'query': "a[href=foo][class=bar]",
-          'result': "<a href=\"foo\" class=\"bar\"></a>\n",
+          'result': "<a class=\"bar\" href=\"foo\"></a>\n",
         },
         {
           'query': "a[a=b][b=c=d][e]{foo}*2",
-          'result': "<a a=\"b\" b=\"c=d\" e=\"\" href=\"\">foo</a>\n<a a=\"b\" b=\"c=d\" e=\"\" href=\"\">foo</a>\n",
+          'result': "<a href=\"\" a=\"b\" b=\"c=d\" e=\"\">foo</a>\n<a href=\"\" a=\"b\" b=\"c=d\" e=\"\">foo</a>\n",
         },
         {
           'query': "a[a=b][b=c=d][e]*2{foo}",
-          'result': "<a a=\"b\" b=\"c=d\" e=\"\" href=\"\"></a>\n<a a=\"b\" b=\"c=d\" e=\"\" href=\"\"></a>\nfoo",
+          'result': "<a href=\"\" a=\"b\" b=\"c=d\" e=\"\"></a>\n<a href=\"\" a=\"b\" b=\"c=d\" e=\"\"></a>\nfoo",
         },
         {
           'query': "a*2{foo}a",
@@ -404,11 +404,11 @@ finish
         },
         {
           'query': "link:css",
-          'result': "<link media=\"all\" rel=\"stylesheet\" href=\"style.css\" type=\"text/css\" />\n",
+          'result': "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\" media=\"all\" />\n",
         },
         {
           'query': "a[title=\"Hello', world\" rel]",
-          'result': "<a rel=\"\" href=\"\" title=\"Hello', world\"></a>\n",
+          'result': "<a href=\"\" title=\"Hello', world\" rel=\"\"></a>\n",
         },
         {
           'query': "div>a#foo{bar}",
@@ -684,11 +684,11 @@ finish
       'tests': [
         {
           'query': "div>p+ul#foo>li.bar$[foo=bar][bar=baz]*3>{baz}",
-          'result': "div\n  p\n  ul id=\"foo\"\n    li foo=\"bar\" bar=\"baz\" class=\"bar1\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar2\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar3\"\n      | baz\n",
+          'result': "div\n  p\n  ul id=\"foo\"\n    li class=\"bar1\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar2\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar3\" foo=\"bar\" bar=\"baz\"\n      | baz\n",
         },
         {
           'query': "div>p+ul#foo>li.bar$[foo=bar][bar=baz]*3>{baz}|slim",
-          'result': "div\n  p\n  ul id=\"foo\"\n    li foo=\"bar\" bar=\"baz\" class=\"bar1\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar2\"\n      | baz\n    li foo=\"bar\" bar=\"baz\" class=\"bar3\"\n      | baz\n",
+          'result': "div\n  p\n  ul id=\"foo\"\n    li class=\"bar1\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar2\" foo=\"bar\" bar=\"baz\"\n      | baz\n    li class=\"bar3\" foo=\"bar\" bar=\"baz\"\n      | baz\n",
         },
         {
           'query': "a*3|slim",
@@ -740,7 +740,7 @@ finish
         },
         {
           'query': "ap>wp",
-          'result': "<xsl:apply-templates select=\"\" mode=\"\">\n\t<xsl:with-param select=\"\" name=\"\"></xsl:with-param>\n</xsl:apply-templates>\n",
+          'result': "<xsl:apply-templates select=\"\" mode=\"\">\n\t<xsl:with-param name=\"\" select=\"\"></xsl:with-param>\n</xsl:apply-templates>\n",
         },
       ],
     },

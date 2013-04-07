@@ -58,7 +58,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
   endif
   let abbr = rabbr
 
-  let root = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'important': 0 }
+  let root = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'important': 0, 'attrs_order': ['id', 'class'] }
   let parent = root
   let last = root
   let pos = []
@@ -92,7 +92,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
     if multiplier <= 0 | let multiplier = 1 | endif
 
     " make default node
-    let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'important': 0 }
+    let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'important': 0, 'attrs_order': ['id', 'class'] }
     let current.name = tag_name
 
     let current.important = important
@@ -125,6 +125,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
         if has_key(default_attributes, pat)
           if type(default_attributes[pat]) == 4
             let a = default_attributes[pat]
+            let current.attrs_order += keys(a)
             if use_pipe_for_cursor
               for k in keys(a)
                 let current.attr[k] = len(a[k]) ? substitute(a[k], '|', '${cursor}', 'g') : '${cursor}'
@@ -136,6 +137,7 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
             endif
           else
             for a in default_attributes[pat]
+              let current.attrs_order += keys(a)
               if use_pipe_for_cursor
                 for k in keys(a)
                   let current.attr[k] = len(a[k]) ? substitute(a[k], '|', '${cursor}', 'g') : '${cursor}'
@@ -182,6 +184,9 @@ function! zencoding#lang#html#parseIntoTree(abbr, type)
               let val = val[1:-2]
             endif
             let current.attr[key] = val
+            if index(current.attrs_order, key) == -1
+              let current.attrs_order += [key]
+            endif
             let atts = atts[stridx(atts, amat) + len(amat):]
           endwhile
         endif
@@ -317,7 +322,10 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
   endif
   if len(current_name) > 0
   let str .= '<' . current_name
-  for attr in keys(current.attr)
+  for attr in current.attrs_order
+    if !has_key(current.attr, attr)
+      continue
+    endif
     let val = current.attr[attr]
     if dollar_expr
       while val =~ '\$\([^#{]\|$\)'
@@ -411,7 +419,9 @@ function! zencoding#lang#html#imageSize()
   endif
   let current.attr.width = width
   let current.attr.height = height
+  let current.attrs_order += ['width', 'height']
   let html = substitute(zencoding#toString(current, 'html', 1), '\n', '', '')
+  let html = substitute(html, '\${cursor}', '', '')
   call zencoding#util#setContent(img_region, html)
 endfunction
 
@@ -444,7 +454,7 @@ function! zencoding#lang#html#encodeImage()
 endfunction
 
 function! zencoding#lang#html#parseTag(tag)
-  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0 }
+  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'attrs_order': ['id', 'class'] }
   let mx = '<\([a-zA-Z][a-zA-Z0-9]*\)\(\%(\s[a-zA-Z][a-zA-Z0-9]\+=\%([^"'' \t]\+\|"[^"]\{-}"\|''[^'']\{-}''\)\s*\)*\)\(/\{0,1}\)>'
   let match = matchstr(a:tag, mx)
   let current.name = substitute(match, mx, '\1', 'i')
@@ -461,6 +471,7 @@ function! zencoding#lang#html#parseTag(tag)
     let current.attr[name] = value
     let attrs = attrs[stridx(attrs, match) + len(match):]
   endwhile
+  let current.attrs_order = keys(current.attr)
   return current
 endfunction
 
@@ -510,7 +521,7 @@ function! zencoding#lang#html#toggleComment()
       call setpos('.', [0, pos2[0], pos2[1], 0])
       let pos2 = searchpairpos('<'. tag_name . '>', '', '</' . tag_name . '>', 'nW')
       call setpos('.', [0, pos2[0], pos2[1], 0])
-      let pos2 = searchpos('>', 'cneW')
+      let pos2 = searchpos('>', 'neW')
       let block = [pos1, pos2]
     endif
     if !zencoding#util#regionIsValid(block)

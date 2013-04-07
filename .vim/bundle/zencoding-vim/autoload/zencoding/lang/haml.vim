@@ -26,7 +26,10 @@ function! zencoding#lang#haml#toString(settings, current, type, inline, filters,
   if len(current.name) > 0
     let str .= '%' . current_name
     let tmp = ''
-    for attr in keys(current.attr)
+    for attr in current.attrs_order
+      if !has_key(current.attr, attr)
+        continue
+      endif
       let val = current.attr[attr]
       if dollar_expr
         while val =~ '\$\([^#{]\|$\)'
@@ -125,7 +128,9 @@ function! zencoding#lang#haml#imageSize()
   endif
   let current.attr.width = width
   let current.attr.height = height
+  let current.attrs_order += ['width', 'height']
   let haml = zencoding#toString(current, 'haml', 1)
+  let haml = substitute(haml, '\${cursor}', '', '')
   call setline('.', substitute(matchstr(line, '^\s*') . haml, "\n", "", "g"))
 endfunction
 
@@ -133,7 +138,7 @@ function! zencoding#lang#haml#encodeImage()
 endfunction
 
 function! zencoding#lang#haml#parseTag(tag)
-  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0 }
+  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'attrs_order': ['id', 'class'] }
   let mx = '%\([a-zA-Z][a-zA-Z0-9]*\)\s*\%({\(.*\)}\)'
   let match = matchstr(a:tag, mx)
   let current.name = substitute(match, mx, '\1', 'i')
@@ -150,6 +155,7 @@ function! zencoding#lang#haml#parseTag(tag)
     let current.attr[name] = value
     let attrs = attrs[stridx(attrs, match) + len(match):]
   endwhile
+  let current.attrs_order = keys(current.attr)
   return current
 endfunction
 
