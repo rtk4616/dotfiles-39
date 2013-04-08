@@ -45,10 +45,10 @@ repos=(
   https://github.com/tpope/vim-pathogen.git
   https://github.com/tpope/vim-surround.git
   https://github.com/mattn/zencoding-vim.git
-  https://github.com/ervandew/supertab.git
   https://github.com/jistr/vim-nerdtree-tabs.git
   https://github.com/mnoble/tomorrow-night-vim.git
   https://github.com/Lokaltog/powerline.git
+  https://github.com/Valloric/YouCompleteMe.git
   )
 
 # Here's a list of everything else to download in the format
