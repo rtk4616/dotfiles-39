@@ -34,9 +34,10 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode)
+plugin=s(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Volumes/IMACHD/node/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
+export PATH=/Volumes/IMACHD/node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
+export TERM=xterm-256color
