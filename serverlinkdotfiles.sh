@@ -10,7 +10,7 @@ if [ -f ~/.vimrc ]
 then
     echo ~/.vimrc already exists
 else
-    ln -s .vimrc ~/.vimrc;
+    ln -s .vimrc ~/.server.vimrc;
 fi
 
 if [ -f ~/.zshrc ]

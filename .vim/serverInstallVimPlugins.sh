@@ -4,15 +4,15 @@
 #
 # Update everything (long):
 #
-#   ./update.sh
+#   .serverInstallVimPlugins.sh/
 #
 # Update just the things from Git:
 #
-#   ./update.sh repos
+#   ./serverInstallVimPlugins.sh repos
 #
 # Update just one plugin from the list of Git repos:
 #
-#   ./update.sh repos powerline
+#   ./serverInstallVimPlugins.sh repos powerline
 #
 
 cd ~/Dropbox/dev/dotfiles
@@ -20,7 +20,7 @@ cd ~/Dropbox/dev/dotfiles
 vimdir=$PWD/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
-me=.vim/update.sh
+me=.vimserverInstallVimPlugins.sh/
 
 # I have an old server with outdated CA certs.
 if [ -n "$INSECURE" ]; then
