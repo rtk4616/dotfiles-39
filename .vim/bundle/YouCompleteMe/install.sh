@@ -2,6 +2,10 @@
 
 set -e
 
+function command_exists {
+  hash "$1" 2>/dev/null ;
+}
+
 function cmake_install {
   if [[ `uname -s` == "Darwin" ]]; then
     homebrew_cmake_install
@@ -47,15 +51,20 @@ function python_finder {
 }
 
 function num_cores {
-  num_cpus=1
-  if [[ `uname -s` == "Linux" ]]; then
-    num_cpus=$(grep -c ^processor /proc/cpuinfo)
+  if command_exists nproc; then
+   num_cpus=$(nproc)
   else
-    # Works on Mac and FreeBSD
-    num_cpus=$(sysctl -n hw.ncpu)
+    num_cpus=1
+    if [[ `uname -s` == "Linux" ]]; then
+      num_cpus=$(grep -c ^processor /proc/cpuinfo)
+    else
+      # Works on Mac and FreeBSD
+      num_cpus=$(sysctl -n hw.ncpu)
+    fi
   fi
   echo $num_cpus
 }
+
 
 function install {
   ycm_dir=`pwd`
@@ -99,7 +108,7 @@ case "$1" in
     ;;
 esac
 
-if [[ ! -z `which cmake &> /dev/null` ]]; then
+if ! command_exists cmake; then
   echo "CMake is required to build YouCompleteMe."
   cmake_install
 fi

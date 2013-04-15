@@ -11,7 +11,17 @@ ZSH_THEME="robbyrussell"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
- alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+alias diff='colordiff'
+
+alias -s gz='tar -xzvf'
+alias -s bz2='tar -xjvf'
+alias -s zip='unzip'
+alias -s txt=$EDITOR
+alias -s html=$BROWSER
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -34,10 +44,11 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugin=s(git vi-mode)
+plugins=(git vi-mode tmux sublime)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Volumes/IMACHD/node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 export TERM=xterm-256color
+export PATH=$PATH:/Volumes/IMACHD/node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
+

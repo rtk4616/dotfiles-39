@@ -351,6 +351,7 @@ function! zencoding#lang#html#toString(settings, current, type, inline, filters,
       let text = substitute(text, '\%(\\\)\@\<!\(\$\+\)\([^{#]\|$\)', '\=printf("%0".len(submatch(1))."d", itemno+1).submatch(2)', 'g')
       let text = substitute(text, '\${nr}', "\n", 'g')
       let text = substitute(text, '\\\$', '$', 'g')
+      let str = substitute(str, '\("\zs$#\ze"\|\s\zs\$#"\|"\$#\ze\s\)', text, 'g')
     endif
     let str .= text
     let nc = len(current.child)
@@ -454,7 +455,7 @@ function! zencoding#lang#html#encodeImage()
 endfunction
 
 function! zencoding#lang#html#parseTag(tag)
-  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'attrs_order': ['id', 'class'] }
+  let current = { 'name': '', 'attr': {}, 'child': [], 'snippet': '', 'multiplier': 1, 'parent': {}, 'value': '', 'pos': 0, 'attrs_order': [] }
   let mx = '<\([a-zA-Z][a-zA-Z0-9]*\)\(\%(\s[a-zA-Z][a-zA-Z0-9]\+=\%([^"'' \t]\+\|"[^"]\{-}"\|''[^'']\{-}''\)\s*\)*\)\(/\{0,1}\)>'
   let match = matchstr(a:tag, mx)
   let current.name = substitute(match, mx, '\1', 'i')
@@ -469,9 +470,9 @@ function! zencoding#lang#html#parseTag(tag)
     let name = attr_match[1]
     let value = len(attr_match[2]) ? attr_match[2] : attr_match[3]
     let current.attr[name] = value
+    let current.attrs_order += [name]
     let attrs = attrs[stridx(attrs, match) + len(match):]
   endwhile
-  let current.attrs_order = keys(current.attr)
   return current
 endfunction
 
@@ -546,7 +547,7 @@ function! zencoding#lang#html#balanceTag(flag) range
   endif
   let settings = zencoding#getSettings()
 
-  if a:flag > 0 || abs(a:flag) == 1
+  if a:flag > 0
     let mx = '<\([a-zA-Z][a-zA-Z0-9:_\-]*\)[^>]*>'
     while 1
       let pos1 = searchpos(mx, 'bW')
@@ -596,10 +597,9 @@ function! zencoding#lang#html#balanceTag(flag) range
       endif
     endwhile
   endif
+  call setpos('.', curpos)
   if a:flag == -2 || a:flag == 2
     silent! exe "normal! gv"
-  else
-    call setpos('.', curpos)
   endif
 endfunction
 

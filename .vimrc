@@ -40,7 +40,15 @@ set wildmode=longest,list
 
 "Keys
 imap jj <Esc>
-map <C-n> :NERDTreeToggle<CR>
+map <C-k>b :NERDTreeToggle<CR>
+let g:multi_cursor_next_key="\<C-d>"
+let g:multi_cursor_prev_key="\<C-b>"
+let g:multi_cursor_skip_key="\<C-k><C-d>"
+let g:multi_cursor_exit_key="\<Esc>"
+
+"PowerLine
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+let g:Powerline_symbols = 'fancy'
 
 " Nerdtree
 autocmd vimenter * NERDTree
@@ -53,7 +61,9 @@ let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bz
 let NERDTreeKeepTreeInNewTab=1
 let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
+
  
 set term=xterm-256color
 set background=dark
 colorscheme Tomorrow-Night-Bright
+highlight LineNr ctermfg=darkgrey ctermbg=black

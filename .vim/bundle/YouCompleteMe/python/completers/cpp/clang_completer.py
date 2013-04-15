@@ -84,7 +84,7 @@ class ClangCompleter( Completer ):
     return files
 
 
-  def CandidatesForQueryAsync( self, query ):
+  def CandidatesForQueryAsync( self, query, start_column ):
     filename = vim.current.buffer.name
 
     if not filename:
@@ -108,8 +108,7 @@ class ClangCompleter( Completer ):
       files = self.GetUnsavedFilesVector()
 
     line, _ = vim.current.window.cursor
-    # TODO: this should be a function parameter
-    column = int( vim.eval( "s:completion_start_column" ) ) + 1
+    column = start_column + 1
     self.completions_future = (
       self.completer.CandidatesForQueryAndLocationInFileAsync(
         query,
@@ -169,7 +168,7 @@ class ClangCompleter( Completer ):
 
   def _GoToDefinition( self ):
     location = self._LocationForGoTo( 'GetDefinitionLocation' )
-    if not location.IsValid():
+    if not location or not location.IsValid():
       vimsupport.PostVimMessage( 'Can\'t jump to definition.' )
       return
 
@@ -180,7 +179,7 @@ class ClangCompleter( Completer ):
 
   def _GoToDeclaration( self ):
     location = self._LocationForGoTo( 'GetDeclarationLocation' )
-    if not location.IsValid():
+    if not location or not location.IsValid():
       vimsupport.PostVimMessage( 'Can\'t jump to declaration.' )
       return
 
@@ -191,9 +190,9 @@ class ClangCompleter( Completer ):
 
   def _GoToDefinitionElseDeclaration( self ):
     location = self._LocationForGoTo( 'GetDefinitionLocation' )
-    if not location.IsValid():
+    if not location or not location.IsValid():
       location = self._LocationForGoTo( 'GetDeclarationLocation' )
-    if not location.IsValid():
+    if not location or not location.IsValid():
       vimsupport.PostVimMessage( 'Can\'t jump to definition or declaration.' )
       return
 

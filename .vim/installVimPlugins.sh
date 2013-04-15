@@ -49,6 +49,7 @@ repos=(
   https://github.com/mnoble/tomorrow-night-vim.git
   https://github.com/Lokaltog/powerline.git
   https://github.com/Valloric/YouCompleteMe.git
+  https://github.com/terryma/vim-multiple-cursors.git
   )
 
 # Here's a list of everything else to download in the format

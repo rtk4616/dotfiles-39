@@ -449,10 +449,12 @@ the options) YCM provides when your cursor is on the line with the diagnostic.
 
 You can also see the full diagnostic message for all the diagnostics in the
 current file in Vim's `locationlist`, which can be opened with the `:lopen` and
-`:lclose` commands. A good way to toggle the display of the `locationlist` with
-a single key mapping is provided by another (very small) Vim plugin called
-[ListToggle][] (which also makes it possible to change the height of the
-`locationlist` window), also written by yours truly.
+`:lclose` commands (make sure you have set `let
+g:syntastic_always_populate_loc_list = 1` in your vimrc). A good way to toggle
+the display of the `locationlist` with a single key mapping is provided by
+another (very small) Vim plugin called [ListToggle][] (which also makes it
+possible to change the height of the `locationlist` window), also written by
+yours truly.
 
 Commands
 --------
@@ -876,6 +878,18 @@ Default: `[see next line]`
       \   'lua' : ['.', ':'],
       \   'erlang' : [':'],
       \ }
+
+### The `g:ycm_cache_omnifunc` option
+
+Some omnicompletion engines do not work well with the YCM cache - in
+particular, they might not produce all possible results for a given prefix. By
+unsetting this option you can ensure that the omnicompletion engine is
+requeried on every keypress. That will ensure all completions will be
+presented, but might cause stuttering and lagginess if the omnifunc is slow.
+
+Default: `1`
+
+    let g:ycm_cache_omnifunc = 1
 
 FAQ
 ---
