@@ -15,12 +15,12 @@
 #   ./serverInstallVimPlugins.sh repos powerline
 #
 
-cd ~/Dropbox/dev/dotfiles
+cd ~/dotfiles
 
 vimdir=$PWD/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
-me=.vimserverInstallVimPlugins.sh/
+me=~/dotfiles/vimserverInstallVimPlugins.sh/
 
 # I have an old server with outdated CA certs.
 if [ -n "$INSECURE" ]; then
