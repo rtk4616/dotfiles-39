@@ -1,2 +1,3 @@
-cd ~/.vim/bundle/
+#!/bin/bash
+cd ~/.vim/bundle/;
 find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;

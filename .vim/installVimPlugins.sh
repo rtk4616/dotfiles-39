@@ -20,7 +20,7 @@ cd ~/Dropbox/dev/dotfiles
 vimdir=$PWD/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
-me=.vim/installVimPlugins
+me=.vim/.installVimPlugins.sh
 
 # I have an old server with outdated CA certs.
 if [ -n "$INSECURE" ]; then

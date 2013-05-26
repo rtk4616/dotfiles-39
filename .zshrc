@@ -23,6 +23,8 @@ alias -s zip='unzip'
 alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
+alias st3='~/Dropbox/Apps/st3'
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -44,7 +46,7 @@ alias -s html=$BROWSER
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux sublime)
+plugins=(git vi-mode tmux sublime node)
 
 source $ZSH/oh-my-zsh.sh
 

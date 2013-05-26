@@ -13,8 +13,8 @@ set mouse=a
 set mousehide
 
 set autoindent
-set backup
-set backupdir=~/.vim_backup
+set nobackup
+"set backupdir=~/.vim_backup
 set cursorline
 set expandtab
 set fileformats=unix,dos,mac
@@ -28,8 +28,11 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set nocompatible
 set noerrorbells
 set noswapfile
+set noshowmode 
+set noru
 set ruler
 set showmatch
+set noshowmode
 set softtabstop=2 tabstop=2 shiftwidth=2
 set title
 set ttyfast
@@ -37,6 +40,7 @@ set undolevels=1000
 set visualbell
 set wildignore=*.swp,*.bak
 set wildmode=longest,list
+"set transparency=15
 
 "Keys
 imap jj <Esc>

@@ -13,8 +13,8 @@ set mouse=a
 set mousehide
 
 set autoindent
-set backup
-set backupdir=~/.vim_backup
+set nobackup
+"set backupdir=~/.vim_backup
 set cursorline
 set expandtab
 set fileformats=unix,dos,mac
@@ -40,7 +40,7 @@ set wildmode=longest,list
 
 "Keys
 imap jj <Esc>
-map <C-k>b :NERDTreeToggle<CR>
+map <C-k><C-b> :NERDTreeToggle<CR>
 "let g:multi_cursor_next_key="\<C-d>"
 "let g:multi_cursor_prev_key="\<C-b>"
 "let g:multi_cursor_skip_key="\<C-k><C-d>"
