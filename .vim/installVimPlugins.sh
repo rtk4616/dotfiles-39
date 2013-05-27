@@ -50,6 +50,7 @@ repos=(
   https://github.com/Lokaltog/powerline.git
   https://github.com/Valloric/YouCompleteMe.git
   https://github.com/terryma/vim-multiple-cursors.git
+  https://github.com/tomtom/tcomment_vim.git
   )
 
 # Here's a list of everything else to download in the format

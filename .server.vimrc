@@ -39,6 +39,7 @@ set wildmode=longest,list
 "Keys
 imap jj <Esc>
 map <C-k>b :NERDTreeToggle<CR>
+map <C-/> <c-_><c-_>
 "let g:multi_cursor_next_key="\<C-d>"
 "let g:multi_cursor_prev_key="\<C-b>"
 "let g:multi_cursor_skip_key="\<C-k><C-d>"

@@ -48,6 +48,7 @@ repos=(
   https://github.com/jistr/vim-nerdtree-tabs.git
   https://github.com/mnoble/tomorrow-night-vim.git
   https://github.com/ervandew/supertab.git
+  https://github.com/tomtom/tcomment_vim.git
   )
 
 # Here's a list of everything else to download in the format

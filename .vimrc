@@ -47,6 +47,7 @@ let g:multi_cursor_next_key="\<C-d>"
 let g:multi_cursor_prev_key="\<C-b>"
 let g:multi_cursor_skip_key="\<C-k><C-d>"
 let g:multi_cursor_exit_key="\<Esc>"
+map <c-/> <c-_><c-_>
 
 "PowerLine
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
