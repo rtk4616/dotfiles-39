@@ -1,5 +1,3 @@
-set nocompatible
-
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -65,5 +63,5 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 
 set term=xterm-256color
 set background=dark
-colorscheme tomorrow-night-bright
+colorscheme tomorrow-night-Bright
 highlight LineNr ctermfg=darkgrey ctermbg=black
