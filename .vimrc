@@ -67,5 +67,5 @@ let g:nerdtree_tabs_open_on_gui_startup=0
  
 set term=xterm-256color
 set background=dark
-colorscheme Tomorrow-Night-Bright
+colorscheme tomorrow-night-bright
 highlight LineNr ctermfg=darkgrey ctermbg=black
