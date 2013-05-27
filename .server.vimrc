@@ -1,3 +1,4 @@
+set nocompatible
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
@@ -23,7 +24,6 @@ set incsearch
 set laststatus=2
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set nocompatible
 set noerrorbells
 set noswapfile
 set ruler
