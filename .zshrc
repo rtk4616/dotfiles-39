@@ -24,6 +24,7 @@ alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
 alias st3='~/Dropbox/Apps/st3'
+alias vim='mvim -v'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
