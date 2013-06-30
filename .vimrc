@@ -39,7 +39,8 @@ set visualbell
 set wildignore=*.swp,*.bak
 set wildmode=longest,list
 if has("gui_macvim")
-  set transparency=15
+  set transparency=10
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline
 endif
 
 "Keys
