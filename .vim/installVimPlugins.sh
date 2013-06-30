@@ -15,8 +15,6 @@
 #   ./installVimPlugins repos powerline
 #
 
-cd ~/Dropbox/dev/dotfiles
-
 vimdir=$PWD/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
@@ -36,7 +34,7 @@ fi
 # don't work.
 repos=(
   https://github.com/ap/vim-css-color.git
-  https://github.com/hced/bufkill-vim.git
+# https://github.com/hced/bufkill-vim.git
   https://github.com/kien/ctrlp.vim.git
   https://github.com/pangloss/vim-javascript.git
   https://github.com/scrooloose/nerdtree.git
