@@ -2,10 +2,10 @@ set nocompatible
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
- 
+
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
- 
+
 syntax on
 set number
 set mouse=a
@@ -26,7 +26,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set noerrorbells
 set noswapfile
-set noshowmode 
+set noshowmode
 set noru
 set ruler
 set showmatch
@@ -38,7 +38,9 @@ set undolevels=1000
 set visualbell
 set wildignore=*.swp,*.bak
 set wildmode=longest,list
-"set transparency=15
+if has("gui_macvim")
+  set transparency=15
+endif
 
 "Keys
 imap jj <Esc>
@@ -65,7 +67,7 @@ let NERDTreeKeepTreeInNewTab=1
 "let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
 
- 
+
 set term=xterm-256color
 set background=dark
 colorscheme tomorrow-night-bright
