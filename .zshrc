@@ -51,14 +51,14 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux sublime node)
+plugins=(git svn vi-mode tmux sublime node)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export TERM=xterm-256color
 
-if [ ! -f ~/.comp_zshrc ]; then
+if [ -f ~/.comp_zshrc ]; then
   source ~/.comp_zshrc 
 fi
 
