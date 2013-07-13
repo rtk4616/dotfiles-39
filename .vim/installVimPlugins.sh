@@ -15,18 +15,10 @@
 #   ./installVimPlugins repos powerline
 #
 
-vimdir=$PWD/.vim
+vimdir=~/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
-me=.vim/.installVimPlugins.sh
-
-# I have an old server with outdated CA certs.
-if [ -n "$INSECURE" ]; then
-  curl='curl --insecure'
-  export GIT_SSL_NO_VERIFY=true
-else
-  curl='curl'
-fi
+me=~/.vim/installVimPlugins.sh
 
 # URLS --------------------------------------------------------------------
 
@@ -49,6 +41,7 @@ repos=(
   https://github.com/Valloric/YouCompleteMe.git
   https://github.com/terryma/vim-multiple-cursors.git
   https://github.com/tomtom/tcomment_vim.git
+  https://github.com/majutsushi/tagbar.git
   )
 
 # Here's a list of everything else to download in the format
@@ -70,59 +63,8 @@ case "$1" in
       rm -rf $dest
       echo "Cloning $url into $dest"
       git clone $url $dest
-      rm -rf $dest/.git
     done
     ;;
-
-  # TARBALLS AND SINGLE FILES -------------------------------------------
-  other)
-    set -x
-    mkdir -p $bundledir
-    rm -rf $tmp
-    mkdir $tmp
-    pushd $tmp
-
-    for pair in ${other[@]}; do
-      parts=($(echo $pair | tr ';' '\n'))
-      name=${parts[0]}
-      url=${parts[1]}
-      filename=${parts[2]}
-      dest=$bundledir/$name
-
-      rm -rf $dest
-
-      if echo $url | egrep '.zip$'; then
-        # Zip archives from VCS tend to have an annoying outer wrapper
-        # directory, so unpacking them into their own directory first makes it
-        # easy to remove the wrapper.
-        f=download.zip
-        $curl -L $url >$f
-        unzip $f -d $name
-        mkdir -p $dest
-        mv $name/*/* $dest
-        rm -rf $name $f
-
-      else
-        # Assume single files. Create the destination directory and download
-        # the file there.
-        mkdir -p $dest
-        pushd $dest
-        if [ -n "$filename" ]; then
-          $curl -L $url >$filename
-        else
-          $curl -OL $url
-        fi
-        popd
-
-      fi
-
-    done
-
-    popd
-    rm -rf $tmp
-    ;;
-
-  # HELP ----------------------------------------------------------------
 
   all)
     $me repos

@@ -46,6 +46,7 @@ endif
 "Keys
 imap jj <Esc>
 map <C-k>b :NERDTreeToggle<CR>
+nmap <C-k>o :TagbarToggle<CR>
 let g:multi_cursor_next_key="\<C-d>"
 let g:multi_cursor_prev_key="\<C-b>"
 let g:multi_cursor_skip_key="\<C-k><C-d>"
@@ -99,3 +100,5 @@ else
   map <C-l> <C-w>l
 endif
 
+"ECLIM OmniFunc
+let g:EclimCompletionMethod = 'omnifunc'
