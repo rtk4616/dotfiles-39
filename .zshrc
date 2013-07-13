@@ -58,3 +58,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export TERM=xterm-256color
 
+if [ ! -f ~/.comp_zshrc ]; then
+  source ~/.comp_zshrc 
+fi
+
