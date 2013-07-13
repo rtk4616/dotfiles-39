@@ -24,8 +24,11 @@ alias -s zip='unzip'
 alias -s txt=$EDITOR
 alias -s html=$BROWSER
 
-alias st3='~/Dropbox/Apps/st3'
-alias vim='mvim -v'
+if  [[ $('uname') == 'Darwin' ]]; then
+ alias st3='~/Dropbox/Apps/st3'
+ alias vim = "mvim -v";
+fi
+
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -54,5 +57,4 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export TERM=xterm-256color
-export PATH=$PATH:/Volumes/IMACHD/node/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin:/opt/local/bin
 
