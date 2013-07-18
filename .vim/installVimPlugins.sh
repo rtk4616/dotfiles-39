@@ -42,6 +42,7 @@ repos=(
   https://github.com/terryma/vim-multiple-cursors.git
   https://github.com/tomtom/tcomment_vim.git
   https://github.com/majutsushi/tagbar.git
+  https://github.com/groenewege/vim-less.git
   )
 
 # Here's a list of everything else to download in the format
