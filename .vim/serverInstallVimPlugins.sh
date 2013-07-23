@@ -1,34 +1,25 @@
+
 #!/bin/bash -e
 #
 # Updates Vim plugins.
 #
 # Update everything (long):
 #
-#   .serverInstallVimPlugins.sh/
+#   ./installVimPlugins
 #
 # Update just the things from Git:
 #
-#   ./serverInstallVimPlugins.sh repos
+#   ./installVimPlugins repos
 #
 # Update just one plugin from the list of Git repos:
 #
-#   ./serverInstallVimPlugins.sh repos powerline
+#   ./installVimPlugins repos powerline
 #
 
-cd ~/dotfiles
-
-vimdir=$PWD/.vim
+vimdir=~/.vim
 bundledir=$vimdir/bundle
 tmp=/tmp/$LOGNAME-vim-update
-me=~/dotfiles/vimserverInstallVimPlugins.sh/
-
-# I have an old server with outdated CA certs.
-if [ -n "$INSECURE" ]; then
-  curl='curl --insecure'
-  export GIT_SSL_NO_VERIFY=true
-else
-  curl='curl'
-fi
+me=~/.vim/installServerVimPlugins.sh
 
 # URLS --------------------------------------------------------------------
 
@@ -36,7 +27,6 @@ fi
 # don't work.
 repos=(
   https://github.com/ap/vim-css-color.git
-  https://github.com/hced/bufkill-vim.git
   https://github.com/kien/ctrlp.vim.git
   https://github.com/pangloss/vim-javascript.git
   https://github.com/scrooloose/nerdtree.git
@@ -46,9 +36,10 @@ repos=(
   https://github.com/tpope/vim-surround.git
   https://github.com/mattn/zencoding-vim.git
   https://github.com/jistr/vim-nerdtree-tabs.git
-  https://github.com/mnoble/tomorrow-night-vim.git
   https://github.com/ervandew/supertab.git
   https://github.com/tomtom/tcomment_vim.git
+  https://github.com/jlangston/tomorrow-night-vim.git
+  https://github.com/terryma/vim-multiple-cursors.git
   )
 
 # Here's a list of everything else to download in the format

@@ -26,7 +26,6 @@ me=~/.vim/installVimPlugins.sh
 # don't work.
 repos=(
   https://github.com/ap/vim-css-color.git
-# https://github.com/hced/bufkill-vim.git
   https://github.com/kien/ctrlp.vim.git
   https://github.com/pangloss/vim-javascript.git
   https://github.com/scrooloose/nerdtree.git
@@ -36,7 +35,7 @@ repos=(
   https://github.com/tpope/vim-surround.git
   https://github.com/mattn/zencoding-vim.git
   https://github.com/jistr/vim-nerdtree-tabs.git
-  https://github.com/mnoble/tomorrow-night-vim.git
+  https://github.com/jlangston/tomorrow-night-vim.git
   https://github.com/Lokaltog/powerline.git
   https://github.com/Valloric/YouCompleteMe.git
   https://github.com/terryma/vim-multiple-cursors.git
