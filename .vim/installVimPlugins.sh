@@ -42,6 +42,9 @@ repos=(
   https://github.com/tomtom/tcomment_vim.git
   https://github.com/majutsushi/tagbar.git
   https://github.com/groenewege/vim-less.git
+  https://github.com/tomtom/tlib_vim.git
+  https://github.com/MarcWeber/vim-addon-mw-utils.git
+  https://github.com/garbas/vim-snipmate.git
   )
 
 # Here's a list of everything else to download in the format
