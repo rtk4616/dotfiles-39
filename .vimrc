@@ -15,6 +15,7 @@ set background=dark
 set number
 set mouse=a
 set mousehide
+set modifiable
 
 set autoindent
 set clipboard+=unnamed
@@ -53,7 +54,7 @@ set smartcase                   " ... but not when search pattern contains upper
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
 if has("gui_macvim")
-  set transparency=30
+  set transparency=20
   set guifont=Droid\ Sans\ Mono\ for\ Powerline
   set vb t_vb=
   set guioptions-=m  "no menu
@@ -70,35 +71,33 @@ endif
 imap jj <Esc>
 
 "NerdTree
-map <D-k>b :NERDTreeToggle<CR>
+map <C-k>b :NERDTreeToggle<CR>
 
 "TagBar
-nmap <D-k>o :TagbarToggle<CR>
+nmap <C-k>o :TagbarToggle<CR>
 
-"Open ctrlp with cmd+p
-let g:ctrlp_map = '<D-p>'
 
 "Open goto symbol on current buffer
-nmap <D-r> :MyCtrlPTag<cr>
-imap <D-r> <esc>:MyCtrlPTag<cr>
+nmap gd :MyCtrlPTag<cr>
+imap gd <esc>:MyCtrlPTag<cr>
 
 " Open goto symbol on all buffers
-nmap <D-R> :CtrlPBufTagAll<cr>
-imap <D-R> <esc>:CtrlPBufTagAll<cr>
+nmap gD :CtrlPBufTagAll<cr>
+imap gD <esc>:CtrlPBufTagAll<cr>
 
 " Open goto file
-nmap <D-t> :CtrlP<cr>
-imap <D-t> <esc>:CtrlP<cr>
+nmap <C-t> :CtrlP<cr>
+imap <C-t> <esc>:CtrlP<cr>
 
 " Comment lines with cmd+/
-map <D-/> :TComment<cr>
-vmap <D-/> :TComment<cr>gv
+map <C-/> :TComment<cr>
+vmap <C-/> :TComment<cr>gv
 
 " Indent lines with cmd+[ and cmd+]
-nmap <D-]> >>
-nmap <D-[> <<
-vmap <D-[> <gv
-vmap <D-]> >gv
+nmap <C-]> >>
+nmap <C-[> <<
+vmap <C-[> <gv
+vmap <C-]> >gv
 
 " ----------------------------------------- "
 " Plugin configs                "
@@ -163,9 +162,9 @@ let g:delimitMate_expand_space = 1
 let g:nerdtree_tabs_open_on_gui_startup = 0
 
 let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_next_key = '<D-d>'
-let g:multi_cursor_prev_key = '<D-u>'
-let g:multi_cursor_skip_key = '<D-k>' "until we got multiple keys support
+let g:multi_cursor_next_key = '<C-d>'
+let g:multi_cursor_prev_key = '<C-u>'
+let g:multi_cursor_skip_key = '<C-k>' "until we got multiple keys support
 let g:multi_cursor_quit_key = '<Esc>'
 
 function! g:UltiSnips_Complete()
