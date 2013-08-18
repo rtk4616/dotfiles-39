@@ -1,5 +1,4 @@
-set nocompatible
-" Pathogen
+
 filetype off 
 " required
 call pathogen#infect()
@@ -55,7 +54,7 @@ set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
 if has("gui_macvim")
   set transparency=20
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline
+  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h20
   set vb t_vb=
   set guioptions-=m  "no menu
   set guioptions-=T  "no toolbar
@@ -65,9 +64,10 @@ if has("gui_macvim")
   set guioptions-=R
   " Select text whit shift
   let macvim_hig_shift_movement = 1
+  " autocmd vimenter * NERDTree
 endif
 
-"Keys
+"jMKeys
 imap jj <Esc>
 
 "NerdTree
@@ -159,8 +159,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
-let g:nerdtree_tabs_open_on_gui_startup = 0
-
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_next_key = '<C-d>'
 let g:multi_cursor_prev_key = '<C-u>'
@@ -192,7 +190,6 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols = 'fancy'
 
 " Nerdtree
-autocmd vimenter * NERDTree
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=1
@@ -200,7 +197,7 @@ let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
 let NERDTreeKeepTreeInNewTab=1
-"let NERDTreeMapOpenInTab='<ENTER>'
+let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 
