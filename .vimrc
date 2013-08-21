@@ -1,6 +1,4 @@
 
-filetype off 
-" required
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -78,12 +76,12 @@ nmap <C-k>o :TagbarToggle<CR>
 
 
 "Open goto symbol on current buffer
-nmap gd :MyCtrlPTag<cr>
-imap gd <esc>:MyCtrlPTag<cr>
+nmap <CS-r> :MyCtrlPTag<cr>
+imap <CS-r> <esc>:MyCtrlPTag<cr>
 
 " Open goto symbol on all buffers
-nmap gD :CtrlPBufTagAll<cr>
-imap gD <esc>:CtrlPBufTagAll<cr>
+nmap <CS-t> :CtrlPBufTagAll<cr>
+imap <CS-t> <esc>:CtrlPBufTagAll<cr>
 
 " Open goto file
 nmap <C-t> :CtrlP<cr>
@@ -117,25 +115,7 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
   \ }
 
-func! MyPrtMappings()
-    let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<c-t>'],
-        \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-        \ }
-endfunc
 
-func! MyCtrlPTag()
-    let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-        \ 'AcceptSelection("t")': ['<c-t>'],
-        \ }
-    CtrlPBufTag
-endfunc
-
-let g:ctrlp_buffer_func = { 'exit': 'MyPrtMappings' }
-com! MyCtrlPTag call MyCtrlPTag()
-
-" TODO: add javascript and some other languages who doesn't have ctags support
 " coffee: https://gist.github.com/michaelglass/5210282
 " go: http://stackoverflow.com/a/8236826/462233 
 " objc:  http://www.gregsexton.org/2011/04/objective-c-exuberant-ctags-regex/
@@ -170,7 +150,7 @@ function! g:UltiSnips_Complete()
     if g:ulti_expand_res == 0
         if pumvisible()
             return "\<C-n>"
-        else
+          else
             call UltiSnips_JumpForwards()
             if g:ulti_jump_forwards_res == 0
                return "\<TAB>"
@@ -197,9 +177,8 @@ let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
 let NERDTreeKeepTreeInNewTab=1
-let NERDTreeMapOpenInTab='<ENTER>'
+" let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
-
 
 if exists('$TMUX')
   function! TmuxOrSplitSwitch(wincmd, tmuxdir)
