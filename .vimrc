@@ -15,7 +15,7 @@ set mousehide
 set modifiable
 
 set autoindent
-set clipboard=unnamedplus
+set clipboard=unnamed
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
 set history=1000
