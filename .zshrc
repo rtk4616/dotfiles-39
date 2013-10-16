@@ -27,6 +27,7 @@ alias -s html=$BROWSER
 if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
  alias vim='mvim -v';
+ export EDITOR=vim;
 fi
 
 
