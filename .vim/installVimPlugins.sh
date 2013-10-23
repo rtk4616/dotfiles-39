@@ -33,7 +33,7 @@ repos=(
   https://github.com/tpope/vim-markdown.git
   https://github.com/tpope/vim-pathogen.git
   https://github.com/tpope/vim-surround.git
-  https://github.com/mattn/zencoding-vim.git
+  https://github.com/mattn/emmet-vim
   https://github.com/jistr/vim-nerdtree-tabs.git
   https://github.com/jlangston/tomorrow-night-vim.git
   https://github.com/Lokaltog/powerline.git
