@@ -4,7 +4,7 @@ call pathogen#helptags()
 
 filetype plugin indent on
 
-colorscheme tomorrow-night-bright
+colorscheme Tomorrow-Night-Bright
 highlight LineNr ctermfg=darkgrey ctermbg=black
 syntax on
 set term=xterm-256color
