@@ -139,12 +139,14 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+"Vim MultiCursors
 let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_next_key = '<C-d>'
 let g:multi_cursor_prev_key = '<C-u>'
 let g:multi_cursor_skip_key = '<C-k>' "until we got multiple keys support
 let g:multi_cursor_quit_key = '<Esc>'
 
+"Utilisnips
 function! g:UltiSnips_Complete()
     call UltiSnips_ExpandSnippet()
     if g:ulti_expand_res == 0
@@ -226,3 +228,14 @@ endif
 
 "ECLIM OmniFunc
 let g:EclimCompletionMethod = 'omnifunc'
+
+"tagbar
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 's:selectors',
+        \ 'i:identities'
+    \ ]
+\ }
+
