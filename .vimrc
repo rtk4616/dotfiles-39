@@ -51,18 +51,18 @@ set smartcase                   " ... but not when search pattern contains upper
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
 if has("gui_macvim")
-  set transparency=20
-  set guifont=Droid\ Sans\ Mono\ for\ Powerline:h20
-  set vb t_vb=
-  set guioptions-=m  "no menu
-  set guioptions-=T  "no toolbar
-  set guioptions-=l
-  set guioptions-=L
-  set guioptions-=r  "no scrollbar
-  set guioptions-=R
-  " Select text whit shift
-  let macvim_hig_shift_movement = 1
-  " autocmd vimenter * NERDTree
+set transparency=20
+set guifont=Droid\ Sans\ Mono\ for\ Powerline:h20
+set vb t_vb=
+set guioptions-=m  "no menu
+set guioptions-=T  "no toolbar
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r  "no scrollbar
+set guioptions-=R
+" Select text whit shift
+let macvim_hig_shift_movement = 1
+" autocmd vimenter * NERDTree
 endif
 
 "jMKeys
@@ -110,10 +110,10 @@ let g:ctrlp_use_caching = 1       " enable caching
 let g:ctrlp_clear_cache_on_exit=0     " speed up by not removing clearing cache evertime
 let g:ctrlp_mruf_max = 250        " number of recently opened files
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|build)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-  \ }
+\ 'dir':  '\v[\/]\.(git|hg|svn|build)$',
+\ 'file': '\v\.(exe|so|dll)$',
+\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+\ }
 
 
 " coffee: https://gist.github.com/michaelglass/5210282
@@ -148,24 +148,30 @@ let g:multi_cursor_quit_key = '<Esc>'
 
 "Utilisnips
 function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-          else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
+call UltiSnips#ExpandSnippetOrJump()
+if g:ulti_expand_or_jump_res == 0
+  if pumvisible()
+    return "\<C-N>"
+  else
+    return "\<TAB>"
+  endif
+endif
+
+return ""
+endif
 endfunction
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsListSnippets="<c-e>"
-let g:UltiSnipsSnippetDirectories = ["UltiSnips", "ultisnips-snippets"]
+function! g:UltiSnips_Reverse()                                                                                               
+call UltiSnips#JumpBackwards()                                                                                              
+if g:ulti_jump_backwards_res == 0        
+  return "\<C-P>"                                                                                                           
+endif                                                                                                                       
+
+return ""                                                                                                                   
+endfunction
+
+au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "PowerLine
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
