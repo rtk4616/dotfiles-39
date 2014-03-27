@@ -76,8 +76,8 @@ nmap <C-k>o :TagbarToggle<CR>
 
 
 "Open goto symbol on current buffer
-nmap <CS-r> :MyCtrlPTag<cr>
-imap <CS-r> <esc>:MyCtrlPTag<cr>
+nmap <leader>r :CtrlPBufTag
+imap <leader> <esc>:CtrlPTag
 
 " Open goto symbol on all buffers
 nmap <CS-t> :CtrlPBufTagAll<cr>
