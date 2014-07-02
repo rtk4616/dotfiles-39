@@ -49,6 +49,7 @@ fi
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -58,6 +59,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export TERM=xterm-256color
+
+#Key Bindings
+bindkey -M viins 'jj' vi-cmd-mode;
+#bindkey -M viins \C-R history-incremental-search-backward
+#bindkey -M vicmd \C-R history-incremental-search-backward
+bindkey "^R" history-incremental-search-backward
 
 # if [ -f ~/.comp_zshrc ]; then
   source ~/.comp_zshrc 
