@@ -5,10 +5,11 @@ call pathogen#helptags()
 filetype plugin indent on
 
 colorscheme Tomorrow-Night-Bright
-highlight LineNr ctermfg=darkgrey ctermbg=black
+"highlight LineNr ctermfg=darkgrey ctermbg=black
+highlight LineNr ctermfg=darkgrey ctermbg=none
 syntax on
 set term=xterm-256color
-set background=dark
+"set background=dark
 set number
 set mouse=a
 set mousehide
@@ -110,7 +111,7 @@ let g:ctrlp_use_caching = 1       " enable caching
 let g:ctrlp_clear_cache_on_exit=0     " speed up by not removing clearing cache evertime
 let g:ctrlp_mruf_max = 250        " number of recently opened files
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn|build|deploy)$',
+\ 'dir':  '\v[\/]\.(git|hg|svn|build|deploy)',
 \ 'file': '\v\.(exe|so|dll)$',
 \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 \ }
