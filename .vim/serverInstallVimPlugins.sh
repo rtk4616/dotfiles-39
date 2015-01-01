@@ -40,6 +40,8 @@ repos=(
   https://github.com/tomtom/tcomment_vim.git
   https://github.com/jlangston/tomorrow-night-vim.git
   https://github.com/terryma/vim-multiple-cursors.git
+  https://github.com/tpope/vim-git
+  https://github.com/tpope/vim-fugitive
   )
 
 # Here's a list of everything else to download in the format
