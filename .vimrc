@@ -175,8 +175,21 @@ au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "PowerLine
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-let g:Powerline_symbols = 'fancy'
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"let g:Powerline_symbols = 'fancy'
+
+" AirLine     
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+
+" Tmuxline config
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'y'    : ['%R', '%a', '%Y'],
+      \'z'    : '#H'}
+
 
 " Nerdtree
 let NERDTreeShowBookmarks=1

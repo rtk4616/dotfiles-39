@@ -36,7 +36,8 @@ repos=(
   https://github.com/mattn/emmet-vim
   https://github.com/jistr/vim-nerdtree-tabs.git
   https://github.com/jlangston/tomorrow-night-vim.git
-  https://github.com/Lokaltog/powerline.git
+  https://github.com/edkolev/tmuxline.vim.git
+  https://github.com/bling/vim-airline.git
   https://github.com/Valloric/YouCompleteMe.git
   https://github.com/terryma/vim-multiple-cursors.git
   https://github.com/tomtom/tcomment_vim.git
