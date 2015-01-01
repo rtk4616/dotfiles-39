@@ -181,6 +181,9 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " AirLine     
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme             = 'powerlineish'
+let g:airline_enable_branch     = 1
+let g:airline_enable_syntastic  = 1
 
 " Tmuxline config
 let g:tmuxline_preset = {
