@@ -20,7 +20,6 @@ set clipboard=unnamed
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
 set history=1000
-set wildignore=*.swp,*.bak
 set ttyfast
 set undolevels=1000
 set wildmode=longest,list
@@ -115,6 +114,11 @@ let g:ctrlp_custom_ignore = {
 \ 'file': '\v\.(exe|so|dll)$',
 \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 \ }
+if exists("g:ctrl_user_command")
+  unlet g:ctrlp_user_command
+endif
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/deploy/*
+
 
 
 " coffee: https://gist.github.com/michaelglass/5210282
