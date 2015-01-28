@@ -30,7 +30,7 @@ alias get='git '
 if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
  # alias vim='mvim -v';
- alias vim='nvim -v';
+ alias vim='nvim';
  export EDITOR=vim;
 fi
 
@@ -57,7 +57,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git svn vi-mode tmux sublime node npm mvn z history)
+plugins=(git svn vi-mode tmux sublime node npm mvn z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -73,4 +73,23 @@ bindkey "^R" history-incremental-search-backward
 # if [ -f ~/.comp_zshrc ]; then
   source ~/.comp_zshrc 
 # fi
+
+# Show history
+fn_history() {
+  # Delete the history file if `-c` argument provided.
+  # This won't affect the `history` command output until the next login.
+  if [[ "${@[(i)-c]}" -le $# ]]; then
+    echo -n >| "$HISTFILE"
+  else
+    fc $@ -l 1
+  fi
+}
+
+# Timestamp format
+case $HIST_STAMPS in
+  "mm/dd/yyyy") alias history='fn_history -f' ;;
+  "dd.mm.yyyy") alias history='fn_history -E' ;;
+  "yyyy-mm-dd") alias history='fn_history -i' ;;
+  *) alias history='fn_history' ;;
+esac
 
