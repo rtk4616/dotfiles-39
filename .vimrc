@@ -50,21 +50,6 @@ set smartcase                   " ... but not when search pattern contains upper
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
-if has("gui_macvim")
-set transparency=20
-set guifont=Droid\ Sans\ Mono\ for\ Powerline:h20
-set vb t_vb=
-set guioptions-=m  "no menu
-set guioptions-=T  "no toolbar
-set guioptions-=l
-set guioptions-=L
-set guioptions-=r  "no scrollbar
-set guioptions-=R
-" Select text whit shift
-let macvim_hig_shift_movement = 1
-" autocmd vimenter * NERDTree
-endif
-
 "jMKeys
 imap jj <Esc>
 
