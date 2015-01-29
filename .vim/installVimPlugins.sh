@@ -46,6 +46,8 @@ repos=(
   https://github.com/Valloric/MatchTagAlways.git
   https://github.com/Raimondi/delimitMate.git
   https://github.com/SirVer/ultisnips
+  https://github.com/tpope/vim-fugitive
+  https://github.com/airblade/vim-gitgutter
   )
 
 # Here's a list of everything else to download in the format
