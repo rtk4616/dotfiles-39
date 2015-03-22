@@ -51,7 +51,7 @@ set smartcase                   " ... but not when search pattern contains upper
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 
 "jMKeys
-imap jj <Esc>
+"imap jj <Esc>
 
 "NerdTree
 map <C-k>b :NERDTreeToggle<CR>

@@ -65,7 +65,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
 #Key Bindings
-bindkey -M viins 'jj' vi-cmd-mode;
+#bindkey -M viins 'jj' vi-cmd-mode;
 #bindkey -M viins \C-R history-incremental-search-backward
 #bindkey -M vicmd \C-R history-incremental-search-backward
 bindkey "^R" history-incremental-search-backward
