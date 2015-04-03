@@ -1,527 +1,236 @@
+
 <?xml version="1.0"?>
 <root>
-    <vkopenurldef>
-        <name>KeyCode::VK_OPEN_URL_APP_Sublime</name>
-        <url type="file">/Applications/Sublime Text.app</url>
-    </vkopenurldef>
-    <vkopenurldef>
-        <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
-        <url type="file">/Applications/Google Chrome.app</url>
-    </vkopenurldef>
-    <vkopenurldef>
-        <name>KeyCode::VK_OPEN_URL_APP_iTerm</name>
-        <url type="file">/Applications/iTerm.app</url>
-    </vkopenurldef>
-    <vkopenurldef>
-        <name>KeyCode::VK_OPEN_URL_APP_Eclipse</name>
-        <url type="file">/Applications/eclipse/eclipse.app</url>
-    </vkopenurldef>
-    <vkopenurldef>
-        <name>KeyCode::VK_OPEN_URL_APP_Adium</name>
-        <url type="file">/Applications/Adium.app</url>
-    </vkopenurldef>
-    <list>
-        <item>
-            <name>Space Cadet Mode</name>
-            <appendix>
-                This mode emulates a few of the features of the Space Cadet keyboard.
-            </appendix>
-            <appendix>It also adds a few other helpful mappings.</appendix>
-            <appendix>
-                It requires the Unicode Hex Input keyboard layout for the Greek and Math layers.
-            </appendix>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Sublime</name>
+    <url type="file">/Applications/Sublime Text.app</url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Chrome</name>
+    <url type="file">/Applications/Google Chrome.app</url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_iTerm</name>
+    <url type="file">/Applications/iTerm.app</url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Eclipse</name>
+    <url type="file">/Applications/eclipse/eclipse.app</url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Adium</name>
+    <url type="file">/Applications/Adium.app</url>
+  </vkopenurldef>
+  <vkopenurldef>
+    <name>KeyCode::VK_OPEN_URL_APP_Outlook</name>
+    <url type="file">/Applications/Microsoft Outlook.app</url>
+  </vkopenurldef>
+  <list>
+    <item>
+      <name>Space Cadet/Hyper Mode</name>
+      <appendix>
+        This mode emulates a few of the features of the Space Cadet keyboard.
+      </appendix>
+      <appendix>It also adds a few other helpful mappings.</appendix>
+      <item>
+        <name>Shifts to Parentheses</name>
+        <appendix>Shifts, when pressed alone, type parentheses.</appendix>
+        <appendix>When used with other keys they're normal shifts.</appendix>
 
-            <item>
-                <name>Shifts to Parentheses</name>
-                <appendix>Shifts, when pressed alone, type parentheses.</appendix>
-                <appendix>When used with other keys they're normal shifts.</appendix>
+        <identifier>space_cadet.shifts_to_parens</identifier>
 
-                <identifier>space_cadet.shifts_to_parens</identifier>
+        <!-- This is the basic mapping. -->
+        <autogen>
+          --KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L
+        </autogen>
+        <autogen>
+          --KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R
+        </autogen>
 
-                <!-- This is the basic mapping. -->
-                <autogen>
-                    --KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L
-                </autogen>
-                <autogen>
-                    --KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R
-                </autogen>
-
-                <!--
+        <!--
                     Remap the "rolls" of () and )( because it's too easy to hit one
                     before finishing the other, and there's no other reason to be
                     pressing both shift keys at once anyway
                 -->
-                <autogen>
-                    --KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L
-                </autogen>
-                <autogen>
-                    --KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L
-                </autogen>
+        <autogen>
+          --KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L
+        </autogen>
+        <autogen>
+          --KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L
+        </autogen>
 
-                <!--
+        <!--
                     Remap Rshift+Space to ') ', because when typing an end paren and
                     then a space I tend to hit space before I let go of rshift.
                 -->
-                <autogen>
-                    --KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::SPACE
-                </autogen>
-            </item>
-            <item>
-                <name>Remap Held Tab to Hyper</name>
-                <appendix>
-                    OS X doesn't have a Hyper. This maps Held Tab to Control + Shift + Option + Command.
-                </appendix>
-                <appendix>
-                    You can use this key in your own custom keyboard shortcuts you create in apps.
-                </appendix>
+        <autogen>
+          --KeyToKey-- KeyCode::SPACE, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::SPACE
+        </autogen>
+      </item>
+      <item>
+        <name>Remap Left Control to Hyper (F19)</name>
+        <appendix>
+          OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.
+        </appendix>
+        <appendix>
+          You can use this key in your own custom keyboard shortcuts you create in apps.
+        </appendix>
 
-                <identifier>space_cadet.held_tab_to_hyper</identifier>
+        <identifier>space_cadet.left_control_to_hyper</identifier>
 
-                <autogen>
-                    --KeyOverlaidModifier--
-                    KeyCode::TAB,
-                    ModifierFlag::NONE,
-
-                    KeyCode::COMMAND_L,
-                    ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-
-                    KeyCode::TAB
-                </autogen>
-            </item>
-            <item>
-                <name>Remap Left Control to Hyper</name>
-                <appendix>
-                    OS X doesn't have a Hyper. This maps Left Control to Control + Shift + Option + Command.
-                </appendix>
-                <appendix>
-                    You can use this key in your own custom keyboard shortcuts you create in apps.
-                </appendix>
-
-                <identifier>space_cadet.left_control_to_hyper</identifier>
-
-                <autogen>
-                    --KeyToKey--
+        <autogen>
+          --KeyToKey--
                     KeyCode::F19,
 
                     KeyCode::COMMAND_L,
-                    ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
-                </autogen>
-            </item>
-            <item>
-                <name>Remap FN to Hyper</name>
-                <appendix>
-                    OS X doesn't have a Hyper. This maps FN to Control + Shift + Option + Command.
-                </appendix>
-                <appendix>
-                    You can use this key in your own custom keyboard shortcuts you create in apps.
-                </appendix>
+                    | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+                    <!-- ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L -->
+        </autogen>
+      </item>
+      <item>
+        <name>Remap FN to Hyper</name>
+        <appendix>
+          OS X doesn't have a Hyper. This maps FN to Control + Shift + Option + Command.
+        </appendix>
+        <appendix>
+          You can use this key in your own custom keyboard shortcuts you create in apps.
+        </appendix>
 
-                <identifier>space_cadet.fn_to_hyper</identifier>
+        <identifier>space_cadet.fn_to_hyper</identifier>
 
-                <autogen>
-                    --KeyToKey--
+        <autogen>
+          --KeyToKey--
                     KeyCode::FN,
 
                     KeyCode::COMMAND_L,
-                    ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
-                </autogen>
-            </item>
-            <item>
-                <name>Restore [Shift-]Opt-(Left/Right)</name>
-                <appendix>
-                    The Unicode Hex Input keyboard layout disables these keys for some reason.
-                </appendix>
-
-                <identifier>space_cadet.fix_opt_arrows</identifier>
-
-                <autogen>
-                    --KeyToKey--
-                    KeyCode::CURSOR_LEFT, VK_OPTION | VK_SHIFT,
-
-                    KeyCode::B,
-                    ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
-                </autogen>
-                <autogen>
-                    --KeyToKey--
-                    KeyCode::CURSOR_LEFT, VK_OPTION,
-
-                    KeyCode::B,
-                    ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L
-                </autogen>
-                <autogen>
-                    --KeyToKey--
-                    KeyCode::CURSOR_RIGHT, VK_OPTION | VK_SHIFT,
-
-                    KeyCode::F,
-                    ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
-                </autogen>
-                <autogen>
-                    --KeyToKey--
-                    KeyCode::CURSOR_RIGHT, VK_OPTION,
-
-                    KeyCode::F,
-                    ModifierFlag::OPTION_L | ModifierFlag::CONTROL_L
-                </autogen>
-            </item>
-        </item>
-
-        <item>
-            <!--
-      Inspired by and adapted from Steve Losh's "Modern Space Cadet" post:
-      http://stevelosh.com/blog/2012/10/a-modern-space-cadet/#hyper
-    -->
-            <name>Hyper Mode</name>
-            <item>
-                <appendix>
-                    OS X doesn't have a native Hyper key. Let's define Hyper as Control+Shift+Option+Command.
-                </appendix>
-                <appendix>
-                    With a new modifier key defined, we open a whole world of possibilities.
-                </appendix>
-            </item>
-
-            <!--
-      "ModifierFlag::OPTION_R | ModifierFlag::NONE" causes this remapping to
-      fire *only* when the the right option key is used *without* any other
-                __KeyToKey__
-        KeyCode::OPTION_R, ModifierFlag::OPTION_R | ModifierFlag::NONE,
-        KeyCode::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
-            </autogen>
-        </item>
-        -->
-        <item>
-            <name>Hyper+C to open Chrome</name>
-            <identifier>com.jlangston.hyper_b</identifier>
-            <autogen>
-                __KeyToKey__
-        KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_Chrome,
-            </autogen>
-        </item>    
-
-        <item>
-            <name>Hyper+E to open Eclipse</name>
-            <identifier>com.jlangston.hyper_e</identifier>
-            <autogen>
-                __KeyToKey__
-        KeyCode::E, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_Eclipse,
-            </autogen>
-        </item>
-
-        <item>
-            <name>Hyper+A to open Adium</name>
-            <identifier>com.jlangston.hyper_c</identifier>
-            <autogen>
-                __KeyToKey__
-        KeyCode::A, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_ADIUM,
-            </autogen>
-        </item>
-
-        <item>
-            <name>Hyper+S to open Sublime</name>
-            <identifier>com.jlangston.hyper_e</identifier>
-            <autogen>
-                __KeyToKey__
-        KeyCode::S, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_Sublime,
-            </autogen>
-        </item>
-
-        <item>
-            <name>Hyper+F to open Finder ("F" for "Finder")</name>
-            <identifier>com.jlangston.hyper_f</identifier>
-            <autogen>
-                __KeyToKey__
-        KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_Finder,
-            </autogen>
-        </item>
-
-        <!--     <item>
-        <name>Hyper+G to open Mailplane ("G" for "Gmail")</name>
-        <identifier>com.jlangston.hyper_g</identifier>
-        <autogen>
-            __KeyToKey__
-        KeyCode::G, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-        KeyCode::VK_OPEN_URL_APP_Mailplane,
+                    | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L
+                    <!-- ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L -->
         </autogen>
-    </item>
-    -->
-    <item>
-        <name>Hyper+T to open iTerm ("T" for "Terminal")</name>
-        <identifier>com.jlangston.hyper_t</identifier>
+      </item>
+      <item>
+        <name>Hyper+C to open Chrome</name>
+        <identifier>com.jlangston.hyper_b</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
         <autogen>
-            __KeyToKey__
-        KeyCode::T, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+          __KeyToKey__
+        <!-- KeyCode::C, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::C, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Chrome,
+        </autogen>
+      </item>
+
+      <item>
+        <name>Hyper+E to open Eclipse</name>
+        <identifier>com.jlangston.hyper_e</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::E, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::E, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Eclipse,
+        </autogen>
+      </item>
+
+      <item>
+        <name>Hyper+S to open Sublime</name>
+        <identifier>com.jlangston.hyper_s</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::S, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::S, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Sublime,
+        </autogen>
+      </item>
+
+      <item>
+        <name>Hyper+F to open Finder</name>
+        <identifier>com.jlangston.hyper_f</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::F, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::F, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Finder,
+        </autogen>
+      </item>
+
+      <item>
+        <name>Hyper+T to open iTerm</name>
+        <identifier>com.jlangston.hyper_t</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::T, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::T, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
         KeyCode::VK_OPEN_URL_APP_iTerm,
         </autogen>
+      </item>
+
+      <item>
+        <name>Hyper+A to open Adium</name>
+        <identifier>com.jlangston.hyper_a</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::A, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::A, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Adium,
+        </autogen>
+      </item>
+      <item>
+        <name>Hyper+O to open Outlook</name>
+        <identifier>com.jlangston.hyper_o</identifier>
+        <not>
+          VIRTUALMACHINE,
+          REMOTEDESKTOPCONNECTION,
+          VNC,
+          SCREEN_SHARING,
+          NoMachine
+        </not>
+        <autogen>
+          __KeyToKey__
+        <!-- KeyCode::O, ModifierFlag::COMMAND_L, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L, -->
+        KeyCode::O, ModifierFlag::COMMAND_L, | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+        KeyCode::VK_OPEN_URL_APP_Outlook,
+        </autogen>
+      </item>
     </item>
-</item>
-
-<item>
-    <!--
-      I prefer to use Control+H/J/K/L to move left/up/down/right by one pane in
-      all multi-pane apps (e.g., iTerm, various editors). That's convenient and
-      consistent, but it conflicts with the default binding for deleting to the
-      end of the line (i.e., Control+K). To maintain that very useful
-      functionality, and to keep it on the home row, this item binds Control+;
-      to delete to the end of the line.
-    -->
-    <name>Control+; to delete to end of line</name>
-    <identifier>
-        com.jlangston.control_with_semicolon_to_delete_to_end_of_line
-    </identifier>
-    <block>
-        <not>TERMINAL</not>
-        <autogen>
-            __KeyToKey__
-        KeyCode::SEMICOLON, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE,
-        KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L, KeyCode::FORWARD_DELETE
-        </autogen>
-    </block>
-    <block>
-        <only>TERMINAL</only>
-        <autogen>
-            __KeyToKey__
-        KeyCode::SEMICOLON, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL | ModifierFlag::NONE,
-        KeyCode::K, ModifierFlag::CONTROL_L,
-        Option::NOREPEAT
-        </autogen>
-    </block>
-</item>
-
-<item>
-    <name>
-        Option+H/L to delete previous/next word in iTerm 2 (and Terminal)
-    </name>
-    <identifier>
-        com.jlangston.terminal.option_with_h_or_l_to_delete_previous_word_or_next_word
-    </identifier>
-    <only>TERMINAL</only>
-
-    <!--
-      "ModifierFlag::OPTION_L | ModifierFlag::NONE" causes this remapping to
-      fire *only* when the the left option key is used *without* any other
-      modifiers.
-      See http://pqrs.org/macosx/keyremap4macbook/xml-basic.html.en#modifierflag-none
-    -->
-    <autogen>
-        __KeyToKey__
-      KeyCode::H, ModifierFlag::OPTION_L | ModifierFlag::NONE,
-      KeyCode::W, ModifierFlag::CONTROL_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::L, ModifierFlag::OPTION_L | ModifierFlag::NONE,
-      KeyCode::ESCAPE,
-      KeyCode::D
-    </autogen>
-</item>
-
-<item>
-    <name>Option+H/L to delete previous/next word</name>
-    <identifier>
-        com.jlangston.option_with_h_or_l_to_delete_previous_word_or_next_word
-    </identifier>
-
-    <!--
-      "ModifierFlag::OPTION_L | ModifierFlag::NONE" causes this remapping to
-      fire *only* when the the left option key is used *without* any other
-      modifiers.
-      See http://pqrs.org/macosx/keyremap4macbook/xml-basic.html.en#modifierflag-none
-    -->
-    <autogen>
-        __KeyToKey__
-      KeyCode::H, ModifierFlag::OPTION_L | ModifierFlag::NONE,
-      KeyCode::DELETE, ModifierFlag::OPTION_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::L, ModifierFlag::OPTION_L | ModifierFlag::NONE,
-      KeyCode::FORWARD_DELETE, ModifierFlag::OPTION_L
-    </autogen>
-</item>
-
-<item>
-    <name>
-        Control+dash/pipe to split iTerm2 panes horizontally/vertically
-    </name>
-    <identifier>com.jlangston.iterm.control_with_dash_or_pipe_to_split_pane</identifier>
-    <only>TERMINAL</only>
-    <autogen>
-        __KeyToKey__
-      KeyCode::MINUS, ModifierFlag::CONTROL_L,
-      KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::BACKSLASH, ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
-      KeyCode::D, ModifierFlag::COMMAND_L | ModifierFlag::NONE
-    </autogen>
-</item>
-
-<item>
-    <name>
-        Control+H/J/K/L to move left/up/down/right by one pane in iTerm 2
-    </name>
-    <identifier>
-        com.jlangston.iterm.control_with_h_or_j_or_k_or_l_to_move_between_panes
-    </identifier>
-    <only>TERMINAL</only>
-    <autogen>
-        __KeyToKey__
-      KeyCode::H, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::J, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_DOWN, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::K, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
-    </autogen>
-    <autogen>
-        __KeyToKey__
-      KeyCode::L, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
-    </autogen>
-</item>
-
-<!--
-    Adapted from the built-in "Simultaneous Vi Mode" option:
-    https://github.com/tekezo/KeyRemap4MacBook/blob/6aa99ba/src/core/server/Resources/include/checkbox/simultaneouskeypresses_vi_mode.xml#L4
-  -->
-<item>
-    <name>(S)uper (D)uper Mode</name>
-    <item>
-        <name>What's (S)uper (D)uper Mode?</name>
-        <identifier vk_config="true">notsave.com.jlangston.simultaneouskeypresses_vimode</identifier>
-        <autogen>__ShowStatusMessage__ (S)uper (D)uper Mode</autogen>
-
-        <appendix>
-            To activate, push S and D keys simultaneously and hold them down.
-        </appendix>
-        <appendix>
-            Now you're in (S)uper (D)uper mode. It's like a secret keyboard _inside_ your keyboard. (Whoa.)
-        </appendix>
-        <appendix>
-            It's optimized for keeping you on the home row, or very close to it.
-        </appendix>
-        <appendix>---</appendix>
-        <appendix>Now you can:</appendix>
-        <appendix>- Use H/J/K/L for Left/Down/Up/Right</appendix>
-        <appendix>- Use F for Command</appendix>
-        <appendix>- Use A for Option (AKA Alt)</appendix>
-        <appendix>- Use Space for Shift</appendix>
-        <appendix>- Use M to copy</appendix>
-        <appendix>- Use , to paste</appendix>
-        <appendix>- Use MM to copy current line</appendix>
-        <appendix>- Use A+J/K for Page Down/Up</appendix>
-        <appendix>- Use I/O to move left/right between tabs</appendix>
-        <appendix>- Use U/P to go to the first/last tab (in most apps)</appendix>
-        <appendix>
-            - Use A+H/L to move to previous/next word in all apps (including iTerm 2)
-        </appendix>
-
-        <autogen>__KeyToKey__ KeyCode::A, KeyCode::OPTION_L</autogen>
-
-        <block>
-            <only>TERMINAL</only>
-            <autogen>
-                --KeyToKey--
-          {{VI_H}}, VK_OPTION | ModifierFlag::NONE,
-          KeyCode::ESCAPE,
-          KeyCode::B
-            </autogen>
-            <autogen>
-                --KeyToKey--
-          {{VI_L}}, VK_OPTION | ModifierFlag::NONE,
-          KeyCode::ESCAPE,
-          KeyCode::F
-            </autogen>
-        </block>
-
-        <autogen>
-            __KeyToKey__
-        {{VI_J}}, VK_OPTION | ModifierFlag::NONE,
-        KeyCode::PAGEDOWN
-        </autogen>
-        <autogen>
-            __KeyToKey__
-        {{VI_K}}, VK_OPTION | ModifierFlag::NONE,
-        KeyCode::PAGEUP
-        </autogen>
-
-        <autogen>__KeyToKey__ {{VI_H}}, KeyCode::CURSOR_LEFT</autogen>
-        <autogen>__KeyToKey__ {{VI_J}}, KeyCode::CURSOR_DOWN</autogen>
-        <autogen>__KeyToKey__ {{VI_K}}, KeyCode::CURSOR_UP</autogen>
-        <autogen>__KeyToKey__ {{VI_L}}, KeyCode::CURSOR_RIGHT</autogen>
-
-        <autogen>__KeyToKey__ KeyCode::F, KeyCode::COMMAND_L</autogen>
-
-        <autogen>__KeyToKey__ KeyCode::SPACE, KeyCode::SHIFT_L</autogen>
-
-        <block>
-            <lastpressedphysicalkey_only>KeyCode::M</lastpressedphysicalkey_only>
-            <elapsedtimesincelastpressed_lessthan>Millisecond::RawValue::200</elapsedtimesincelastpressed_lessthan>
-            <autogen>
-                __KeyToKey__
-          KeyCode::M,
-          KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L,
-          KeyCode::CURSOR_DOWN, ModifierFlag::SHIFT_L,
-          KeyCode::C, ModifierFlag::COMMAND_L
-            </autogen>
-        </block>
-        <autogen>
-            __KeyToKey__
-        KeyCode::M,
-        KeyCode::C, ModifierFlag::COMMAND_L
-        </autogen>
-
-        <autogen>
-            __KeyToKey__
-        KeyCode::COMMA,
-        KeyCode::V, ModifierFlag::COMMAND_L
-        </autogen>
-
-        <autogen>
-            __KeyToKey__
-        KeyCode::I,
-        KeyCode::BRACKET_LEFT,  ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
-        </autogen>
-        <autogen>
-            __KeyToKey__
-        KeyCode::O,
-        KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
-        </autogen>
-
-        <autogen>
-            __KeyToKey__
-        KeyCode::U,
-        KeyCode::KEY_1, ModifierFlag::COMMAND_L
-        </autogen>
-        <autogen>
-            __KeyToKey__
-        KeyCode::P,
-        KeyCode::KEY_9, ModifierFlag::COMMAND_L
-        </autogen>
-    </item>
-    <item>
-        <name>
-            Simultaneous Key Presses [S+D] turns on "(S)uper (D)uper mode"
-        </name>
-        <identifier>remap.com__simultaneouskeypresses_vimode_sd</identifier>
-        <autogen>
-            __SimultaneousKeyPresses__
-        KeyCode::D, KeyCode::S,
-        KeyCode::VK_CONFIG_SYNC_KEYDOWNUP_notsave_com__simultaneouskeypresses_vimode
-        </autogen>
-    </item>
-</item>
 </list>
 </root>
