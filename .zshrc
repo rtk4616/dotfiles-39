@@ -31,7 +31,8 @@ if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
  # alias vim='mvim -v';
  alias vim='nvim';
- export EDITOR=vim;
+ # export EDITOR=vim;
+ export EDITOR=subl -w;
 fi
 
 
@@ -93,3 +94,5 @@ case $HIST_STAMPS in
   *) alias history='fn_history' ;;
 esac
 
+
+source ~/.iterm2_shell_integration.zsh
