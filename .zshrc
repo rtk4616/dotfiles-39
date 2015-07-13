@@ -32,7 +32,7 @@ if  [[ $('uname') == 'Darwin' ]]; then
  # alias vim='mvim -v';
  alias vim='nvim';
  # export EDITOR=vim;
- export EDITOR=subl -w;
+ export EDITOR="subl -w";
 fi
 
 
