@@ -1,7 +1,3 @@
-
-call pathogen#infect()
-call pathogen#helptags()
-
 filetype plugin indent on
 
 colorscheme Tomorrow-Night-Bright
@@ -83,8 +79,34 @@ vmap <C-[> <gv
 vmap <C-]> >gv
 
 " ----------------------------------------- "
-" Plugin configs                "
+" Plugin configs                            "
 " ----------------------------------------- "
+
+call plug#begin('~/.vim/plugged')
+  Plug  'https://github.com/ap/vim-css-color.git'
+  Plug  'https://github.com/kien/ctrlp.vim.git'
+  Plug  'https://github.com/pangloss/vim-javascript.git'
+  Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
+  Plug  'https://github.com/scrooloose/syntastic.git'
+  Plug  'https://github.com/tpope/vim-markdown.git'
+  Plug  'https://github.com/tpope/vim-surround.git'
+  Plug  'https://github.com/mattn/emmet-vim'
+  Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
+  Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
+  Plug  'https://github.com/edkolev/tmuxline.vim.git'
+  Plug  'https://github.com/bling/vim-airline.git'
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py', 'for': 'cpp' }
+  autocmd! User YouCompleteMe call youcompleteme#Enable()
+  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+  Plug  'https://github.com/tomtom/tcomment_vim.git'
+  Plug  'https://github.com/majutsushi/tagbar.git'
+  Plug  'https://github.com/groenewege/vim-less.git'
+  Plug  'https://github.com/Valloric/MatchTagAlways.git'
+  Plug  'https://github.com/Raimondi/delimitMate.git'
+  Plug  'https://github.com/SirVer/ultisnips'
+  Plug  'https://github.com/tpope/vim-fugitive'
+  Plug  'https://github.com/airblade/vim-gitgutter'
+call plug#end()
 
 let g:ctrlp_cmd = 'CtrlPMixed'      " search anything (in files, buffers and MRU files at the same time.)
 let g:ctrlp_working_path_mode = 'ra'  " search for nearest ancestor like .git, .hg, and the directory of the current file
