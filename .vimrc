@@ -95,7 +95,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
   Plug  'https://github.com/edkolev/tmuxline.vim.git'
   Plug  'https://github.com/bling/vim-airline.git'
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py', 'for': 'cpp' }
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'
