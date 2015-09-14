@@ -57,16 +57,15 @@ nmap <C-k>o :TagbarToggle<CR>
 
 
 "Open goto symbol on current buffer
-nmap <leader>r :CtrlPBufTag
-imap <leader> <esc>:CtrlPTag
+"nmap <leader>r :CtrlPBufTag
+"imap <leader> <esc>:CtrlPTag
 
 " Open goto symbol on all buffers
-nmap <CS-t> :CtrlPBufTagAll<cr>
-imap <CS-t> <esc>:CtrlPBufTagAll<cr>
+"nmap <CS-t> :CtrlPBufTagAll<cr>
+"imap <CS-t> <esc>:CtrlPBufTagAll<cr>
 
 " Open goto file
-nmap <C-t> :CtrlP<cr>
-imap <C-t> <esc>:CtrlP<cr>
+nmap <C-p> :FZF<cr>
 
 " Comment lines with cmd+/
 map <C-/> :TComment<cr>
@@ -84,7 +83,8 @@ vmap <C-]> >gv
 
 call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/ap/vim-css-color.git'
-  Plug  'https://github.com/kien/ctrlp.vim.git'
+  Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/pangloss/vim-javascript.git'
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/scrooloose/syntastic.git'
@@ -108,37 +108,12 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/airblade/vim-gitgutter'
 call plug#end()
 
-let g:ctrlp_cmd = 'CtrlPMixed'      " search anything (in files, buffers and MRU files at the same time.)
-let g:ctrlp_working_path_mode = 'ra'  " search for nearest ancestor like .git, .hg, and the directory of the current file
-"let g:ctrlp_match_window_bottom = 0   " show the match window at the top of the screen
-let g:ctrlp_max_height = 10       " maxiumum height of match window
-let g:ctrlp_switch_buffer = 'et'    " jump to a file if it's open already
-let g:ctrlp_use_caching = 1       " enable caching
-let g:ctrlp_clear_cache_on_exit=0     " speed up by not removing clearing cache evertime
-let g:ctrlp_mruf_max = 250        " number of recently opened files
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn|build|deploy)',
-\ 'file': '\v\.(exe|so|dll)$',
-\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-\ }
-if exists("g:ctrl_user_command")
-  unlet g:ctrlp_user_command
-endif
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/deploy/*
 
+" Default fzf layout
+let g:fzf_layout = { 'down': '40%' }
 
-
-" coffee: https://gist.github.com/michaelglass/5210282
-" go: http://stackoverflow.com/a/8236826/462233 
-" objc:  http://www.gregsexton.org/2011/04/objective-c-exuberant-ctags-regex/
-" rust: https://github.com/mozilla/rust/blob/master/src/etc/ctags.rust
-let g:ctrlp_buftag_types = {
-\ 'go'         : '--language-force=go --golang-types=ftv',
-\ 'coffee'     : '--language-force=coffee --coffee-types=cmfvf',
-\ 'markdown'   : '--language-force=markdown --markdown-types=hik',
-\ 'objc'       : '--language-force=objc --objc-types=mpci',
-\ 'rc'         : '--language-force=rust --rust-types=fTm'
-\ }
+" Advanced customization using autoload functions
+autocmd VimEnter * command! Colors call fzf#vim#colors({'left': '15%'})
 
 
 let g:ycm_autoclose_preview_window_after_completion = 1
