@@ -88,6 +88,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/pangloss/vim-javascript.git'
+  Plug  'https://github.com/jelera/vim-javascript-syntax'
   Plug  'https://github.com/mxw/vim-jsx'
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
