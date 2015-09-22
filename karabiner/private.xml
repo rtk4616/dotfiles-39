@@ -114,7 +114,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -131,7 +132,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -148,7 +150,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -165,7 +168,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -182,7 +186,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -199,7 +204,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
@@ -215,7 +221,8 @@
           VIRTUALMACHINE,
           REMOTEDESKTOPCONNECTION,
           VNC,
-          SCREEN_SHARING
+          SCREEN_SHARING,
+          NoMachine
         </not>
         <autogen>
           __KeyToKey__
