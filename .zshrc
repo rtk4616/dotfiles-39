@@ -172,3 +172,5 @@ fstash() {
 }
 
 source ~/.iterm2_shell_integration.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

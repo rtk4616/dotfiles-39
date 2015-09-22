@@ -4,7 +4,9 @@ colorscheme Tomorrow-Night-Bright
 "highlight LineNr ctermfg=darkgrey ctermbg=black
 highlight LineNr ctermfg=darkgrey ctermbg=none
 syntax on
-set term=xterm-256color
+if &term == "xterm"
+    set term=xterm-256color
+endif
 "set background=dark
 set number
 set mouse=a
@@ -86,6 +88,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/pangloss/vim-javascript.git'
+  Plug  'https://github.com/mxw/vim-jsx'
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/scrooloose/syntastic.git'
   Plug  'https://github.com/tpope/vim-markdown.git'
@@ -104,8 +108,10 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/Valloric/MatchTagAlways.git'
   Plug  'https://github.com/Raimondi/delimitMate.git'
   Plug  'https://github.com/SirVer/ultisnips'
+  Plug  'https://github.com/honza/vim-snippets'
   Plug  'https://github.com/tpope/vim-fugitive'
   Plug  'https://github.com/airblade/vim-gitgutter'
+  Plug  'https://github.com/easymotion/vim-easymotion'
 call plug#end()
 
 
@@ -160,10 +166,6 @@ endfunction
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-"PowerLine
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-"let g:Powerline_symbols = 'fancy'
-
 " AirLine     
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -171,6 +173,10 @@ let g:airline_theme             = 'powerlineish'
 let g:airline#extensions#branch#enabled     = 1
 let g:airline#extensions#syntastic#enabled  = 1
 let g:airline#extensions#tmuxline#enabled  = 1
+
+"Syntastic
+let g:syntastic_javascript_checkers = ['eslint']
+let g:jsx_ext_required = 0
 
 " Tmuxline config
 let g:tmuxline_preset = {
