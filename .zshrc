@@ -72,7 +72,7 @@ export TERM=xterm-256color
 bindkey "^R" history-incremental-search-backward
 
 # if [ -f ~/.comp_zshrc ]; then
-  source ~/.comp_zshrc 
+  source ~/.comp_zshrc
 # fi
 
 # Show history
@@ -122,7 +122,7 @@ fd() {
   dir=$(find ${1:-*} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
-}  
+}
 
 # cdf - cd into the directory of the selected file
 cdf() {
