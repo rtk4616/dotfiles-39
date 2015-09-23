@@ -47,7 +47,7 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
-
+nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 "jMKeys
 "imap jj <Esc>
 
@@ -113,6 +113,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-fugitive'
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/easymotion/vim-easymotion'
+  Plug  'https://github.com/rizzatti/dash.vim'
 call plug#end()
 
 
@@ -144,21 +145,21 @@ let g:multi_cursor_quit_key = '<Esc>'
 function! g:UltiSnips_Complete()
 call UltiSnips#ExpandSnippetOrJump()
 if g:ulti_expand_or_jump_res == 0
-  if pumvisible()
-    return "\<C-N>"
-  else
-    return "\<TAB>"
-  endif
+if pumvisible()
+  return "\<C-N>"
+else
+  return "\<TAB>"
+endif
 endif
 
 return ""
 endif
 endfunction
 
-function! g:UltiSnips_Reverse()                                                                                               
-call UltiSnips#JumpBackwards()                                                                                              
-if g:ulti_jump_backwards_res == 0        
-  return "\<C-P>"                                                                                                           
+function! g:UltiSnips_Reverse()
+call UltiSnips#JumpBackwards()
+if g:ulti_jump_backwards_res == 0
+return "\<C-P>"                                                                                                           
 endif                                                                                                                       
 
 return ""                                                                                                                   
