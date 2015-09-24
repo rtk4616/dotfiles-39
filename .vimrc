@@ -1,3 +1,41 @@
+" ----------------------------------------- "
+" Plugin configs                            "
+" ----------------------------------------- "
+call plug#begin('~/.vim/plugged')
+  Plug  'https://github.com/ap/vim-css-color.git'
+  Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug  'https://github.com/junegunn/fzf.vim'
+  Plug  'https://github.com/pangloss/vim-javascript.git'
+  Plug  'https://github.com/othree/yajs.vim'
+  Plug  'https://github.com/othree/javascript-libraries-syntax.vim'
+  Plug  'https://github.com/jlangston/vim-jsfmt', {'do': 'npm install'}
+  Plug  'https://github.com/mxw/vim-jsx'
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
+  Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
+  Plug  'https://github.com/scrooloose/syntastic.git'
+  Plug  'https://github.com/tpope/vim-markdown.git'
+  Plug  'https://github.com/tpope/vim-surround.git'
+  Plug  'https://github.com/mattn/emmet-vim'
+  Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
+  Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
+  Plug  'https://github.com/edkolev/tmuxline.vim.git'
+  Plug  'https://github.com/bling/vim-airline.git'
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
+  autocmd! User YouCompleteMe call youcompleteme#Enable()
+  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+  Plug  'https://github.com/tomtom/tcomment_vim.git'
+  Plug  'https://github.com/majutsushi/tagbar.git'
+  Plug  'https://github.com/groenewege/vim-less.git'
+  Plug  'https://github.com/Valloric/MatchTagAlways.git'
+  Plug  'https://github.com/Raimondi/delimitMate.git'
+  Plug  'https://github.com/SirVer/ultisnips'
+  Plug  'https://github.com/honza/vim-snippets'
+  Plug  'https://github.com/tpope/vim-fugitive'
+  Plug  'https://github.com/airblade/vim-gitgutter'
+  Plug  'https://github.com/easymotion/vim-easymotion'
+  Plug  'https://github.com/rizzatti/dash.vim'
+call plug#end()
+
 filetype plugin indent on
 
 colorscheme Tomorrow-Night-Bright
@@ -48,6 +86,9 @@ set smartcase                   " ... but not when search pattern contains upper
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
+" Quickly open/reload vim
+nnoremap <leader>ev :split $MYVIMRC<CR>  
+nnoremap <leader>sv :source $MYVIMRC<CR>     
 "jMKeys
 "imap jj <Esc>
 
@@ -79,44 +120,6 @@ nmap <C-[> <<
 vmap <C-[> <gv
 vmap <C-]> >gv
 
-" ----------------------------------------- "
-" Plugin configs                            "
-" ----------------------------------------- "
-
-call plug#begin('~/.vim/plugged')
-  Plug  'https://github.com/ap/vim-css-color.git'
-  Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug  'https://github.com/junegunn/fzf.vim'
-  Plug  'https://github.com/pangloss/vim-javascript.git'
-  Plug  'https://github.com/jelera/vim-javascript-syntax'
-  Plug  'https://github.com/mxw/vim-jsx'
-  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
-  Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
-  Plug  'https://github.com/scrooloose/syntastic.git'
-  Plug  'https://github.com/tpope/vim-markdown.git'
-  Plug  'https://github.com/tpope/vim-surround.git'
-  Plug  'https://github.com/mattn/emmet-vim'
-  Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
-  Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
-  Plug  'https://github.com/edkolev/tmuxline.vim.git'
-  Plug  'https://github.com/bling/vim-airline.git'
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
-  autocmd! User YouCompleteMe call youcompleteme#Enable()
-  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
-  Plug  'https://github.com/tomtom/tcomment_vim.git'
-  Plug  'https://github.com/majutsushi/tagbar.git'
-  Plug  'https://github.com/groenewege/vim-less.git'
-  Plug  'https://github.com/Valloric/MatchTagAlways.git'
-  Plug  'https://github.com/Raimondi/delimitMate.git'
-  Plug  'https://github.com/SirVer/ultisnips'
-  Plug  'https://github.com/honza/vim-snippets'
-  Plug  'https://github.com/tpope/vim-fugitive'
-  Plug  'https://github.com/airblade/vim-gitgutter'
-  Plug  'https://github.com/easymotion/vim-easymotion'
-  Plug  'https://github.com/rizzatti/dash.vim'
-call plug#end()
-
-
 " Default fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
@@ -141,6 +144,10 @@ let g:multi_cursor_prev_key = '<C-u>'
 let g:multi_cursor_skip_key = '<C-k>' "until we got multiple keys support
 let g:multi_cursor_quit_key = '<Esc>'
 
+"JsFmt
+let g:js_fmt_command = "jsfmt"
+let g:used_javascript_libs = 'jquery,angularjs,angularui,react,underscore'
+
 "Utilisnips
 function! g:UltiSnips_Complete()
 call UltiSnips#ExpandSnippetOrJump()
@@ -159,16 +166,16 @@ endfunction
 function! g:UltiSnips_Reverse()
 call UltiSnips#JumpBackwards()
 if g:ulti_jump_backwards_res == 0
-return "\<C-P>"                                                                                                           
-endif                                                                                                                       
+return "\<C-P>"
+endif
 
-return ""                                                                                                                   
+return ""
 endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" AirLine     
+" AirLine
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme             = 'powerlineish'
@@ -236,7 +243,7 @@ if &term =~ '^screen'
   " Page keys http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
  execute "set t_kP=\e[5;*~"
  execute "set t_kN=\e[6;*~"
- 
+
 " Arrow keys http://unix.stackexchange.com/a/34723
  execute "set <xUp>=\e[1;*A"
  execute "set <xDown>=\e[1;*B"
