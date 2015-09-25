@@ -1,0 +1,91 @@
+"*":
+  "release-notes":
+    viewedVersion: "0.94.0"
+  welcome:
+    showOnStartup: false
+  core:
+    ignoredNames: [
+      "*.all-wcprops"
+      "*.args"
+      "*.bat"
+      "*.class"
+      "*.conf"
+      "*.cvsignore"
+      "*.dir-prop-base"
+      "*.dir-props"
+      "*.dll"
+      "*.doc"
+      "*.entries"
+      "*.filters"
+      "*.gif"
+      "*.Guardfile"
+      "*.h"
+      "*.htc"
+      "*.ico"
+      "*.jam"
+      "*.jar"
+      "*.jnlp"
+      "*.jpg"
+      "*.JPG"
+      "*.keystore-rmatv"
+      "*.launch"
+      "*.livereload"
+      "*.MF"
+      "*.p12"
+      "*.pdf"
+      "*.png"
+      "*.r30710"
+      "*.r30712"
+      "*.rpt"
+      "*.rtf"
+      "*.scc"
+      "*.ser"
+      "*.ssc"
+      "*.svn-base"
+      "*.vsd"
+      "*.WarehouseRequirements-0722"
+      "*.working"
+      "*.xjs"
+      "*.xls"
+      "*.xsd"
+      "*.zip"
+      "conf/*.rpt"
+      ".git"
+      ".metadata"
+      "deploy"
+      ".recommenders"
+    ]
+    disabledPackages: [
+      "wrap-guide"
+    ]
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+    audioBeep: false
+    destroyEmptyPanes: false
+    followSymlinks: false
+  editor:
+    fontFamily: "Consolas"
+    showIndentGuide: true
+    invisibles: {}
+    fontSize: 18
+  "project-manager":
+    closeCurrent: true
+  term2:
+    openPanesInSameSplit: true
+  "autocomplete-plus":
+    includeCompletionsFromAllBuffers: true
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+  "language-babel":
+    transpileOnSave: false
+  linter:
+    showErrorPanel: false
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
+  "linter-eslint":
+    useGlobalEslint: true
+    globalNodePath: "/usr/local/"
+  nuclide:
+    remoteProjectsConfig: []
