@@ -3,6 +3,7 @@
 " ----------------------------------------- "
 call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/ap/vim-css-color.git'
+  Plug  'https://github.com/groenewege/vim-less.git'
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/pangloss/vim-javascript.git'
@@ -18,6 +19,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
+  Plug  'https://github.com/w0ng/vim-hybrid'
   Plug  'https://github.com/edkolev/tmuxline.vim.git'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
@@ -25,7 +27,6 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'
   Plug  'https://github.com/majutsushi/tagbar.git'
-  Plug  'https://github.com/groenewege/vim-less.git'
   Plug  'https://github.com/Valloric/MatchTagAlways.git'
   Plug  'https://github.com/Raimondi/delimitMate.git'
   Plug  'https://github.com/SirVer/ultisnips'
@@ -38,7 +39,8 @@ call plug#end()
 
 filetype plugin indent on
 
-colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Bright
+colorscheme hybrid
 "highlight LineNr ctermfg=darkgrey ctermbg=black
 highlight LineNr ctermfg=darkgrey ctermbg=none
 syntax on
