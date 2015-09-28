@@ -10,6 +10,7 @@ packages: [
   "language-babel"
   "linter"
   "linter-eslint"
+  "minimap"
   "package-sync"
   "project-manager"
   "sort-lines"
