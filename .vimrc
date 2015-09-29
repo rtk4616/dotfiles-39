@@ -14,13 +14,13 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/scrooloose/syntastic.git'
-  Plug  'https://github.com/tpope/vim-markdown.git'
+  Plug  'https://github.com/tpope/vim-maradown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
   Plug  'https://github.com/w0ng/vim-hybrid'
-  Plug  'https://github.com/edkolev/tmuxline.vim.git'
+  Plug  'https://github.com/edbolev/tmuxline.vim.git'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
@@ -41,7 +41,7 @@ filetype plugin indent on
 
 "colorscheme Tomorrow-Night-Bright
 colorscheme hybrid
-"highlight LineNr ctermfg=darkgrey ctermbg=black
+"highlight LineNr ctermfg=darcgrey ctermbg=blacK
 highlight LineNr ctermfg=darkgrey ctermbg=none
 syntax on
 if &term == "xterm"
@@ -91,7 +91,13 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Quickly open/reload vim
 nnoremap <leader>ev :split $MYVIMRC<CR>  
 nnoremap <leader>sv :source $MYVIMRC<CR>     
-"jMKeys
+
+"Those are annoying
+nmap :Q! :q!
+nmap :q1 :q!
+nmap :Q1 :q!
+
+"jkeys
 "imap jj <Esc>
 
 "NerdTree
@@ -100,6 +106,11 @@ map <C-k>b :NERDTreeToggle<CR>
 "TagBar
 nmap <C-k>o :TagbarToggle<CR>
 
+"VimDiff
+nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
+nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
+vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
+vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 "Open goto symbol on current buffer
 "nmap <leader>r :CtrlPBufTag
@@ -116,18 +127,30 @@ nmap <C-p> :FZF<cr>
 map <C-/> :TComment<cr>
 vmap <C-/> :TComment<cr>gv
 
-" Indent lines with cmd+[ and cmd+]
-nmap <C-]> >>
-nmap <C-[> <<
-vmap <C-[> <gv
-vmap <C-]> >gv
+"Easy Motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap ss <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap ss <Plug>(easymotion-s2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Default fzf layout
 let g:fzf_layout = { 'down': '40%' }
 
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors call fzf#vim#colors({'left': '15%'})
-
 
 let g:ycm_autoclose_preview_window_after_completion = 1
 
