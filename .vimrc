@@ -47,7 +47,7 @@ syntax on
 if &term == "xterm"
     set term=xterm-256color
 endif
-"set background=dark
+set background=dark
 set number
 set mouse=a
 set mousehide
