@@ -14,13 +14,13 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/scrooloose/syntastic.git'
-  Plug  'https://github.com/tpope/vim-maradown.git'
+  Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
   Plug  'https://github.com/w0ng/vim-hybrid'
-  Plug  'https://github.com/edbolev/tmuxline.vim.git'
+  Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
@@ -35,6 +35,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/rizzatti/dash.vim'
+  Plug  'https://github.com/nathanaelkane/vim-indent-guides'
 call plug#end()
 
 filetype plugin indent on
@@ -97,8 +98,15 @@ nmap :Q! :q!
 nmap :q1 :q!
 nmap :Q1 :q!
 
-"jkeys
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
+"keys
 "imap jj <Esc>
+
+"Emmet
+let g:user_emmet_expandabbr_key = '<Tab>'
 
 "NerdTree
 map <C-k>b :NERDTreeToggle<CR>
