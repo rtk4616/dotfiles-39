@@ -37,6 +37,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/rizzatti/dash.vim'
   Plug  'https://github.com/Yggdroot/indentLine'
+  Plug  'https://github.com/vim-utils/vim-alt-mappings'
+  Plug  'https://github.com/cazador481/fakeclip.neovim'
 call plug#end()
 
 filetype plugin indent on
@@ -106,12 +108,18 @@ noremap <silent> <C-S>  :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
+"Normal Copy/Paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
+
 " Bubble single lines
-nmap <M-Up> [e
-nmap <M-Down> ]e
+nmap <M-up> [e
+nmap <M-down> ]e
 " Bubble multiple lines
-vmap <M-Up> [egv
-vmap <M-Down> ]egv
+vmap <M-up> [egv
+vmap <M-down> ]egv
 
 "keys
 "imap jj <Esc>
