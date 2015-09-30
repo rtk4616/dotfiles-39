@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/scrooloose/syntastic.git'
   Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
+  Plug  'https://github.com/tpope/vim-unimpaired'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/jlangston/tomorrow-night-vim.git'
@@ -35,7 +36,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/rizzatti/dash.vim'
-  Plug  'https://github.com/nathanaelkane/vim-indent-guides'
+  Plug  'https://github.com/Yggdroot/indentLine'
 call plug#end()
 
 filetype plugin indent on
@@ -90,17 +91,27 @@ set smartcase                   " ... but not when search pattern contains upper
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Quickly open/reload vim
-nnoremap <leader>ev :split $MYVIMRC<CR>  
-nnoremap <leader>sv :source $MYVIMRC<CR>     
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+"Enter Command Mode with space
+nmap <Space> :
 
 "Those are annoying
 nmap :Q! :q!
 nmap :q1 :q!
 nmap :Q1 :q!
 
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+"Ctrl S to save
+noremap <silent> <C-S>  :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR>
+
+" Bubble single lines
+nmap <M-Up> [e
+nmap <M-Down> ]e
+" Bubble multiple lines
+vmap <M-Up> [egv
+vmap <M-Down> ]egv
 
 "keys
 "imap jj <Esc>
@@ -169,6 +180,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "create line break when pressing enter
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+
+"Indent Lines
+let g:indentLine_enabled = 1
 
 "Vim MultiCursors
 let g:multi_cursor_use_default_mapping = 0
