@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/w0ng/vim-hybrid'
   Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
+  Plug  'https://github.com/christoomey/vim-tmux-navigator'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
@@ -120,6 +121,14 @@ nmap <M-down> ]e
 " Bubble multiple lines
 vmap <M-up> [egv
 vmap <M-down> ]egv
+
+"Tmux Navigator
+"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 "keys
 "imap jj <Esc>
@@ -262,49 +271,6 @@ let NERDTreeKeepTreeInNewTab=1
 " let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
 
-if exists('$TMUX')
-  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-    let previous_winnr = winnr()
-    execute "wincmd " . a:wincmd
-    if previous_winnr == winnr()
-      " The sleep and & gives time to get back to vim so tmux's focus tracking
-      " can kick in and send us our ^[[O
-      execute "silent !sh -c 'sleep 0.01; tmux select-pane -" . a:tmuxdir . "' &"
-      redraw!
-    endif
-  endfunction
-  let previous_title = substitute(system("tmux display-message -p '#{pane_title}'"), '\n', '', '')
-  let &t_ti = "\<Esc>]2;vim\<Esc>\\" . &t_ti
-  let &t_te = "\<Esc>]2;". previous_title . "\<Esc>\\" . &t_te
-  nnoremap <silent> <C-h> :call TmuxOrSplitSwitch('h', 'L')<cr>
-  nnoremap <silent> <C-j> :call TmuxOrSplitSwitch('j', 'D')<cr>
-  nnoremap <silent> <C-k> :call TmuxOrSplitSwitch('k', 'U')<cr>
-  nnoremap <silent> <C-l> :call TmuxOrSplitSwitch('l', 'R')<cr>
-else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
-
- if &term =~ '256color'
-   " Disable Background Color Erase (BCE) so that color schemes
-   " work properly when Vim is used inside tmux and GNU screen.
-   " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
-  set t_ut=
- endif
-
-if &term =~ '^screen'
-  " Page keys http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/FAQ
- execute "set t_kP=\e[5;*~"
- execute "set t_kN=\e[6;*~"
-
-" Arrow keys http://unix.stackexchange.com/a/34723
- execute "set <xUp>=\e[1;*A"
- execute "set <xDown>=\e[1;*B"
- execute "set <xRight>=\e[1;*C"
- execute "set <xLeft>=\e[1;*D"
-endif
 
 "ECLIM OmniFunc
 let g:EclimCompletionMethod = 'omnifunc'
