@@ -122,6 +122,14 @@ nmap <M-down> ]e
 vmap <M-up> [egv
 vmap <M-down> ]egv
 
+"Tmux Navigator
+"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
+
 "keys
 "imap jj <Esc>
 
