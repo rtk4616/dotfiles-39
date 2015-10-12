@@ -66,6 +66,7 @@ set history=1000
 set ttyfast
 set undolevels=1000
 set wildmode=longest,list
+set wildmenu
 set cursorline
 set expandtab
 set noerrorbells                " No beeps
@@ -92,6 +93,9 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+" Remove trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Quickly open/reload vim
 nnoremap <leader>ev :split $MYVIMRC<CR>
