@@ -158,6 +158,7 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 " Open goto file
 nmap <C-p> :FZF<cr>
+nmap <leader>b :Buffers<cr>
 
 " Comment lines with cmd+/
 map <C-/> :TComment<cr>
@@ -169,7 +170,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Bi-directional find motion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap ss <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s)
 " or
 " `s{char}{char}{label}`
 " Need one more keystroke, but on average, it may be more comfortable.
