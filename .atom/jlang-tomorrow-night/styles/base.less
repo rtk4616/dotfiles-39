@@ -77,6 +77,10 @@ atom-text-editor .search-results .marker.current-result .region,
   }
 }
 
+.entity.name.tag {
+  text-decoration: none !important;
+}
+
 .keyword {
   color: @purple;
 
@@ -313,6 +317,18 @@ atom-text-editor .search-results .marker.current-result .region,
 }
 .keyword.other.unit.css {
   color: #B294BB;
+}
+
+.meta.method-call.java > .meta.method.java{
+  color: @light-blue;
+}
+
+.keyword.control {
+  color: #c678dd;
+}
+
+.punctuation.java{
+  color:@light-gray;
 }
 
 atom-text-editor[mini] .scroll-view,
