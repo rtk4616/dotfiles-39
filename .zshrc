@@ -31,9 +31,10 @@ if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
  # alias vim='mvim -v';
  alias vim='nvim';
-export EDITOR='nvim';
- # export EDITOR="subl -w";
+ export EDITOR='nvim';
+  # export EDITOR='subl -w';
 fi
+export REACT_EDITOR='subl';
 
 
 # Set to this to use case-sensitive completion
