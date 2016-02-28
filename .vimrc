@@ -23,6 +23,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/w0ng/vim-hybrid'
   Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
+  Plug 'vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
