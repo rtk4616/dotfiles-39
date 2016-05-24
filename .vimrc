@@ -25,7 +25,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/bling/vim-airline.git'
   Plug 'vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': './install.py'}
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py'}
   autocmd! User YouCompleteMe call youcompleteme#Enable()
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'

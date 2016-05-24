@@ -32,9 +32,11 @@ if  [[ $('uname') == 'Darwin' ]]; then
  # alias vim='mvim -v';
  alias vim='nvim';
  export EDITOR='nvim';
+ # export REACT_EDITOR='idea';
+ export REACT_EDITOR='subl';
+ source ~/.iterm2_shell_integration.zsh
   # export EDITOR='subl -w';
 fi
-export REACT_EDITOR='subl';
 
 
 # Set to this to use case-sensitive completion
@@ -59,7 +61,7 @@ export REACT_EDITOR='subl';
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux sublime z zsh-syntax-highlighting)
+plugins=(git vi-mode tmux sublime z node npm zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -134,15 +136,14 @@ cdf() {
 
 # fshow - git commit browser
 fshow() {
-  local out sha q
-  while out=$(
-      git log --decorate=short --graph --oneline --color=always |
-      fzf --ansi --multi --no-sort --reverse --query="$q" --print-query); do
-    q=$(head -1 <<< "$out")
-    while read sha; do
-      [ -n "$sha" ] && git show --color=always $sha | less -R
-    done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
-  done
+  git log --graph --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
 }
 
 # fstash - easier way to deal with stashes
@@ -172,6 +173,7 @@ fstash() {
     done
 }
 
-source ~/.iterm2_shell_integration.zsh
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
