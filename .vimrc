@@ -6,11 +6,12 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/groenewege/vim-less.git'
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
-  Plug  'https://github.com/pangloss/vim-javascript.git'
-  Plug  'https://github.com/othree/yajs.vim'
+  Plug  'https://github.com/pangloss/vim-javascript.git', { 'for': 'javascript' }
+  Plug  'https://github.com/othree/yajs.vim', { 'for': 'javascript' }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim'
-  Plug  'https://github.com/jlangston/vim-jsfmt', {'do': 'npm install'}
-  Plug  'https://github.com/mxw/vim-jsx'
+  Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
+  Plug  'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
+  Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/scrooloose/syntastic.git'
@@ -23,16 +24,20 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/w0ng/vim-hybrid'
   Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug  'vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py'}
-  autocmd! User YouCompleteMe call youcompleteme#Enable()
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
+  augroup load_ycm
+   autocmd!
+   autocmd InsertEnter * call plug#load('YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_ycm
+  augroup END
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'
   Plug  'https://github.com/majutsushi/tagbar.git'
   Plug  'https://github.com/Valloric/MatchTagAlways.git'
   Plug  'https://github.com/Raimondi/delimitMate.git'
-  Plug  'https://github.com/SirVer/ultisnips'
+  Plug  'https://github.com/SirVer/ultisnips', {'on': []}
   Plug  'https://github.com/honza/vim-snippets'
   Plug  'https://github.com/tpope/vim-fugitive'
   Plug  'https://github.com/airblade/vim-gitgutter'
