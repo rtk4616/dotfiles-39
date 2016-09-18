@@ -13,8 +13,9 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
+  Plug  'https://github.com/isRuslan/vim-es6'
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
-  Plug  'https://github.com/scrooloose/syntastic.git'
+  Plug  'https://github.com/neomake/neomake.git'
   Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/tpope/vim-unimpaired'
@@ -140,6 +141,13 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
+" Buffer cycle
+:nnoremap gb :bnext<CR>
+:nnoremap gB :bprevious<CR>
+
+"neomake
+autocmd! BufWritePost,BufEnter * Neomake
+
 "keys
 "imap jj <Esc>
 
@@ -255,12 +263,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme             = 'powerlineish'
 let g:airline#extensions#branch#enabled     = 1
-let g:airline#extensions#syntastic#enabled  = 1
 let g:airline#extensions#tmuxline#enabled  = 1
-
-"Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-let g:jsx_ext_required = 0
 
 " Tmuxline config
 let g:tmuxline_preset = {
