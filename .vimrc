@@ -47,6 +47,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/Yggdroot/indentLine'
 " Plug  'https://github.com/vim-utils/vim-alt-mappings'
   Plug  'https://github.com/severin-lemaignan/vim-minimap'
+  Plug  'https://github.com/tpope/vim-rails'
 call plug#end()
 
 filetype plugin indent on
