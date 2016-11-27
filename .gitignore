@@ -3,3 +3,5 @@
 .vim/plugin/eclim.vim
 .vim/.netrwhist
 /.vim/plugged/
+
+.vim/init.vim

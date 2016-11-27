@@ -3,19 +3,18 @@
 " ----------------------------------------- "
 call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/ap/vim-css-color.git'
-  Plug  'https://github.com/groenewege/vim-less.git'
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
-  Plug  'https://github.com/pangloss/vim-javascript.git', { 'for': 'javascript' }
   Plug  'https://github.com/othree/yajs.vim', { 'for': 'javascript' }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim'
   Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
-  Plug  'https://github.com/mxw/vim-jsx', { 'for': 'javascript' }
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
-  Plug  'https://github.com/isRuslan/vim-es6'
+  Plug  'https://github.com/neovim/node-host', { 'do': 'npm install' }
+  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh' }
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/neomake/neomake.git'
+  Plug  'https://github.com/ruchee/vim-polyglot'
   Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/tpope/vim-unimpaired'
@@ -47,7 +46,11 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/Yggdroot/indentLine'
 " Plug  'https://github.com/vim-utils/vim-alt-mappings'
   Plug  'https://github.com/severin-lemaignan/vim-minimap'
-  Plug  'https://github.com/tpope/vim-rails'
+  Plug  'https://github.com/arakashic/chromatica.nvim'
+  Plug  'https://github.com/fatih/vim-go'
+  Plug  'neovim/node-host', { 'do': 'npm install' }
+  Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
+
 call plug#end()
 
 filetype plugin indent on
@@ -286,7 +289,10 @@ let NERDTreeKeepTreeInNewTab=1
 " let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
 
+"Chromatica
+let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+let g:chromatica#enable_at_startup=1
 
-"ECLIM OmniFunc
-let g:EclimCompletionMethod = 'omnifunc'
-
+"JSX
+let g:jsx_ext_required = 0
+let g:tigris#enabled = 1
