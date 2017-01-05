@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
+  Plug  'https://github.com/tpope/vim-obsession'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
   augroup load_ycm
    autocmd!
@@ -39,7 +40,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/Raimondi/delimitMate.git'
   Plug  'https://github.com/SirVer/ultisnips', {'on': []}
   Plug  'https://github.com/honza/vim-snippets'
-  Plug  'https://github.com/tpope/vim-fugitive'
+  Plug  'lambdalisue/vim-gita'
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/rizzatti/dash.vim'
@@ -50,6 +51,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/fatih/vim-go'
   Plug  'neovim/node-host', { 'do': 'npm install' }
   Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
+  Plug  'https://github.com/tpope/vim-rails'
 
 call plug#end()
 
