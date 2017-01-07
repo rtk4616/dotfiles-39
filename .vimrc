@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/othree/yajs.vim', { 'for': 'javascript' }
+  Plug  'https://github.com/othree/es.next.syntax.vim', { 'for': 'javascript' }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim'
   Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
@@ -150,6 +151,10 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Buffer cycle
 :nnoremap gb :bnext<CR>
 :nnoremap gB :bprevious<CR>
+
+"gita status
+nnoremap <leader>gs :Gita status<CR>
+
 
 "neomake
 autocmd! BufWritePost,BufEnter * Neomake
