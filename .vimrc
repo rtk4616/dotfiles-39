@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'neovim/node-host', { 'do': 'npm install' }
   Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
   Plug  'https://github.com/tpope/vim-rails'
+  Plug  'https://github.com/ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -268,6 +269,8 @@ endfunction
 
 au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
 " AirLine
 let g:airline_powerline_fonts = 1
