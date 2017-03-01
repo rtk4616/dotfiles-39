@@ -6,7 +6,11 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-DEFAULT_USER=$(whoami)
+if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
+  DEFAULT_USER=$(whoami)
+else
+  DEFAULT_USER="[user name]"
+fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"

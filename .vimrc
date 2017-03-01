@@ -10,8 +10,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim'
   Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'npm install'}
-  Plug  'https://github.com/neovim/node-host', { 'do': 'npm install' }
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags'}
+  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn' }
   Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh' }
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/neomake/neomake.git'
@@ -41,7 +41,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/Raimondi/delimitMate.git'
   Plug  'https://github.com/SirVer/ultisnips', {'on': []}
   Plug  'https://github.com/honza/vim-snippets'
-  Plug  'lambdalisue/vim-gita'
+  Plug  'https://github.com/lambdalisue/gina.vim'
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/rizzatti/dash.vim'
@@ -154,7 +154,7 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 :nnoremap gB :bprevious<CR>
 
 "gita status
-nnoremap <leader>gs :Gita status<CR>
+nnoremap <leader>gs :Gina status<CR>
 
 
 "neomake
