@@ -7,12 +7,19 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 # if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
-  # DEFAULT_USER=$(whoami)
+  DEFAULT_USER=$(whoami)
 # else
   # DEFAULT_USER="[user name]"
-  DEFAULT_USER=$USER
+#  DEFAULT_USER=$USER
 # fi
+#
 
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+ 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
