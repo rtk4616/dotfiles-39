@@ -6,11 +6,12 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
-  DEFAULT_USER=$(whoami)
-else
-  DEFAULT_USER="[user name]"
-fi
+# if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
+  # DEFAULT_USER=$(whoami)
+# else
+  # DEFAULT_USER="[user name]"
+  DEFAULT_USER=$USER
+# fi
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -38,7 +39,7 @@ if  [[ $('uname') == 'Darwin' ]]; then
  export EDITOR='nvim';
  # export REACT_EDITOR='idea';
  export REACT_EDITOR='subl';
- source ~/.iterm2_shell_integration.zsh
+ #source ~/.iterm2_shell_integration.zsh
   # export EDITOR='subl -w';
 fi
 
