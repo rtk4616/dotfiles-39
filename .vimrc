@@ -27,7 +27,6 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
-  Plug  'https://github.com/tpope/vim-obsession'
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
   augroup load_ycm
    autocmd!
@@ -54,6 +53,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
   Plug  'https://github.com/tpope/vim-rails'
   Plug  'https://github.com/ryanoasis/vim-devicons'
+  Plug  'http://github.com/sjl/vitality.vim'
+  Plug 'thaerkh/vim-workspace'
 
 call plug#end()
 
@@ -155,6 +156,7 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
 "gita status
 nnoremap <leader>gs :Gina status<CR>
+nnoremap <leader>gc :Gina commit<CR>
 
 
 "neomake
@@ -168,6 +170,8 @@ let g:user_emmet_expandabbr_key = '<Tab>'
 
 "NerdTree
 map <C-k>b :NERDTreeToggle<CR>
+
+nnoremap <leader>s :ToggleWorkspace<CR>
 
 "TagBar
 nmap <C-k>o :TagbarToggle<CR>
@@ -238,6 +242,8 @@ let g:multi_cursor_next_key = '<C-d>'
 let g:multi_cursor_prev_key = '<C-u>'
 let g:multi_cursor_skip_key = '<C-k>' "until we got multiple keys support
 let g:multi_cursor_quit_key = '<Esc>'
+nnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 
 "JsFmt
 let g:js_fmt_command = "jsfmt"
@@ -300,7 +306,7 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 "Chromatica
-let g:chromatica#libclang_path='/usr/local/opt/llvm/lib'
+let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
 let g:chromatica#enable_at_startup=1
 
 "JSX
