@@ -3,60 +3,58 @@ let g:python_host_skip_check=1
 " Plugin configs                            "
 " ----------------------------------------- "
 call plug#begin('~/.vim/plugged')
-  Plug  'ap/vim-css-color.git'
-  Plug  'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug  'junegunn/fzf.vim'
-  Plug  'othree/yajs.vim', { 'for': 'javascript' }
-  Plug  'othree/es.next.syntax.vim', { 'for': 'javascript' }
-  Plug  'othree/javascript-libraries-syntax.vim'
-  Plug  'jlangston/vim-jsfmt', { 'for': 'javascript' }
-  Plug  'moll/vim-node', { 'for': 'javascript' }
-  Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags'}
-  Plug  'neovim/node-host', { 'do': 'yarn' }
-  Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
-  Plug  'scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
-  Plug  'neomake/neomake.git'
-  Plug  'ruchee/vim-polyglot'
-  Plug  'tpope/vim-markdown.git'
-  Plug  'tpope/vim-surround.git'
-  Plug  'tpope/vim-unimpaired'
-  Plug  'mattn/emmet-vim'
-  Plug  'jistr/vim-nerdtree-tabs.git'
-  Plug  'jlangston/tomorrow-night-vim.git'
-  Plug  'w0ng/vim-hybrid'
-  Plug  'edkolev/tmuxline.vim'
-  Plug  'bling/vim-airline.git'
-  Plug  'vim-airline/vim-airline-themes'
-  Plug  'christoomey/vim-tmux-navigator'
-  Plug  'Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
+  Plug  'https://github.com/ap/vim-css-color.git'
+  Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+  Plug  'https://github.com/junegunn/fzf.vim'
+  Plug  'https://github.com/othree/yajs.vim', { 'for': 'javascript' }
+  Plug  'https://github.com/othree/es.next.syntax.vim', { 'for': 'javascript' }
+  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
+  Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
+  Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': 'javascript' } 
+  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
+  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': 'javascript' }
+  Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
+  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
+  Plug  'https://github.com/neomake/neomake.git'
+  Plug  'https://github.com/ruchee/vim-polyglot'
+  Plug  'https://github.com/tpope/vim-markdown.git'
+  Plug  'https://github.com/tpope/vim-surround.git'
+  Plug  'https://github.com/tpope/vim-unimpaired'
+  Plug  'https://github.com/mattn/emmet-vim'
+  Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
+  Plug  'https://github.com/w0ng/vim-hybrid'
+  Plug  'https://github.com/edkolev/tmuxline.vim'
+  Plug  'https://github.com/bling/vim-airline.git'
+  Plug  'https://github.com/vim-airline/vim-airline-themes'
+  Plug  'https://github.com/christoomey/vim-tmux-navigator'
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
   augroup load_ycm
    autocmd!
    autocmd InsertEnter * call plug#load('YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_ycm
   augroup END
-  Plug  'terryma/vim-multiple-cursors.git'
-  Plug  'tomtom/tcomment_vim.git'
-  Plug  'majutsushi/tagbar.git'
-  Plug  'Valloric/MatchTagAlways.git'
-  Plug  'Raimondi/delimitMate.git'
-  Plug  'SirVer/ultisnips', {'on': []}
-  Plug  'honza/vim-snippets'
-  Plug  'lambdalisue/gina.vim'
-  Plug  'airblade/vim-gitgutter'
-  Plug  'easymotion/vim-easymotion'
-  Plug  'rizzatti/dash.vim'
-  Plug  'Yggdroot/indentLine'
-  " Plug  'vim-utils/vim-alt-mappings'
-  Plug  'severin-lemaignan/vim-minimap'
-  " Plug  'arakashic/chromatica.nvim'
-  Plug  'fatih/vim-go'
-  Plug  'jodosha/vim-godebug'
-  Plug  'neovim/node-host', { 'do': 'yarn' }
-  Plug  'billyvg/tigris.nvim', { 'do': './install.sh' }
-  Plug  'tpope/vim-rails'
-  " Plug  'ryanoasis/vim-devicons'
-  Plug  'http://github.com/sjl/vitality.vim'
-  Plug  'thaerkh/vim-workspace'
+  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+  Plug  'https://github.com/tomtom/tcomment_vim.git'
+  Plug  'https://github.com/majutsushi/tagbar.git'
+  Plug  'https://github.com/Valloric/MatchTagAlways.git'
+  Plug  'https://github.com/Raimondi/delimitMate.git'
+  Plug  'https://github.com/SirVer/ultisnips', {'on': []}
+  Plug  'https://github.com/honza/vim-snippets'
+  Plug  'https://github.com/lambdalisue/gina.vim'
+  Plug  'https://github.com/airblade/vim-gitgutter'
+  Plug  'https://github.com/easymotion/vim-easymotion'
+  Plug  'https://github.com/Yggdroot/indentLine'
+  " Plug  'https://github.com/vim-utils/vim-alt-mappings'
+  Plug  'https://github.com/severin-lemaignan/vim-minimap'
+  " Plug  'https://github.com/arakashic/chromatica.nvim'
+  Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+  Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
+  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh', 'for': 'javascript' }
+  Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
+  " Plug  'https://github.com/ryanoasis/vim-devicons'
+  Plug  'https://github.com/sjl/vitality.vim'
+  Plug  'https://github.com/thaerkh/vim-workspace'
 
 call plug#end()
 
