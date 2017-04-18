@@ -70,6 +70,7 @@ syntax on
 if &term == "xterm"
     set term=xterm-256color
 endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set background=dark
 set number
 set mouse=a
