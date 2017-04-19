@@ -163,6 +163,7 @@ nnoremap <leader>gs :Gina status<CR>
 nnoremap <leader>gc :Gina commit<CR>
 
 
+
 "neomake
 autocmd! BufWritePost,BufEnter * Neomake
 
@@ -308,6 +309,7 @@ let NERDTreeIgnore=['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bz
 let NERDTreeKeepTreeInNewTab=1
 " let NERDTreeMapOpenInTab='<ENTER>'
 let g:nerdtree_tabs_open_on_gui_startup=0
+nnoremap <leader>nf :NERDTreeFind<CR>
 
 "Chromatica
 "let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
