@@ -3,7 +3,7 @@ let g:python_host_skip_check=1
 " Plugin configs                            "
 " ----------------------------------------- "
 call plug#begin('~/.vim/plugged')
-  "Util 
+  "Util
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
   Plug  'https://github.com/ruchee/vim-polyglot'
@@ -29,8 +29,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/thaerkh/vim-workspace'
   " Plug  'https://github.com/vim-utils/vim-alt-mappings'
   " Plug  'https://github.com/ryanoasis/vim-devicons'
-  
-  "Javascript 
+
+  "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': 'javascript' }
   Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
@@ -57,7 +57,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
 
-  "Git 
+  "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/Yggdroot/indentLine'
@@ -66,7 +66,7 @@ call plug#begin('~/.vim/plugged')
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
-  
+
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
 
@@ -301,7 +301,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='hybrid'
 let g:airline#extensions#branch#enabled     = 1
 let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 
+"let g:hybrid_reduced_contrast = 1
 let g:airline#extensions#tmuxline#enabled  = 1
 
 " Tmuxline config
