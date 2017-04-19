@@ -76,7 +76,9 @@ set mousehide
 set modifiable
 
 set autoindent
-set clipboard=unnamed
+set clipboard+=unnamed  " use the clipboards of vim and win
+set paste               " Paste from a windows or from vim
+set go+=a               " Visual selection automatically copied to the clipboard
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
 set history=1000
@@ -307,8 +309,8 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 "Chromatica
-let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
-let g:chromatica#enable_at_startup=1
+"let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
+"let g:chromatica#enable_at_startup=1
 
 "JSX
 let g:jsx_ext_required = 0
