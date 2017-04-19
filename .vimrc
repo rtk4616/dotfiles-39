@@ -34,6 +34,28 @@ call plug#begin('~/.vim/plugged')
    autocmd InsertEnter * call plug#load('YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_ycm
   augroup END
+  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+  Plug  'https://github.com/tomtom/tcomment_vim.git'
+  Plug  'https://github.com/majutsushi/tagbar.git'
+  Plug  'https://github.com/Valloric/MatchTagAlways.git'
+  Plug  'https://github.com/Raimondi/delimitMate.git'
+  Plug  'https://github.com/SirVer/ultisnips', {'on': []}
+  Plug  'https://github.com/honza/vim-snippets'
+  Plug  'https://github.com/lambdalisue/gina.vim'
+  Plug  'https://github.com/airblade/vim-gitgutter'
+  Plug  'https://github.com/easymotion/vim-easymotion'
+  Plug  'https://github.com/Yggdroot/indentLine'
+  " Plug  'https://github.com/vim-utils/vim-alt-mappings'
+  Plug  'https://github.com/severin-lemaignan/vim-minimap'
+  " Plug  'https://github.com/arakashic/chromatica.nvim'
+  Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+  Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
+  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh', 'for': 'javascript' }
+  Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
+  " Plug  'https://github.com/ryanoasis/vim-devicons'
+  Plug  'https://github.com/sjl/vitality.vim'
+  Plug  'https://github.com/thaerkh/vim-workspace'
+
 call plug#end()
 
 filetype plugin indent on
