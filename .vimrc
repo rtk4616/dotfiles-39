@@ -21,6 +21,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/tpope/vim-unimpaired'
+  Plug  'https://github.com/tpope/vim-fugitive'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/w0ng/vim-hybrid'
