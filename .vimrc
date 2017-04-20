@@ -9,13 +9,11 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/ruchee/vim-polyglot'
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/tpope/vim-surround.git'
-  Plug  'https://github.com/tpope/vim-markdown.git'
   Plug  'https://github.com/tpope/vim-unimpaired'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
-  Plug  'https://github.com/vim-airline/vim-airline-themes'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
   Plug  'https://github.com/neomake/neomake.git'
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
@@ -45,6 +43,10 @@ call plug#begin('~/.vim/plugged')
 
   "Color Theme
   Plug  'https://github.com/w0ng/vim-hybrid'
+  Plug  'https://github.com/vim-airline/vim-airline-themes'
+
+  "Prose
+  Plug  'https://github.com/tpope/vim-markdown.git'
 
   "Programming
   Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
@@ -56,6 +58,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/SirVer/ultisnips', {'on': []}
   Plug  'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
+  Plug 'https://github.com/sbdchd/neoformat'
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
@@ -69,6 +72,7 @@ call plug#begin('~/.vim/plugged')
 
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
+  Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
 
 call plug#end()
 
@@ -120,6 +124,7 @@ set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
 set showmatch                   " Do not show matching brackets by flickering
 set incsearch                   " Shows the match while typing
+set inccommand=split
 set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
@@ -169,6 +174,7 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Buffer cycle
 :nnoremap gb :bnext<CR>
 :nnoremap gB :bprevious<CR>
+:nnoremap <leader>bc :bw<CR>
 
 "gita status
 nnoremap <leader>gs :Gina status<CR>
