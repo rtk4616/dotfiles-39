@@ -356,3 +356,5 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Inspect runner pane
 map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+<Leader>vz :VimuxZoomRunner<CR>
