@@ -170,6 +170,9 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 
+" vv to generate new vertical split
+nnoremap <silent> vv <C-w>v
+
 " Buffer cycle
 :nnoremap gb :bnext<CR>
 :nnoremap gB :bprevious<CR>
