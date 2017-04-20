@@ -164,8 +164,7 @@ vmap <M-up> [egv
 vmap <M-down> ]egv
 
 "Tmux Navigator
-"nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
@@ -353,3 +352,5 @@ let g:go_highlight_build_constraints = 1
 "ViMux
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
+" Run last command executed by VimuxRunCommand
+map <Leader>vl :VimuxRunLastCommand<CR>
