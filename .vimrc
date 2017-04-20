@@ -12,9 +12,10 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-unimpaired'
   Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
-  Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
+  Plug  'https://github.com/benmills/vimux'
+  Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/neomake/neomake.git'
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'
@@ -348,3 +349,7 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+"ViMux
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
