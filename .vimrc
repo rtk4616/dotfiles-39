@@ -173,7 +173,7 @@ nnoremap <silent> <c-\> :TmuxNavigatePrevious<cr>
 " Buffer cycle
 :nnoremap gb :bnext<CR>
 :nnoremap gB :bprevious<CR>
-:nnoremap <leader>bc :bw<CR>
+:nnoremap <C-q> :bw<CR>
 
 "gita status
 nnoremap <leader>gs :Gina status<CR>
