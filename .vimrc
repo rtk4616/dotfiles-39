@@ -32,7 +32,6 @@ call plug#begin('~/.vim/plugged')
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': 'javascript' }
-  Plug  'https://github.com/jlangston/vim-jsfmt', { 'for': 'javascript' }
   Plug  'https://github.com/othree/es.next.syntax.vim', { 'for': 'javascript' }
   Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': 'javascript' }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
@@ -115,7 +114,7 @@ set noswapfile                  " Don't use swapfile
 set nobackup                    " Don't create annoying backup files
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
-set encoding=utf-8              " Set default encoding to UTF-8
+set encoding=utf8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
 set laststatus=2
@@ -124,7 +123,7 @@ set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
 set showmatch                   " Do not show matching brackets by flickering
 set incsearch                   " Shows the match while typing
-set inccommand=split
+set inccommand=nosplit
 set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
@@ -188,7 +187,7 @@ nnoremap <leader>gc :Gina commit<CR>
 autocmd! BufWritePost,BufEnter * Neomake
 
 "keys
-"imap jj <Esc>
+imap jk <Esc>
 
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
@@ -222,6 +221,8 @@ nmap <leader>b :Buffers<cr>
 " Comment lines with cmd+/
 map <C-/> :TComment<cr>
 vmap <C-/> :TComment<cr>gv
+map <M-/> :TComment<cr>
+vmap <M-/> :TComment<cr>gv
 
 "Easy Motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
