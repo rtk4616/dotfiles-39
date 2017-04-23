@@ -184,6 +184,11 @@ imap jk <Esc>
 
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 "NerdTree
 map <C-k>b :NERDTreeToggle<CR>
@@ -260,12 +265,10 @@ let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_next_key = '<C-d>'
 let g:multi_cursor_prev_key = '<C-u>'
 let g:multi_cursor_skip_key = '<C-k>' "until we got multiple keys support
-let g:multi_cursor_quit_key = '<Esc>'
+let g:multi_cursor_quit_key = '<Esc><Esc>'
 nnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 
-"JsFmt
-let g:js_fmt_command = "jsfmt"
 let g:used_javascript_libs = 'jquery,angularjs,angularui,react,underscore'
 
 "Utilisnips
