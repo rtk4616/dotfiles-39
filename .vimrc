@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/tpope/vim-surround.git'
   Plug  'https://github.com/tpope/vim-unimpaired'
-  Plug  'https://github.com/mattn/emmet-vim'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
@@ -35,8 +34,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
-  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https:/github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
 
   "Css
@@ -59,8 +58,9 @@ call plug#begin('~/.vim/plugged')
   "
   Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'http://github.com/ervandew/supertab'
-  Plug  'https://github.com/SirVer/ultisnips', {'on': []}
-  Plug  'https://github.com/honza/vim-snippets'
+  Plug  'https://github.com/mattn/emmet-vim'
+  Plug 'https://github.com/SirVer/ultisnips', {'on': []}
+  Plug 'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
 
@@ -77,6 +77,7 @@ call plug#begin('~/.vim/plugged')
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
+  Plug  'htts://github.com/fishbullet/deoplete-ruby'
 
 call plug#end()
 
@@ -371,7 +372,7 @@ let g:deoplete#omni#functions.javascript = [
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
-let g:tern#command = ['tern']
+" let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
