@@ -73,6 +73,7 @@ call plug#begin('~/.vim/plugged')
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
+  Plug 'https://github.com/zchee/deoplete-go', { 'do': 'make'}
 
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
