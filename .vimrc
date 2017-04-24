@@ -31,11 +31,12 @@ call plug#begin('~/.vim/plugged')
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': 'javascript' }
-  Plug  'https://github.com/othree/es.next.syntax.vim', { 'for': 'javascript' }
-  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': 'javascript' }
-  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
-  Plug  'https://github.com/othree/yajs.vim', { 'for': 'javascript' }
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
+  Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
+  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
 
   "Css
@@ -49,12 +50,15 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-markdown.git'
 
   "Programming
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
-  augroup load_ycm
-   autocmd!
-   autocmd InsertEnter * call plug#load('YouCompleteMe')
-                     \| call youcompleteme#Enable() | autocmd! load_ycm
-  augroup END
+  "Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
+  "augroup load_ycm
+  " autocmd!
+  " autocmd InsertEnter * call plug#load('YouCompleteMe')
+  "                   \| call youcompleteme#Enable() | autocmd! load_ycm
+  "augroup END
+  "
+  Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'http://github.com/ervandew/supertab'
   Plug  'https://github.com/SirVer/ultisnips', {'on': []}
   Plug  'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
@@ -355,3 +359,20 @@ map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
+
+"DeoPlete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+" close the preview window when you're not using it
+let g:SuperTabClosePreviewOnPopupClose = 1
+" or just disable the preview entirely
+set completeopt-=preview
