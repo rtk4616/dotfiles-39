@@ -35,7 +35,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug  'https:/github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
 
   "Css
@@ -58,7 +58,7 @@ call plug#begin('~/.vim/plugged')
   "
   Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'http://github.com/ervandew/supertab'
-  Plug  'https://github.com/mattn/emmet-vim'
+  Plug 'https://github.com/mattn/emmet-vim'
   Plug 'https://github.com/SirVer/ultisnips', {'on': []}
   Plug 'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
@@ -77,7 +77,7 @@ call plug#begin('~/.vim/plugged')
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
-  Plug  'htts://github.com/fishbullet/deoplete-ruby'
+  Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
 
 call plug#end()
 
