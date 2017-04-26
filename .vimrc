@@ -26,7 +26,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/sjl/vitality.vim'
   Plug  'https://github.com/thaerkh/vim-workspace'
   " Plug  'https://github.com/vim-utils/vim-alt-mappings'
-  " Plug  'https://github.com/ryanoasis/vim-devicons'
+   Plug  'https://github.com/ryanoasis/vim-devicons'
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
@@ -73,9 +73,7 @@ call plug#begin('~/.vim/plugged')
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
-  Plug 'https://github.com/zchee/deoplete-go', { 'do': 'make'}
-
-  "Ruby
+  Plug  'https://github.com/zchee/deoplete-go', { 'do': 'make'}
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
@@ -223,6 +221,26 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 nmap <C-p> :FZF<cr>
 nmap <leader>b :Buffers<cr>
 
+
+" In Neovim, you can set up fzf window using a Vim command
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " Comment lines with cmd+/
 map <C-/> :TComment<cr>
 vmap <C-/> :TComment<cr>gv
@@ -337,6 +355,9 @@ let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=0
 nnoremap <leader>nf :NERDTreeFind<CR>
 
+"NeoFormat
+nnoremap <leader>fm :NeoFormat<CR>
+
 "Chromatica
 "let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
 "let g:chromatica#enable_at_startup=1
@@ -379,3 +400,10 @@ let g:tern#arguments = ['--persistent']
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
 set completeopt-=preview
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
