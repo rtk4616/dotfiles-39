@@ -283,6 +283,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+" Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
 
