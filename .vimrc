@@ -85,6 +85,7 @@ filetype plugin indent on
 colorscheme hybrid
 "highlight LineNr ctermfg=darcgrey ctermbg=blacK
 highlight LineNr ctermfg=darkgrey ctermbg=none
+highlight NonText ctermbg=none
 syntax on
 if &term == "xterm"
     set term=xterm-256color
@@ -281,6 +282,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "create line break when pressing enter
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
+
+nnoremap <esc> :noh<return><esc>
+nnoremap <esc>^[ <esc>^[
 
 "Indent Lines
 let g:indentLine_enabled = 1
