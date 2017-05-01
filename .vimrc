@@ -30,13 +30,18 @@ call plug#begin('~/.vim/plugged')
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags', 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
+
+  "Typescript
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
+  Plug 'mhartington/deoplete-typescript'
 
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
@@ -74,6 +79,8 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
   Plug  'https://github.com/zchee/deoplete-go', { 'do': 'make'}
+
+  "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
@@ -392,7 +399,6 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 
 "DeoPlete
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
   \ 'tern#Complete',
@@ -401,12 +407,30 @@ let g:deoplete#omni#functions.javascript = [
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
-" let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
-set completeopt-=preview
+"set completeopt-=preview
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+let g:deoplete#sources#tss#javascript_support = 1
+let g:tsuquyomi_javascript_support = 1
+let g:tsuquyomi_auto_open = 1
+let g:tsuquyomi_disable_quickfix = 1
+
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
