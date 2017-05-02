@@ -98,6 +98,7 @@ if &term == "xterm"
     set term=xterm-256color
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set background=dark
 set number
 set mouse=a
@@ -308,7 +309,7 @@ let g:multi_cursor_quit_key = '<Esc>'
 nnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 
-let g:used_javascript_libs = 'jquery,angularjs,angularui,react,underscore'
+let g:used_javascript_libs = 'jquery,react,lodash'
 
 "Utilisnips
 function! g:UltiSnips_Complete()
@@ -438,3 +439,4 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
