@@ -373,7 +373,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nnoremap <leader>nf :NERDTreeFind<CR>
 
 "NeoFormat
-nnoremap <leader>fm :NeoFormat<CR>
+nnoremap <leader>fm :Neoformat<CR>
 
 "Chromatica
 "let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
