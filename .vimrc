@@ -54,6 +54,7 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-markdown.git'
 
   "Programming
+
   "Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
   "augroup load_ycm
   " autocmd!
@@ -68,6 +69,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
+  Plug 'https://github.com/mileszs/ack.vim'
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
@@ -439,4 +441,10 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+
+"Silver Searcher
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
