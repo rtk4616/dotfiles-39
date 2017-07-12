@@ -48,6 +48,7 @@ call plug#begin('~/.vim/plugged')
 
   "Color Theme
   Plug  'https://github.com/w0ng/vim-hybrid'
+  Plug  'https://github.com/chriskempson/base16-vim'
   Plug  'https://github.com/vim-airline/vim-airline-themes'
 
   "Prose
@@ -86,6 +87,11 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
+  Plug  'tpope/vim-rake', { 'for': 'ruby' }
+  Plug  'tpope/vim-rbenv', { 'for': 'ruby' }
+  Plug  'tpope/vim-bundler', { 'for': 'ruby' }
+  Plug  'Keithbsmiley/rspec.vim', { 'for': 'ruby' }
+
 
 call plug#end()
 

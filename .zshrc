@@ -73,7 +73,7 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux sublime z node npm zsh-syntax-highlighting)
+plugins=(git vi-mode tmux sublime z node npm zsh-syntax-highlighting rails)
 
 source $ZSH/oh-my-zsh.sh
 
