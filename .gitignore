@@ -1,7 +1,3 @@
 .DS_Store
-.vim/eclim
-.vim/plugin/eclim.vim
-.vim/.netrwhist
-/.vim/plugged/
-
-.vim/init.vim
+nvim/.netrwhist
+nvim/plugged/

@@ -2,7 +2,7 @@ let g:python_host_skip_check=1
 " ----------------------------------------- "
 " Plugin configs                            "
 " ----------------------------------------- "
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
   "Util
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
@@ -49,6 +49,7 @@ call plug#begin('~/.vim/plugged')
   "Color Theme
   Plug  'https://github.com/w0ng/vim-hybrid'
   Plug  'https://github.com/chriskempson/base16-vim'
+  Plug  'https://micha/vim-colors-solarized'
   Plug  'https://github.com/vim-airline/vim-airline-themes'
 
   "Prose
@@ -77,6 +78,9 @@ call plug#begin('~/.vim/plugged')
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/Yggdroot/indentLine'
   Plug  'https://github.com/tpope/vim-fugitive'
+
+  "Ansible
+  Plug 'https://github.com/MicahElliott/Rocannon'
 
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
