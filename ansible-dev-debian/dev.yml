@@ -28,7 +28,7 @@
         - google-chrome-stable
         - openvpn
         - python-dev
-        # - ruby-dev
+        - ruby-dev
         - postgresql
         - mysql-server
         - pandoc
@@ -38,6 +38,7 @@
         - wget
         - xpra
         - zsh
+        - elasticsearch
 
     - name: install ruby dependencies
       gem: name={{item}} state=present
