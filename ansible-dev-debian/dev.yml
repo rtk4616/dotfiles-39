@@ -54,15 +54,15 @@
         - neovim
 
     - name: setup zsh symlink
-    file: path=~/.zshrc
-          src=~/dotfiles/.zshrc
-          state=link
-          force=yes
+      file: path=~/.zshrc
+            src=~/dotfiles/.zshrc
+            state=link
+            force=yes
 
     - name: Create file
       command: touch ~/.comp_zshrc
       args:
-      creates: ~/.comp_zshrc
+        creates: ~/.comp_zshrc
 
     - name: Install oh my zsh
       shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -75,25 +75,27 @@
       with_items:
         - yarn
 
-    - name: install node/js dependencies
-      yarn: name={{item}} global=yes
-      with_items:
-        - prettier
-        - typescript
+    # - name: Install node.js dependencies
+    #   yarn: name={{item}} global=yes
+    #   with_items:
+    #     - prettier
+    #     - typescript
 
     - name: setup neovim symlink
-    file: path=~/.config/nvim
-          src=~/dotfiles/nvim
-          state=link
-          force=yes
+      file: path=~/.config/nvim
+            src=~/dotfiles/nvim
+            state=link
+            force=yes
 
     - name: setup tmux symlink
-    file: path=~/.tmux.conf
-          src=~/dotfiles/.tmux.conf
-          state=link
-          force=yes
-    file: path=~/.tmuxline.conf
-          src=~/dotfiles/.tmuxline.conf
-          state=link
-          force=yes
+      file: path=~/.tmux.conf
+            src=~/dotfiles/.tmux.conf
+            state=link
+            force=yes
+
+    - name: setup tmux line symlink
+      file: path=~/.tmuxline.conf
+            src=~/dotfiles/.tmuxline.conf
+            state=link
+            force=yes
 
