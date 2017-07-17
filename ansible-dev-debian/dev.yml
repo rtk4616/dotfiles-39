@@ -24,8 +24,6 @@
         - tig
         - tmux
         - mosh
-        - code
-        - google-chrome-stable
         - openvpn
         - python-dev
         - ruby-dev
