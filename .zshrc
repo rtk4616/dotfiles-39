@@ -41,16 +41,22 @@ alias get='git '
 
 if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
- # alias vim='mvim -v';
- alias vim='nvim';
- export EDITOR='nvim';
  # export REACT_EDITOR='idea';
  export REACT_EDITOR='subl';
  #source ~/.iterm2_shell_integration.zsh
   # export EDITOR='subl -w';
 fi
+LINUXBREW='/home/linuxbrew'
+if [ -d "$LINUXBREW" ]; then
+  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+  export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+fi
 
-
+alias vim='nvim';
+alias vi='nvim';
+export EDITOR='nvim';
+ 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
