@@ -163,6 +163,8 @@ nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 "Enter Command Mode with space
 nmap <Space> :
+" Sudo save
+cmap w!! w !sudo tee > /dev/null %
 
 "Those are annoying
 nmap :Q! :q!
