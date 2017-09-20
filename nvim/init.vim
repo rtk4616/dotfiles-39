@@ -48,7 +48,6 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Color Theme
   Plug  'https://github.com/jlangston/vim-hybrid'
-  Plug  'https://github.com/chriskempson/base16-vim'
   Plug  'https://github.com/altercation/vim-colors-solarized'
   Plug  'https://github.com/vim-airline/vim-airline-themes'
 
