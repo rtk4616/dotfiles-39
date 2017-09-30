@@ -26,7 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/sjl/vitality.vim'
   Plug  'https://github.com/thaerkh/vim-workspace'
   " Plug  'https://github.com/vim-utils/vim-alt-mappings'
-   Plug  'https://github.com/ryanoasis/vim-devicons'
+  Plug  'https://github.com/ryanoasis/vim-devicons'
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
