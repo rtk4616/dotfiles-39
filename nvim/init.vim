@@ -118,6 +118,7 @@ set modifiable
 
 set autoindent
 set clipboard+=unnamed  " use the clipboards of vim and win
+set paste
 set go+=a               " Visual selection automatically copied to the clipboard
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
