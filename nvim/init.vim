@@ -248,7 +248,7 @@ command! -bang -nargs=* Rg
       \   <bang>0)
 
 nnoremap <C-p>a :Rg
-nmap <leader>b :Buffers<cr>
+nmap ; :Buffers<cr>
 
 
 " In Neovim, you can set up fzf window using a Vim command
