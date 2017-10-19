@@ -19,7 +19,7 @@ prompt_context() {
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
   fi
 }
- 
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -56,7 +56,7 @@ fi
 alias vim='nvim';
 alias vi='nvim';
 export EDITOR='nvim';
- 
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -79,7 +79,7 @@ export EDITOR='nvim';
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux z node npm zsh-syntax-highlighting rails)
+plugins=(git vi-mode tmux z node npm zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -240,9 +240,9 @@ if [ -e ~/.fzf ]; then
   source ~/.fzf/shell/completion.zsh
 fi
 
-# fzf + ag configuration
-if _has fzf && _has ag; then
-  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+# fzf + rg configuration
+if _has fzf && _has rg; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS='

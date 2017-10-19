@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
   "Util
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
+  Plug 'https://github.com/mileszs/ack.vim'
   Plug  'https://github.com/ruchee/vim-polyglot'
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
   Plug  'https://github.com/tpope/vim-surround.git'
@@ -71,16 +72,12 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/honza/vim-snippets'
   " Plug  'https://github.com/arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
-  Plug 'https://github.com/mileszs/ack.vim'
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
   Plug  'https://github.com/airblade/vim-gitgutter'
   Plug  'https://github.com/Yggdroot/indentLine'
   Plug  'https://github.com/tpope/vim-fugitive'
-
-  "Ansible
-  Plug 'https://github.com/MicahElliott/Rocannon'
 
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
@@ -92,7 +89,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug  'tpope/vim-rake', { 'for': 'ruby' }
-  Plug  'tpope/vim-rbenv', { 'for': 'ruby' }
   Plug  'tpope/vim-bundler', { 'for': 'ruby' }
   Plug  'Keithbsmiley/rspec.vim', { 'for': 'ruby' }
 
@@ -244,6 +240,14 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 " Open goto file
 nmap <C-p> :FZF<cr>
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+
+nnoremap <C-p>a :Rg
 nmap <leader>b :Buffers<cr>
 
 
@@ -455,8 +459,8 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 
-"Silver Searcher
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+"RipGrep
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
