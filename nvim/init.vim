@@ -201,9 +201,9 @@ nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
 "ALE
 let g:ale_fixers = {
-   'javascript': ['eslint'],
-   'typescript': ['tslint']
-}
+      \  'javascript': ['eslint'],
+      \  'typescript': ['tslint']
+      \}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 
