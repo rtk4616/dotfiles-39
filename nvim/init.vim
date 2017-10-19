@@ -16,7 +16,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
   Plug  'https://github.com/benmills/vimux'
   Plug  'https://github.com/edkolev/tmuxline.vim'
-  Plug  'https://github.com/neomake/neomake.git'
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
   Plug  'https://github.com/tomtom/tcomment_vim.git'
   Plug  'https://github.com/majutsushi/tagbar.git'
@@ -64,7 +63,7 @@ call plug#begin('~/.config/nvim/plugged')
   " autocmd InsertEnter * call plug#load('YouCompleteMe')
   "                   \| call youcompleteme#Enable() | autocmd! load_ycm
   "augroup END
-  "
+  Plug 'https://github.com/w0rp/ale'
   Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'http://github.com/ervandew/supertab'
   Plug 'https://github.com/mattn/emmet-vim'
@@ -200,10 +199,13 @@ nnoremap <leader>gc :Gina commit<CR>
 " Fix ctrl h neovim
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
-"neomake
-autocmd! BufWritePost,BufEnter * Neomake
-let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
-let g:neomake_javascript_eslint_exe = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+"ALE
+let g:ale_fixers = {
+   'javascript': ['eslint'],
+   'typescript': ['tslint']
+}
+let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 
 "keys
 imap jk <Esc>
