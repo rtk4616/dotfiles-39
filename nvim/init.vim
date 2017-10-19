@@ -25,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/severin-lemaignan/vim-minimap'
   Plug  'https://github.com/sjl/vitality.vim'
   Plug  'https://github.com/thaerkh/vim-workspace'
+  Plug  'https://github.com/vim-utils/vim-husk'
   " Plug  'https://github.com/vim-utils/vim-alt-mappings'
   Plug  'https://github.com/ryanoasis/vim-devicons'
 
@@ -118,7 +119,6 @@ set modifiable
 
 set autoindent
 set clipboard+=unnamed  " use the clipboards of vim and win
-set paste
 set go+=a               " Visual selection automatically copied to the clipboard
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
