@@ -235,13 +235,12 @@ fi
 
 # fzf via local installation
 if [ -e ~/.fzf ]; then
-  _append_to_path ~/.fzf/bin
   source ~/.fzf/shell/key-bindings.zsh
   source ~/.fzf/shell/completion.zsh
 fi
 
 # fzf + rg configuration
-if _has fzf && _has rg; then
+if which fzf  > /dev/null 2>&1 && which thing > /dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
