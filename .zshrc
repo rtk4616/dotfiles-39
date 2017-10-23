@@ -1,35 +1,39 @@
 # You can customize where you put it but it’s generally recommended that you put in $HOME/.zplug
-if [[ ! -d ~/.zplug ]];then
-    git clone https://github.com/b4b4r07/zplug ~/.zplug
+# Essential
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
 fi
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
 
-# Async for zsh, used by pure
-zplug “mafredri/zsh-async”, from:github, defer:0
 # Load completion library for those sweet [tab] squares
+zplug "lib/completion", from:oh-my-zsh
 
-zplug “lib/completion”, from:oh-my-zsh
-
-zplug “plugins/git”, from:oh-my-zsh
-zplug “plugins/vi-mode”, from:oh-my-zsh
-zplug “plugins/tmux”, from:oh-my-zsh
-zplug “plugins/z”, from:oh-my-zsh
-zplug “plugins/mosh”, from:oh-my-zsh
-zplug “plugins/per-directory-history”, from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
+zplug "plugins/mosh", from:oh-my-zsh
+zplug "plugins/per-directory-history", from:oh-my-zsh
+zplug "plugins/zsh_reload", from:oh-my-zsh
+zplug "plugins/colorize", from:oh-my-zsh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
 
 # Syntax highlighting for commands, load last
-zplug “zsh-users/zsh-syntax-highlighting”, from:github, defer:3
-
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # Theme!
-zplug “theme/agnoster”, from:oh-my-zsh, as:theme
+zplug "themes/agnoster", from:oh-my-zsh
 
 # Actually install plugins, prompt user input
-if ! zplug check —verbose; then
-    printf “Install zplug plugins? [y/N]: “
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# if !zplug check —verbose; then
+#     printf "Install zplug plugins? [y/N]:"
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
 
 zplug load
 
