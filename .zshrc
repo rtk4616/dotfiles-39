@@ -1,11 +1,43 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# You can customize where you put it but it’s generally recommended that you put in $HOME/.zplug
+# Essential
+if [[ ! -d ~/.zplug ]]; then
+    git clone https://github.com/zplug/zplug ~/.zplug
+    source ~/.zplug/init.zsh && zplug update --self
+fi
+export ZPLUG_HOME=~/.zplug
+source $ZPLUG_HOME/init.zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+# Load completion library for those sweet [tab] squares
+zplug "lib/completion", from:oh-my-zsh
+
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
+zplug "plugins/mosh", from:oh-my-zsh
+zplug "plugins/per-directory-history", from:oh-my-zsh
+zplug "plugins/zsh_reload", from:oh-my-zsh
+zplug "plugins/colorize", from:oh-my-zsh
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-history-substring-search"
+
+# Syntax highlighting for commands, load last
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Theme!
+zplug "themes/agnoster", from:oh-my-zsh
+
+# Actually install plugins, prompt user input
+# if !zplug check —verbose; then
+#     printf "Install zplug plugins? [y/N]:"
+#     if read -q; then
+#         echo; zplug install
+#     fi
+# fi
+
+zplug load
+
+
 # if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
   DEFAULT_USER=$(whoami)
 # else
@@ -22,7 +54,6 @@ prompt_context() {
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
@@ -56,32 +87,6 @@ fi
 alias vim='nvim';
 alias vi='nvim';
 export EDITOR='nvim';
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how many often would you like to wait before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode tmux z node npm zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export TERM=xterm-256color
