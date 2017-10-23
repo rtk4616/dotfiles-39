@@ -18,6 +18,7 @@ zplug "plugins/mosh", from:oh-my-zsh
 zplug "plugins/per-directory-history", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
 
