@@ -15,7 +15,7 @@ zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/z", from:oh-my-zsh
 zplug "plugins/mosh", from:oh-my-zsh
-zplug "plugins/per-directory-history", from:oh-my-zsh
+# zplug "plugins/per-directory-history", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "templates/zshrc.zsh-template", from:oh-my-zsh
