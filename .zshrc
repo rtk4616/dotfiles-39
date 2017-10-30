@@ -54,6 +54,8 @@ prompt_context() {
   fi
 }
 
+setopt autocd
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 
