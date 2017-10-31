@@ -2,9 +2,9 @@
 
 touchTerm()
 {
-        wmctrl -r '_zsh_tmux_plugin_run a' -e '0,0,0,1279,500'
-        wmctrl -r '_zsh_tmux_plugin_run a' -b add,shaded
-        wmctrl -r '_zsh_tmux_plugin_run a' -b add,below
+        wmctrl -r 'terminology' -e '0,0,0,1279,500'
+        wmctrl -r 'terminology' -b add,shaded
+        wmctrl -r 'terminology>' -b add,below
         touch /tmp/.term.shaded
 }
 #
@@ -14,13 +14,13 @@ touchTerm()
 if ! pgrep -x "terminology" > /dev/null 
 then
    terminology
-   wmctrl -r '_zsh_tmux_plugin_run a' -e '0,0,0,1279,500'
+   wmctrl -r 'terminology' -e '0,0,0,1279,500'
 fi
 # Unshade and bring to front
 if [ -f /tmp/.term.shaded ]; then
-    wmctrl -r '_zsh_tmux_plugin_run a' -b remove,below
-    wmctrl -r '_zsh_tmux_plugin_run a' -b remove,shaded
-    wmctrl -a '_zsh_tmux_plugin_run a'
+    wmctrl -r 'terminology' -b remove,below
+    wmctrl -r 'terminology' -b remove,shaded
+    wmctrl -a 'terminology'
     rm /tmp/.term.shaded
 # Shade and send to back
 else
