@@ -73,7 +73,7 @@ call plug#begin('~/.config/nvim/plugged')
    autocmd InsertEnter * call plug#load('YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_ycm
   augroup END
- 
+
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
   Plug  'https://github.com/airblade/vim-gitgutter'
@@ -261,14 +261,8 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 nnoremap <C-p>a :Rg
-command! -bang -nargs=* Rgf
-      \ call fzf#vim#grep(
-      \  'rg --files --no-ignore --hidden --follow --glob "!.git/*" --no-heading --color=always --ignore-case '. <q-args>, 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
 nnoremap <C-p>a :Rg
-nmap <C-p> :Rgf<cr>
+nmap <C-p> :GFiles<cr>
 
 
 " In Neovim, you can set up fzf window using a Vim command
