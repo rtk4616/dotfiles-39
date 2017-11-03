@@ -39,7 +39,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/leafgarland/typescript-vim'
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
   Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
-  Plug 'https://github.com/mhartington/deoplete-typescript'
+  "Plug 'https://github.com/mhartington/deoplete-typescript'
 
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
