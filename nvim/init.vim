@@ -3,75 +3,77 @@ let g:python_host_skip_check=1
 " Plugin configs                            "
 " ----------------------------------------- "
 call plug#begin('~/.config/nvim/plugged')
+
   "Util
   Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
   Plug  'https://github.com/junegunn/fzf.vim'
-  Plug 'https://github.com/mileszs/ack.vim'
-  Plug  'https://github.com/ruchee/vim-polyglot'
+  Plug  'https://github.com/mileszs/ack.vim'
   Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
-  Plug  'https://github.com/tpope/vim-surround.git'
-  Plug  'https://github.com/tpope/vim-unimpaired'
   Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
   Plug  'https://github.com/bling/vim-airline.git'
   Plug  'https://github.com/christoomey/vim-tmux-navigator'
   Plug  'https://github.com/benmills/vimux'
   Plug  'https://github.com/edkolev/tmuxline.vim'
   Plug  'https://github.com/terryma/vim-multiple-cursors.git'
-  Plug  'https://github.com/tomtom/tcomment_vim.git'
-  Plug  'https://github.com/majutsushi/tagbar.git'
   Plug  'https://github.com/Valloric/MatchTagAlways.git'
   Plug  'https://github.com/Raimondi/delimitMate.git'
   Plug  'https://github.com/easymotion/vim-easymotion'
   Plug  'https://github.com/severin-lemaignan/vim-minimap'
-  Plug  'https://github.com/sjl/vitality.vim'
   Plug  'https://github.com/thaerkh/vim-workspace'
   Plug  'https://github.com/vim-utils/vim-husk'
-  " Plug  'https://github.com/vim-utils/vim-alt-mappings'
   Plug  'https://github.com/ryanoasis/vim-devicons'
+  Plug  'https://github.com/djoshea/vim-autoread'
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-  Plug  'https://github.com/billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
+  "Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
+  "Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
-  Plug  'https://github.com/carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
+  "Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
 
   "Typescript
-  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
-  Plug 'mhartington/deoplete-typescript'
+  Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
+  Plug 'https://github.com/leafgarland/typescript-vim'
+  Plug 'https://github.com/peitalin/vim-jsx-typescript'
+  Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
+  Plug 'https://github.com/mhartington/deoplete-typescript'
 
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
 
   "Color Theme
   Plug  'https://github.com/jlangston/vim-hybrid'
+  Plug  'https://github.com/joshdick/onedark.vim'
   Plug  'https://github.com/altercation/vim-colors-solarized'
   Plug  'https://github.com/vim-airline/vim-airline-themes'
 
   "Prose
   Plug  'https://github.com/tpope/vim-markdown.git'
 
-  "Programming
-
-  "Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
-  "augroup load_ycm
-  " autocmd!
-  " autocmd InsertEnter * call plug#load('YouCompleteMe')
-  "                   \| call youcompleteme#Enable() | autocmd! load_ycm
-  "augroup END
+  "General Programming
+  Plug  'https://github.com/majutsushi/tagbar.git'
   Plug 'https://github.com/w0rp/ale'
-  Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'http://github.com/ervandew/supertab'
+  Plug 'https://github.com/ruchee/vim-polyglot'
+  Plug 'https://github.com/tpope/vim-surround.git'
+  Plug 'https://github.com/tpope/vim-unimpaired'
+  Plug 'https://github.com/tomtom/tcomment_vim.git'
+  Plug 'https://github.com/ervandew/supertab'
   Plug 'https://github.com/mattn/emmet-vim'
   Plug 'https://github.com/SirVer/ultisnips', {'on': []}
   Plug 'https://github.com/honza/vim-snippets'
-  " Plug  'https://github.com/arakashic/chromatica.nvim'
+  " Plug  'arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
-
+  "Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
+  augroup load_ycm
+   autocmd!
+   autocmd InsertEnter * call plug#load('YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_ycm
+  augroup END
+ 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
   Plug  'https://github.com/airblade/vim-gitgutter'
@@ -81,22 +83,22 @@ call plug#begin('~/.config/nvim/plugged')
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
-  Plug  'https://github.com/zchee/deoplete-go', { 'do': 'make'}
+  " Plug  'zchee/deoplete-go', { 'do': 'make'}
 
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
-  Plug  'https://github.com/fishbullet/deoplete-ruby', { 'for': 'ruby' }
-  Plug  'tpope/vim-rake', { 'for': 'ruby' }
-  Plug  'tpope/vim-bundler', { 'for': 'ruby' }
-  Plug  'Keithbsmiley/rspec.vim', { 'for': 'ruby' }
+  "Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
+  Plug  'https://github.com/tpope/vim-rake', { 'for': 'ruby' }
+  Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+  Plug  'https://github.com/Keithbsmiley/rspec.vim', { 'for': 'ruby' }
 
 
 call plug#end()
 
 filetype plugin indent on
 
-colorscheme hybrid
+colorscheme onedark
 "highlight LineNr ctermfg=darcgrey ctermbg=blacK
 highlight LineNr ctermfg=darkgrey ctermbg=none
 highlight NonText ctermbg=none
@@ -176,6 +178,11 @@ vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
+" Yanks and copies to system clipboard
+vnoremap <C-c> "*y
+vnoremap y "*y
+vnoremap <C-v> "+p
+vnoremap p "*p
 
 " Bubble single lines
 nmap <M-up> [e
@@ -191,6 +198,7 @@ nnoremap <silent> vv <C-w>v
 :nnoremap gb :bnext<CR>
 :nnoremap gB :bprevious<CR>
 :nnoremap <C-q> :bw<CR>
+nmap ; :Buffers<cr>
 
 "gita status
 nnoremap <leader>gs :Gina status<CR>
@@ -206,6 +214,10 @@ let g:ale_fixers = {
       \}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
+let g:ale_linters = {
+      \  'javascript': ['eslint'],
+      \  'typescript': ['tslint']
+      \}
 
 "keys
 imap jk <Esc>
@@ -241,16 +253,22 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 "imap <CS-t> <esc>:CtrlPBufTagAll<cr>
 
 " Open goto file
-nmap <C-p> :FZF<cr>
 command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '
+  \ . <q-args>, 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+nnoremap <C-p>a :Rg
+command! -bang -nargs=* Rgf
       \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
+      \  'rg --files --no-ignore --hidden --follow --glob "!.git/*" --no-heading --color=always --ignore-case '. <q-args>, 1,
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
-
 nnoremap <C-p>a :Rg
-nmap ; :Buffers<cr>
+nmap <C-p> :Rgf<cr>
 
 
 " In Neovim, you can set up fzf window using a Vim command
@@ -399,7 +417,7 @@ nnoremap <leader>fm :Neoformat<CR>
 
 "JSX
 let g:jsx_ext_required = 0
-let g:tigris#enabled = 1
+" let g:tigris#enabled = 1
 
 "Golang
 let g:go_highlight_functions = 1
@@ -420,34 +438,36 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 
 "DeoPlete
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+"let g:deoplete#omni#functions = {}
+"let g:deoplete#omni#functions.javascript = [
+"  \ 'tern#Complete',
+"  \ 'jspc#omni'
+"\]
 set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
+"let g:deoplete#sources = {}
+"let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
 "set completeopt-=preview
 
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_ignore_case = 1
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#enable_camel_case = 1
+" let g:deoplete#enable_refresh_always = 1
+" let g:deoplete#max_abbr_width = 0
+" let g:deoplete#max_menu_width = 0
+" let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+" call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
-let g:deoplete#sources#tss#javascript_support = 1
+"let g:tern_request_timeout = 1
+"let g:tern_request_timeout = 6000
+"let g:tern#command = ["tern"]
+"let g:tern#arguments = ["--persistent"]
+"let g:deoplete#sources#tss#javascript_support = 1
+
+" Typescript
 let g:tsuquyomi_javascript_support = 1
 let g:tsuquyomi_auto_open = 1
 let g:tsuquyomi_disable_quickfix = 1
