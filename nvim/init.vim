@@ -168,6 +168,7 @@ cmap w!! w !sudo tee > /dev/null %
 nmap :Q! :q!
 nmap :q1 :q!
 nmap :Q1 :q!
+nmap :Q :q
 
 "Ctrl S to save
 noremap <silent> <C-S>  :update<CR>
