@@ -26,6 +26,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
+  Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   "Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
   "Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
@@ -35,9 +36,9 @@ call plug#begin('~/.config/nvim/plugged')
   "Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
 
   "Typescript
-  Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'https://github.com/leafgarland/typescript-vim'
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
+  Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
   "Plug 'https://github.com/mhartington/deoplete-typescript'
 
@@ -261,7 +262,6 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 nnoremap <C-p>a :Rg
-nnoremap <C-p>a :Rg
 nmap <C-p> :GFiles<cr>
 
 
@@ -375,7 +375,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 " AirLine
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='dark'
 let g:airline#extensions#branch#enabled     = 1
 let g:hybrid_custom_term_colors = 1
 "let g:hybrid_reduced_contrast = 1
