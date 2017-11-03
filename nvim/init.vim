@@ -27,8 +27,8 @@ call plug#begin('~/.config/nvim/plugged')
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
   Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  "Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-  "Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
+  " Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -68,7 +68,7 @@ call plug#begin('~/.config/nvim/plugged')
   " Plug  'arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
   "Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py', 'on': []}
+  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py --js-completer --go-completer', 'on': []}
   augroup load_ycm
    autocmd!
    autocmd InsertEnter * call plug#load('YouCompleteMe')
@@ -99,7 +99,7 @@ call plug#end()
 
 filetype plugin indent on
 
-colorscheme onedark
+colorscheme hybrid
 "highlight LineNr ctermfg=darcgrey ctermbg=blacK
 highlight LineNr ctermfg=darkgrey ctermbg=none
 highlight NonText ctermbg=none
@@ -376,7 +376,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 " AirLine
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='dark'
+let g:airline_theme='powerlineish'
 let g:airline#extensions#branch#enabled     = 1
 let g:hybrid_custom_term_colors = 1
 "let g:hybrid_reduced_contrast = 1
@@ -456,17 +456,17 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 " let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 " call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
-"let g:tern_request_timeout = 1
-"let g:tern_request_timeout = 6000
-"let g:tern#command = ["tern"]
-"let g:tern#arguments = ["--persistent"]
+let g:tern_request_timeout = 1
+let g:tern_request_timeout = 6000
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 "let g:deoplete#sources#tss#javascript_support = 1
 
 " Typescript
 let g:tsuquyomi_javascript_support = 1
 let g:tsuquyomi_auto_open = 1
 let g:tsuquyomi_disable_quickfix = 1
-
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -474,6 +474,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
 
 
 "RipGrep
