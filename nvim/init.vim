@@ -55,7 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/tpope/vim-markdown.git'
 
   "General Programming
-  Plug  'https://github.com/majutsushi/tagbar.git'
+  Plug 'https://github.com/majutsushi/tagbar.git'
   Plug 'https://github.com/w0rp/ale'
   Plug 'https://github.com/ruchee/vim-polyglot'
   Plug 'https://github.com/tpope/vim-surround.git'
@@ -65,6 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/mattn/emmet-vim'
   Plug 'https://github.com/SirVer/ultisnips', {'on': []}
   Plug 'https://github.com/honza/vim-snippets'
+  Plug 'https://github.com/janko-m/vim-test'
   " Plug  'arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
   "Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -90,9 +91,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   "Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-  Plug  'https://github.com/tpope/vim-rake', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
-  Plug  'https://github.com/Keithbsmiley/rspec.vim', { 'for': 'ruby' }
 
 
 call plug#end()
