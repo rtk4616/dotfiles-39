@@ -223,6 +223,12 @@ let g:ale_linters = {
 "keys
 imap jk <Esc>
 
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tg :TestVisit<CR>
+
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
 let g:user_emmet_settings = {
