@@ -258,12 +258,6 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 "Open goto symbol on current buffer
-"nmap <leader>r :CtrlPBufTag
-"imap <leader> <esc>:CtrlPTag
-
-" Open goto symbol on all buffers
-"nmap <CS-t> :CtrlPBufTagAll<cr>
-"imap <CS-t> <esc>:CtrlPBufTagAll<cr>
 
 " Open goto file
 command! -bang -nargs=* Rg
@@ -275,7 +269,8 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 nnoremap <C-p>a :Rg
 nmap <C-p> :GFiles<cr>
-
+nmap <leader>r :BTags<cr>
+imap <leader><C-r> :Tags<cr>
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
@@ -356,31 +351,17 @@ vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 let g:used_javascript_libs = 'jquery,react,lodash'
 
 "Utilisnips
-function! g:UltiSnips_Complete()
-call UltiSnips#ExpandSnippetOrJump()
-if g:ulti_expand_or_jump_res == 0
-if pumvisible()
-  return "\<C-N>"
-else
-  return "\<TAB>"
-endif
-endif
-
-return ""
-endif
-endfunction
-
-function! g:UltiSnips_Reverse()
-call UltiSnips#JumpBackwards()
-if g:ulti_jump_backwards_res == 0
-return "\<C-P>"
-endif
-
-return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+let g:UltiSnipsExpandTrigger="<leader>e"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#mappings#manual_complete()
+		function! s:check_back_space() abort "{{{
+		let col = col('.') - 1
+		return !col || getline('.')[col - 1]  =~ '\s'
+		endfunction"}}}
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
