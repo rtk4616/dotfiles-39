@@ -26,12 +26,11 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
   Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-  " Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx']}
-  Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx']}
-  Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
+  Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
   Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
   "Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
 
@@ -40,7 +39,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
   Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
   Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
-  "Plug 'https://github.com/mhartington/deoplete-typescript'
+  Plug 'https://github.com/mhartington/deoplete-typescript'
 
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
@@ -68,13 +67,13 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/janko-m/vim-test'
   " Plug  'arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
-  "Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py --js-completer --go-completer', 'on': []}
-  augroup load_ycm
-   autocmd!
-   autocmd InsertEnter * call plug#load('YouCompleteMe')
-                     \| call youcompleteme#Enable() | autocmd! load_ycm
-  augroup END
+  Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py --js-completer --go-completer', 'on': []}
+  " augroup load_ycm
+  "  autocmd!
+  "  autocmd InsertEnter * call plug#load('YouCompleteMe')
+  "                    \| call youcompleteme#Enable() | autocmd! load_ycm
+  " augroup END
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
@@ -85,13 +84,16 @@ call plug#begin('~/.config/nvim/plugged')
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
-  " Plug  'zchee/deoplete-go', { 'do': 'make'}
+  Plug  'zchee/deoplete-go', { 'do': 'make'}
 
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
-  "Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
+  Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+
+  "Python
+  Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
 
 
 call plug#end()
@@ -438,34 +440,34 @@ map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 
 "DeoPlete
-"let g:deoplete#omni#functions = {}
-"let g:deoplete#omni#functions.javascript = [
-"  \ 'tern#Complete',
-"  \ 'jspc#omni'
-"\]
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+ \ 'tern#Complete',
+ \ 'jspc#omni'
+\]
 set completeopt=longest,menuone,preview
-"let g:deoplete#sources = {}
-"let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
-"set completeopt-=preview
+set completeopt-=preview
 
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#enable_ignore_case = 1
-" let g:deoplete#enable_smart_case = 1
-" let g:deoplete#enable_camel_case = 1
-" let g:deoplete#enable_refresh_always = 1
-" let g:deoplete#max_abbr_width = 0
-" let g:deoplete#max_menu_width = 0
-" let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-" call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
 let g:tern_request_timeout = 1
 let g:tern_request_timeout = 6000
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-"let g:deoplete#sources#tss#javascript_support = 1
+let g:deoplete#sources#tss#javascript_support = 1
 
 " Typescript
 let g:tsuquyomi_javascript_support = 1
@@ -479,7 +481,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 
 
 "RipGrep
