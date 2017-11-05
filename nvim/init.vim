@@ -351,9 +351,12 @@ vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 let g:used_javascript_libs = 'jquery,react,lodash'
 
 "Utilisnips
-"autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-let g:UltiSnipsExpandTrigger="<leader>e"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:UltiSnipsExpandTrigger="<leader-e>"
+let g:UltiSnipsJumpForwardTrigger="<leader-b>"
+let g:UltiSnipsJumpBackwardTrigger="<leader-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 inoremap <silent><expr> <TAB>
 		\ pumvisible() ? "\<C-n>" :
 		\ <SID>check_back_space() ? "\<TAB>" :
@@ -445,7 +448,7 @@ let g:deoplete#enable_camel_case = 1
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#max_abbr_width = 0
 let g:deoplete#max_menu_width = 0
-let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+"let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
 let g:tern_request_timeout = 1
