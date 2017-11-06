@@ -62,7 +62,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/tomtom/tcomment_vim.git'
   Plug 'https://github.com/ervandew/supertab'
   Plug 'https://github.com/mattn/emmet-vim'
-  Plug 'https://github.com/SirVer/ultisnips', {'on': []}
+  Plug 'https://github.com/SirVer/ultisnips'
   Plug 'https://github.com/honza/vim-snippets'
   Plug 'https://github.com/janko-m/vim-test'
   " Plug  'arakashic/chromatica.nvim'
@@ -91,6 +91,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+  Plug 'https://github.com/tpope/vim-endwise'
 
   "Python
   Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
@@ -351,20 +352,14 @@ vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 let g:used_javascript_libs = 'jquery,react,lodash'
 
 "Utilisnips
-let g:UltiSnipsExpandTrigger="<leader-e>"
-let g:UltiSnipsJumpForwardTrigger="<leader-b>"
-let g:UltiSnipsJumpBackwardTrigger="<leader-z>"
+let g:UltiSnipsExpandTrigger="<leader>e"
+let g:UltiSnipsJumpForwardTrigger="<leader>b"
+let g:UltiSnipsJumpBackwardTrigger="<leader>z"
+nnoremap <leader>l :Snippets<CR>
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#mappings#manual_complete()
-		function! s:check_back_space() abort "{{{
-		let col = col('.') - 1
-		return !col || getline('.')[col - 1]  =~ '\s'
-		endfunction"}}}
+let UltiSnipsEditSplit = "vertical"
+let UltiSnipsUsePythonVersion = 3
 
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
