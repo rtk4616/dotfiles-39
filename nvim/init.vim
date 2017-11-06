@@ -38,7 +38,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/leafgarland/typescript-vim'
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
   Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript' }
+  Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript https://github.com/jb55/typescript-ctags' }
   Plug 'https://github.com/mhartington/deoplete-typescript'
 
   "Css
@@ -154,8 +154,6 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
 " Remove trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Quickly open/reload vim
@@ -227,7 +225,7 @@ let g:ale_linters = {
 imap jk <Esc>
 
 "Vim Test
-" let test#strategy = "vimux"
+let test#strategy = "vimux"
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
@@ -456,6 +454,24 @@ let g:tsuquyomi_javascript_support = 1
 let g:tsuquyomi_auto_open = 1
 let g:tsuquyomi_disable_quickfix = 1
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+let g:tagbar_type_typescript = {                                                  
+  \ 'ctagsbin' : 'tstags',                                                        
+  \ 'ctagsargs' : '-f-',                                                           
+  \ 'kinds': [                                                                     
+    \ 'e:enums:0:1',                                                               
+    \ 'f:function:0:1',                                                            
+    \ 't:typealias:0:1',                                                           
+    \ 'M:Module:0:1',                                                              
+    \ 'I:import:0:1',                                                              
+    \ 'i:interface:0:1',                                                           
+    \ 'C:class:0:1',                                                               
+    \ 'm:method:0:1',                                                              
+    \ 'p:property:0:1',                                                            
+    \ 'v:variable:0:1',                                                            
+    \ 'c:const:0:1',                                                              
+  \ ],                                                                            
+  \ 'sort' : 0                                                                    
+\ }
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -468,5 +484,22 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "RipGrep
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
+endif
+
+"Ruby config
+if executable('ripper-tags')
+  let g:tagbar_type_ruby = {
+      \ 'kinds'      : ['m:modules',
+                      \ 'c:classes',
+                      \ 'C:constants',
+                      \ 'F:singleton methods',
+                      \ 'f:methods',
+                      \ 'a:aliases'],
+      \ 'kind2scope' : { 'c' : 'class',
+                       \ 'm' : 'class' },
+      \ 'scope2kind' : { 'class' : 'c' },
+      \ 'ctagsbin'   : 'ripper-tags',
+      \ 'ctagsargs'  : ['-f', '-']
+      \ }
 endif
 
