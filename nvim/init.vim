@@ -227,8 +227,7 @@ let g:ale_linters = {
 imap jk <Esc>
 
 "Vim Test
-" let test#strategy = "dispatch"
-let test#strategy = "vimux"
+" let test#strategy = "vimux"
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
