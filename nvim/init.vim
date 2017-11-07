@@ -31,8 +31,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
-  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn', 'for': 'javascript' }
-  "Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx'] }
+  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
+  Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
 
   "Typescript
   Plug 'https://github.com/leafgarland/typescript-vim'
@@ -395,7 +395,7 @@ nnoremap <leader>fm :Neoformat<CR>
 
 "Chromatica
 "let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
-"let g:chromatica#enable_at_startup=1
+" let g:chromatica#enable_at_startup=1
 
 "JSX
 let g:jsx_ext_required = 0
@@ -454,23 +454,23 @@ let g:tsuquyomi_javascript_support = 1
 let g:tsuquyomi_auto_open = 1
 let g:tsuquyomi_disable_quickfix = 1
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
-let g:tagbar_type_typescript = {                                                  
-  \ 'ctagsbin' : 'tstags',                                                        
-  \ 'ctagsargs' : '-f-',                                                           
-  \ 'kinds': [                                                                     
-    \ 'e:enums:0:1',                                                               
-    \ 'f:function:0:1',                                                            
-    \ 't:typealias:0:1',                                                           
-    \ 'M:Module:0:1',                                                              
-    \ 'I:import:0:1',                                                              
-    \ 'i:interface:0:1',                                                           
-    \ 'C:class:0:1',                                                               
-    \ 'm:method:0:1',                                                              
-    \ 'p:property:0:1',                                                            
-    \ 'v:variable:0:1',                                                            
-    \ 'c:const:0:1',                                                              
-  \ ],                                                                            
-  \ 'sort' : 0                                                                    
+let g:tagbar_type_typescript = {
+  \ 'ctagsbin' : 'tstags',
+  \ 'ctagsargs' : '-f-',
+  \ 'kinds': [
+    \ 'e:enums:0:1',
+    \ 'f:function:0:1',
+    \ 't:typealias:0:1',
+    \ 'M:Module:0:1',
+    \ 'I:import:0:1',
+    \ 'i:interface:0:1',
+    \ 'C:class:0:1',
+    \ 'm:method:0:1',
+    \ 'p:property:0:1',
+    \ 'v:variable:0:1',
+    \ 'c:const:0:1',
+  \ ],
+  \ 'sort' : 0
 \ }
 
 " Enable omni completion.
