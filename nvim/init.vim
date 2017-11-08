@@ -23,23 +23,22 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/vim-utils/vim-husk'
   Plug  'https://github.com/ryanoasis/vim-devicons'
   Plug  'https://github.com/djoshea/vim-autoread'
+  Plug  'https://github.com/roxma/vim-tmux-clipboard'
+
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
-  Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-  Plug  'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+  " Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
+  " Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
+  Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
-  Plug  'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
   Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
 
   "Typescript
-  Plug 'https://github.com/leafgarland/typescript-vim'
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
-  Plug 'https://github.com/Shougo/vimproc.vim', { 'do': 'make' }
-  Plug 'https://github.com/Quramy/tsuquyomi', { 'do': 'yarn global add typescript https://github.com/jb55/typescript-ctags' }
-  Plug 'https://github.com/mhartington/deoplete-typescript'
+  Plug 'https://github.com/mhartington/nvim-typescript', { 'do': 'yarn global add typescript' }
+  Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
@@ -65,15 +64,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/SirVer/ultisnips'
   Plug 'https://github.com/honza/vim-snippets'
   Plug 'https://github.com/janko-m/vim-test'
-  " Plug  'arakashic/chromatica.nvim'
   Plug 'https://github.com/sbdchd/neoformat'
   Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plug  'https://github.com/Valloric/YouCompleteMe.git', {'do': 'git submodule update --init --recursive; ./install.py --js-completer --go-completer', 'on': []}
-  " augroup load_ycm
-  "  autocmd!
-  "  autocmd InsertEnter * call plug#load('YouCompleteMe')
-  "                    \| call youcompleteme#Enable() | autocmd! load_ycm
-  " augroup END
+  "Plug 'https://github.com/roxma/nvim-completion-manager'
+	"Plug 'https://github.com/fgrsnau/ncm-otherbuf'
+  "JS Plugins NeoVim
+  Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
+  "Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'https://github.com/Shougo/echodoc.vim'
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
@@ -89,12 +87,14 @@ call plug#begin('~/.config/nvim/plugged')
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
-  Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+  Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug 'https://github.com/tpope/vim-endwise'
+	"Plug 'https://github.com/roxma/ncm-rct-complete', { 'for' : 'ruby' }
 
   "Python
   Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
+  "Plug 'https://github.com/davidhalter/jedi-vim'
 
 
 call plug#end()
@@ -255,8 +255,6 @@ nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
 vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
-"Open goto symbol on current buffer
-
 " Open goto file
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -320,8 +318,6 @@ let g:fzf_layout = { 'down': '40%' }
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors call fzf#vim#colors({'left': '15%'})
 
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 "let g:session_autosave = 'yes'
 "let g:session_autoload = 'yes'
 "let g:session_default_to_last = 1
@@ -353,7 +349,6 @@ let g:UltiSnipsExpandTrigger="<leader>e"
 let g:UltiSnipsJumpForwardTrigger="<leader>b"
 let g:UltiSnipsJumpBackwardTrigger="<leader>z"
 nnoremap <leader>l :Snippets<CR>
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 let UltiSnipsEditSplit = "vertical"
 let UltiSnipsUsePythonVersion = 3
@@ -392,10 +387,6 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 
 "NeoFormat
 nnoremap <leader>fm :Neoformat<CR>
-
-"Chromatica
-"let g:chromatica#libclang_path='/usr/local/opt/llvm/lib/'
-" let g:chromatica#enable_at_startup=1
 
 "JSX
 let g:jsx_ext_required = 0
@@ -443,35 +434,14 @@ let g:deoplete#max_menu_width = 0
 "let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
 call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 
-let g:tern_request_timeout = 1
-let g:tern_request_timeout = 6000
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+"let g:tern_request_timeout = 1
+"let g:tern_request_timeout = 6000
+"let g:tern#command = ["tern"]
+"let g:tern#arguments = ["--persistent"]
 let g:deoplete#sources#tss#javascript_support = 1
 
 " Typescript
-let g:tsuquyomi_javascript_support = 1
-let g:tsuquyomi_auto_open = 1
-let g:tsuquyomi_disable_quickfix = 1
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-  \ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-\ }
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -502,4 +472,13 @@ if executable('ripper-tags')
       \ 'ctagsargs'  : ['-f', '-']
       \ }
 endif
+
+"Language Servers
+"let g:LanguageClient_serverCommands = {
+"    \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
+"    \ }
+
+" Automatically start language servers.
+"let g:LanguageClient_autoStart = 1
+
 
