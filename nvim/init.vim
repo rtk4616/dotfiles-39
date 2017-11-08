@@ -439,6 +439,7 @@ call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 "let g:tern#command = ["tern"]
 "let g:tern#arguments = ["--persistent"]
 let g:deoplete#sources#tss#javascript_support = 1
+let g:nvim_typescript#javascript_support = 1
 
 " Typescript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
