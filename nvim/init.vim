@@ -341,7 +341,13 @@ let g:multi_cursor_quit_key = '<Esc>'
 nnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 
-let g:used_javascript_libs = 'jquery,react,lodash'
+function Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+function Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
+
 
 "Utilisnips
 let g:UltiSnipsExpandTrigger="<leader>e"
@@ -387,6 +393,8 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 "NeoFormat
 nnoremap <leader>fm :Neoformat<CR>
 
+"Common JS Libs
+let g:used_javascript_libs = 'jquery,react,lodash'
 "JSX
 let g:jsx_ext_required = 0
 " let g:tigris#enabled = 1
