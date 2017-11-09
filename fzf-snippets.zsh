@@ -15,7 +15,14 @@ fn_history() {
 vg() {
   local file
 
-  file="$(rg --files --no-ignore --hidden --follow --glob "!.git/*" $@ | fzf -0 -1)"
+  file="$(rg --files --hidden --follow --glob "!.git/*" $@ | 
+  fzf --bind='ctrl-space:toggle-preview' --preview '[[ $(file --mime {}) =~ binary ]] &&
+                 echo {} is a binary file ||
+                 (highlight -O ansi -l {} ||
+                  coderay {} ||
+                  rougify {} ||
+                  pygmentize {} ||
+                  cat {}) 2> /dev/null | head -500')"
 
   if [[ -n $file ]]
   then
@@ -176,7 +183,7 @@ zz() {
 
 tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
-  if [ $1 ]; then 
+  if [ $1 ]; then
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."

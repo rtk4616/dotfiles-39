@@ -43,7 +43,6 @@ call plug#begin('~/.config/nvim/plugged')
   "Css
   Plug  'https://github.com/ap/vim-css-color.git'
 
-  "Color Theme
   Plug  'https://github.com/jlangston/vim-hybrid'
   Plug  'https://github.com/joshdick/onedark.vim'
   Plug  'https://github.com/altercation/vim-colors-solarized'
@@ -264,7 +263,7 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 nnoremap <C-p>a :Rg
-nmap <C-p> :GFiles<cr>
+nmap <C-p> :Files<cr>
 nmap <leader>r :BTags<cr>
 imap <leader><C-r> :Tags<cr>
 
