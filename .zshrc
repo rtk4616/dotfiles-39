@@ -156,7 +156,7 @@ fi
 
 # fzf + rg configuration
 if type fzf  &> /dev/null  && type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --hidden --smartcase --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   # export FZF_DEFAULT_OPTS='
