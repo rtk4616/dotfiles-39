@@ -343,9 +343,11 @@ vnoremap <silent> <C-M-g> :MultipleCursorsFind <C-R>/<CR>
 
 function Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
+  :ALEToggle
 endfunction
 function Multiple_cursors_after()
   let g:deoplete#disable_auto_complete = 0
+  :ALEToggle
 endfunction
 
 
