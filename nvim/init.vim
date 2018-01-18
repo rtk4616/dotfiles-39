@@ -34,6 +34,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
   Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
   Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
+  Plug  'https://github.com/posva/vim-vue'
 
   "Typescript
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
