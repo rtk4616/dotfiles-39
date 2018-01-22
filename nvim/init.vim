@@ -81,7 +81,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
-  Plug  'https://github.com/jodosha/vim-godebug', { 'for': 'go' }
+  Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
   Plug  'zchee/deoplete-go', { 'do': 'make'}
 
   "Ruby
@@ -218,7 +218,8 @@ let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
 let g:ale_linters = {
       \  'javascript': ['eslint'],
-      \  'typescript': ['tslint']
+      \  'typescript': ['tslint'],
+      \  'go': ['gometalinter', 'gofmt']
       \}
 
 "keys
@@ -409,6 +410,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+" Open delve in horizontal split 
+let g:delve_new_command = "new"
 
 "ViMux
 " Prompt for a command to run
