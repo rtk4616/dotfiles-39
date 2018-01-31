@@ -102,14 +102,26 @@ call plug#end()
 filetype plugin indent on
 
 colorscheme hybrid
+let g:onedark_terminal_italics=1
 "highlight LineNr ctermfg=darcgrey ctermbg=blacK
 highlight LineNr ctermfg=darkgrey ctermbg=none
 highlight NonText ctermbg=none
 syntax on
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 if &term == "xterm"
     set term=xterm-256color
 endif
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set background=dark
 set number
