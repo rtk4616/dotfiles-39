@@ -231,9 +231,10 @@ let g:ale_completion_enabled = 1
 let g:ale_linters = {
       \  'javascript': ['eslint'],
       \  'typescript': ['tslint'],
-      \  'go': ['gometalinter', 'gofmt']
+      \  'vue': ['eslint'],
+      \  'go': ['gometalinter', 'goimports']
       \}
-
+let g:ale_linter_aliases = {'vue': ['css', 'javascript', 'typescript']}
 "keys
 imap jk <Esc>
 
@@ -466,6 +467,7 @@ call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
 "let g:tern#arguments = ["--persistent"]
 let g:deoplete#sources#tss#javascript_support = 1
 let g:nvim_typescript#javascript_support = 1
+let g:nvim_typescript#vue_support = 1
 
 " Typescript
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
