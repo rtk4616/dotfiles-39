@@ -127,7 +127,7 @@ export TERM=xterm-256color
 bindkey "^R" history-incremental-search-backward
 
 # if [ -f ~/.comp_zshrc ]; then
-  source ~/.comp_zshrc
+ [ -f ~/.comp_zshrc ] && source ~/.comp_zshrc
 # fi
 
 
