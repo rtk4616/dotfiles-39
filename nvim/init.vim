@@ -65,7 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/honza/vim-snippets'
   Plug 'https://github.com/janko-m/vim-test'
   Plug 'https://github.com/sbdchd/neoformat'
-  Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'http://github.com/Shougo/deoplete.nvim', {'tag': '4.0-serial', 'do': ':UpdateRemotePlugins' }
   "Plug 'https://github.com/roxma/nvim-completion-manager'
 	"Plug 'https://github.com/fgrsnau/ncm-otherbuf'
   "JS Plugins NeoVim
