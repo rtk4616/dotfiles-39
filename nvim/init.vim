@@ -72,6 +72,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
   "Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
   Plug 'https://github.com/Shougo/echodoc.vim'
+  Plug 'https://github.com/tpope/vim-db'
 
   "Git
   Plug  'https://github.com/lambdalisue/gina.vim'
@@ -95,6 +96,7 @@ call plug#begin('~/.config/nvim/plugged')
   "Python
   Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
   "Plug 'https://github.com/davidhalter/jedi-vim'
+
 
 
 call plug#end()
