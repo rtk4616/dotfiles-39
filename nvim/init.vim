@@ -65,7 +65,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/honza/vim-snippets'
   Plug 'https://github.com/janko-m/vim-test'
   Plug 'https://github.com/sbdchd/neoformat'
-  Plug 'http://github.com/Shougo/deoplete.nvim', {'tag': '4.0-serial', 'do': ':UpdateRemotePlugins' }
+  Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   "Plug 'https://github.com/roxma/nvim-completion-manager'
 	"Plug 'https://github.com/fgrsnau/ncm-otherbuf'
   "JS Plugins NeoVim
@@ -184,6 +184,13 @@ nmap :q1 :q!
 nmap :Q1 :q!
 nmap :Q :q
 
+function! SetSolarized()
+  set colorscheme solarized
+  set AirlineTheme solarized
+endfunction
+
+vmap <LocalLeader>sol  :call SetSolarized()<CR>
+
 "Ctrl S to save
 noremap <silent> <C-S>  :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
@@ -215,6 +222,7 @@ nnoremap <silent> vv <C-w>v
 :nnoremap gB :bprevious<CR>
 :nnoremap <C-q> :bw<CR>
 nmap ; :Buffers<cr>
+
 
 "gita status
 nnoremap <leader>gs :Gina status<CR>
@@ -430,12 +438,21 @@ let g:go_fmt_command = "goimports"
 let g:delve_new_command = "new"
 
 "ViMux
+function! VimuxSlime()
+	call VimuxSendText(@v)
+	call VimuxSendKeys("Enter")
+endfunction
+
+"If text is selected, save it in the v buffer and send that buffer it to tmux
+vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
 " Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
 " Inspect runner pane
 map <Leader>vi :VimuxInspectRunner<CR>
+" Zoom the tmux runner pane
+map <Leader>vz :VimuxZoomRunner<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
 
