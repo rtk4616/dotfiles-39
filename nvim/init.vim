@@ -536,6 +536,7 @@ let g:LanguageClient_serverCommands = {
  		\ 'javascript': ['javascript-typescript-stdio'],
    \ 'javascript.jsx': ['javascript-typescript-stdio'],
    \ 'vue': ['vls']
+   \ 'ruby': ['language_server-ruby']
    \ }
 
 " Automatically start language servers.
