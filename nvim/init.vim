@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Javascript
   Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
+  Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'yarn global add vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
   " Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
   " Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
   Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
@@ -46,8 +47,8 @@ call plug#begin('~/.config/nvim/plugged')
 
   Plug  'https://github.com/jlangston/vim-hybrid'
   Plug  'https://github.com/joshdick/onedark.vim'
-  Plug  'https://github.com/altercation/vim-colors-solarized'
   Plug  'https://github.com/vim-airline/vim-airline-themes'
+  Plug  'https://github.com/chriskempson/base16-vim'
 
   "Prose
   Plug  'https://github.com/tpope/vim-markdown.git'
@@ -185,12 +186,12 @@ nmap :q1 :q!
 nmap :Q1 :q!
 nmap :Q :q
 
-function! SetSolarized()
-  set colorscheme solarized
-  set AirlineTheme solarized
+function! SetLightTheme()
+  colorscheme base16-solarized-light
+  AirlineTheme sol
 endfunction
 
-vmap <LocalLeader>sol  :call SetSolarized()<CR>
+nmap <Leader>cs :call SetLightTheme()<CR>
 
 "Ctrl S to save
 noremap <silent> <C-S>  :update<CR>
@@ -535,7 +536,7 @@ endif
 let g:LanguageClient_serverCommands = {
  		\ 'javascript': ['javascript-typescript-stdio'],
    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-   \ 'vue': ['vls']
+   \ 'vue': ['vls'],
    \ 'ruby': ['language_server-ruby']
    \ }
 
