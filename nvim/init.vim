@@ -84,6 +84,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "GoLang
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+  Plug  'https://github.com/godoctor/godoctor.vim', { 'for': 'go' }
   Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
   "Plug  'zchee/deoplete-go', { 'do': 'make'}
 
