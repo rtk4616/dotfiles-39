@@ -70,6 +70,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/roxma/nvim-completion-manager'
 	Plug 'https://github.com/fgrsnau/ncm-otherbuf'
 
+  "Ops
+  Plug 'http://github.com/docker/docker'
+
   "JS Plugins NeoVim
   Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
   Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
