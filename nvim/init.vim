@@ -66,9 +66,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/honza/vim-snippets'
   Plug 'https://github.com/janko-m/vim-test'
   Plug 'https://github.com/sbdchd/neoformat'
-  " Plug 'http://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'https://github.com/roxma/nvim-completion-manager'
-	Plug 'https://github.com/fgrsnau/ncm-otherbuf'
+  Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  "Plug 'https://github.com/roxma/nvim-completion-manager'
+  "Plug 'https://github.com/fgrsnau/ncm-otherbuf'
 
   "Ops
   Plug 'http://github.com/docker/docker'
@@ -89,18 +89,18 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
   Plug  'https://github.com/godoctor/godoctor.vim', { 'for': 'go' }
   Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
-  "Plug  'zchee/deoplete-go', { 'do': 'make'}
+  Plug  'zchee/deoplete-go', { 'do': 'make'}
 
   "Ruby
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+  Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug 'https://github.com/tpope/vim-endwise'
-  " Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-	Plug 'https://github.com/roxma/ncm-rct-complete', { 'for' : 'ruby' }
+	"Plug 'https://github.com/roxma/ncm-rct-complete', { 'for' : 'ruby' }
 
   "Python
-  "Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
+  Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
   "Plug 'https://github.com/davidhalter/jedi-vim'
 
 
@@ -377,20 +377,20 @@ let g:multi_cursor_skip_key            = '<C-k>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 function Multiple_cursors_before()
-  " let g:deoplete#disable_auto_complete = 1
+  let g:deoplete#disable_auto_complete = 1
   :ALEToggle
   " NCM
-  if get(g:, 'cm_smart_enable', 1) == 1
-	  call cm#disable_for_buffer()
-  endif
+ " if get(g:, 'cm_smart_enable', 1) == 1
+	"  call cm#disable_for_buffer()
+ " endif
 endfunction
 function Multiple_cursors_after()
-  " let g:deoplete#disable_auto_complete = 0
+  let g:deoplete#disable_auto_complete = 0
   :ALEToggle
   "NCM
-  if get(g:, 'cm_smart_enable', 1) == 1
-  	call cm#enable_for_buffer()
-  endif
+  "if get(g:, 'cm_smart_enable', 1) == 1
+  	"call cm#enable_for_buffer()
+  "endif
 endfunction
 
 
@@ -475,34 +475,34 @@ map <Leader>vz :VimuxZoomRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 
 "DeoPlete
-" let g:deoplete#omni#functions = {}
-" let g:deoplete#omni#functions.javascript = [
-"  \ 'tern#Complete',
-"  \ 'jspc#omni'
-" \]
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+ \ 'tern#Complete',
+ \ 'jspc#omni'
+\]
 set completeopt=longest,menuone,preview
-" let g:deoplete#sources = {}
-" let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
 set completeopt-=preview
 
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#enable_ignore_case = 1
-" let g:deoplete#enable_smart_case = 1
-" let g:deoplete#enable_camel_case = 1
-" let g:deoplete#enable_refresh_always = 1
-" let g:deoplete#max_abbr_width = 0
-" let g:deoplete#max_menu_width = 0
-" "let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-" call deoplete#custom#set('_', 'matchers', ['matcher_full_fuzzy'])
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#enable_camel_case = 1
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#max_abbr_width = 0
+let g:deoplete#max_menu_width = 0
+"let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
 
 "let g:tern_request_timeout = 1
 "let g:tern_request_timeout = 6000
 "let g:tern#command = ["tern"]
 "let g:tern#arguments = ["--persistent"]
-" let g:deoplete#sources#tss#javascript_support = 1
+let g:deoplete#sources#tss#javascript_support = 1
 let g:nvim_typescript#javascript_support = 1
 let g:nvim_typescript#vue_support = 1
 
@@ -549,6 +549,6 @@ let g:LanguageClient_serverCommands = {
    \ }
 
 " Automatically start language servers.
-let g:LanguageClient_autoStart = 1
+"let g:LanguageClient_autoStart = 1
 
 
