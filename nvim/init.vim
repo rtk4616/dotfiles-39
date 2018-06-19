@@ -67,8 +67,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'https://github.com/janko-m/vim-test'
   Plug 'https://github.com/sbdchd/neoformat'
   Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  "Plug 'https://github.com/roxma/nvim-completion-manager'
-  "Plug 'https://github.com/fgrsnau/ncm-otherbuf'
 
   "Ops
   Plug 'http://github.com/docker/docker'
@@ -97,7 +95,6 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
   Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug 'https://github.com/tpope/vim-endwise'
-	"Plug 'https://github.com/roxma/ncm-rct-complete', { 'for' : 'ruby' }
 
   "Python
   Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
@@ -379,18 +376,10 @@ let g:multi_cursor_quit_key            = '<Esc>'
 function Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
   :ALEToggle
-  " NCM
- " if get(g:, 'cm_smart_enable', 1) == 1
-	"  call cm#disable_for_buffer()
- " endif
 endfunction
 function Multiple_cursors_after()
   let g:deoplete#disable_auto_complete = 0
   :ALEToggle
-  "NCM
-  "if get(g:, 'cm_smart_enable', 1) == 1
-  	"call cm#enable_for_buffer()
-  "endif
 endfunction
 
 
@@ -542,13 +531,13 @@ endif
 "Language Servers
 " \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
 let g:LanguageClient_serverCommands = {
- 		\ 'javascript': ['javascript-typescript-stdio'],
+ 	 \ 'javascript': ['javascript-typescript-stdio'],
    \ 'javascript.jsx': ['javascript-typescript-stdio'],
    \ 'vue': ['vls'],
    \ 'ruby': ['language_server-ruby']
    \ }
 
 " Automatically start language servers.
-"let g:LanguageClient_autoStart = 1
+let g:LanguageClient_autoStart = 1
 
 
