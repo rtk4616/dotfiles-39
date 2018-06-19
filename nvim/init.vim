@@ -39,7 +39,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Typescript
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
-  Plug 'https://github.com/mhartington/nvim-typescript', { 'do': 'yarn global add typescript' }
+  Plug 'https://github.com/mhartington/nvim-typescript', {'commit': 'd342aa4', 'do': 'yarn global add typescript' }
   Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
   "Css
@@ -144,6 +144,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
 set history=1000
 set ttyfast
+set lazyredraw
 set undolevels=1000
 set wildmode=longest,list
 set wildmenu

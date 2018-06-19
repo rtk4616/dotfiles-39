@@ -29,6 +29,9 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 # Theme!
 zplug "themes/agnoster", from:oh-my-zsh
 
+#export NVM_LAZY_LOAD=true
+zplug "lukechilds/zsh-nvm"
+
 # Actually install plugins, prompt user input
 # if !zplug check —verbose; then
 #     printf "Install zplug plugins? [y/N]:"
