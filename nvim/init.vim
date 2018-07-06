@@ -73,7 +73,10 @@ call plug#begin('~/.config/nvim/plugged')
 
   "JS Plugins NeoVim
   Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
-  Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'https://github.com/autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
   Plug 'https://github.com/Shougo/echodoc.vim'
   Plug 'https://github.com/tpope/vim-db'
 
@@ -93,7 +96,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
   Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
   Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
-  Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
+  " Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
   Plug 'https://github.com/tpope/vim-endwise'
 
   "Python
@@ -234,6 +237,12 @@ nnoremap <leader>gc :Gina commit<CR>
 
 " Fix ctrl h neovim
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
+
+nnoremap <leader>ls :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <leader>lsk :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <leader>lsr :call LanguageClient#textDocument_rename()<CR>
 
 "ALE
 let g:ale_fixers = {
@@ -534,7 +543,7 @@ let g:LanguageClient_serverCommands = {
  	 \ 'javascript': ['javascript-typescript-stdio'],
    \ 'javascript.jsx': ['javascript-typescript-stdio'],
    \ 'vue': ['vls'],
-   \ 'ruby': ['language_server-ruby']
+   \ 'ruby': ['tcp://localhost:7658']
    \ }
 
 " Automatically start language servers.
