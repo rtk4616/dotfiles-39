@@ -39,7 +39,7 @@ call plug#begin('~/.config/nvim/plugged')
 
   "Typescript
   Plug 'https://github.com/peitalin/vim-jsx-typescript'
-  Plug 'https://github.com/mhartington/nvim-typescript', {'branch': 'feat-diagnostics', 'do': './install.sh' }
+  Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
   Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
   "Css
