@@ -197,6 +197,7 @@ function! SetLightTheme()
 endfunction
 
 nmap <Leader>cs :call SetLightTheme()<CR>
+nmap <Leader>fi mzgg=G`z
 
 "Ctrl S to save
 noremap <silent> <C-S>  :update<CR>
