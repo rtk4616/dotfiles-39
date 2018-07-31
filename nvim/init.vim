@@ -24,6 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug  'https://github.com/ryanoasis/vim-devicons'
   Plug  'https://github.com/djoshea/vim-autoread'
   Plug  'https://github.com/roxma/vim-tmux-clipboard'
+  Plug  'https://github.com/tpope/vim-repeat'
 
 
   "Javascript
