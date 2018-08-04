@@ -4,105 +4,105 @@ let g:python_host_skip_check=1
 " ----------------------------------------- "
 call plug#begin('~/.config/nvim/plugged')
 
-  "Util
-  Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
-  Plug  'https://github.com/junegunn/fzf.vim'
-  Plug  'https://github.com/mileszs/ack.vim'
-  Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
-  Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
-  Plug  'https://github.com/bling/vim-airline.git'
-  Plug  'https://github.com/christoomey/vim-tmux-navigator'
-  Plug  'https://github.com/benmills/vimux'
-  Plug  'https://github.com/edkolev/tmuxline.vim'
-  Plug  'https://github.com/terryma/vim-multiple-cursors.git'
-  Plug  'https://github.com/Valloric/MatchTagAlways.git'
-  Plug  'https://github.com/Raimondi/delimitMate.git'
-  Plug  'https://github.com/easymotion/vim-easymotion'
-  Plug  'https://github.com/severin-lemaignan/vim-minimap'
-  Plug  'https://github.com/thaerkh/vim-workspace'
-  Plug  'https://github.com/vim-utils/vim-husk'
-  Plug  'https://github.com/ryanoasis/vim-devicons'
-  Plug  'https://github.com/djoshea/vim-autoread'
-  Plug  'https://github.com/roxma/vim-tmux-clipboard'
-  Plug  'https://github.com/tpope/vim-repeat'
+"Util
+Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug  'https://github.com/junegunn/fzf.vim'
+Plug  'https://github.com/mileszs/ack.vim'
+Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
+Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
+Plug  'https://github.com/bling/vim-airline.git'
+Plug  'https://github.com/christoomey/vim-tmux-navigator'
+Plug  'https://github.com/benmills/vimux'
+Plug  'https://github.com/edkolev/tmuxline.vim'
+Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+Plug  'https://github.com/Valloric/MatchTagAlways.git'
+Plug  'https://github.com/Raimondi/delimitMate.git'
+Plug  'https://github.com/easymotion/vim-easymotion'
+Plug  'https://github.com/severin-lemaignan/vim-minimap'
+Plug  'https://github.com/thaerkh/vim-workspace'
+Plug  'https://github.com/vim-utils/vim-husk'
+Plug  'https://github.com/ryanoasis/vim-devicons'
+Plug  'https://github.com/djoshea/vim-autoread'
+Plug  'https://github.com/roxma/vim-tmux-clipboard'
+Plug  'https://github.com/tpope/vim-repeat'
 
 
-  "Javascript
-  Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-  Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'yarn global add vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
-  " Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-  " Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
-  Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
-  Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
-  Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
-  Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
-  Plug  'https://github.com/posva/vim-vue'
+"Javascript
+Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
+Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'yarn global add vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
+" Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
+" Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
+Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
+Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
+Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
+Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
+Plug  'https://github.com/posva/vim-vue'
 
-  "Typescript
-  Plug 'https://github.com/peitalin/vim-jsx-typescript'
-  Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
-  Plug 'https://github.com/HerringtonDarkholme/yats.vim'
+"Typescript
+Plug 'https://github.com/peitalin/vim-jsx-typescript'
+Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
-  "Css
-  Plug  'https://github.com/ap/vim-css-color.git'
+"Css
+Plug  'https://github.com/ap/vim-css-color.git'
 
-  Plug  'https://github.com/jlangston/vim-hybrid'
-  Plug  'https://github.com/joshdick/onedark.vim'
-  Plug  'https://github.com/vim-airline/vim-airline-themes'
-  Plug  'https://github.com/chriskempson/base16-vim'
+Plug  'https://github.com/jlangston/vim-hybrid'
+Plug  'https://github.com/joshdick/onedark.vim'
+Plug  'https://github.com/vim-airline/vim-airline-themes'
+Plug  'https://github.com/chriskempson/base16-vim'
 
-  "Prose
-  Plug  'https://github.com/tpope/vim-markdown.git'
+"Prose
+Plug  'https://github.com/tpope/vim-markdown.git'
 
-  "General Programming
-  Plug 'https://github.com/majutsushi/tagbar.git'
-  Plug 'https://github.com/w0rp/ale'
-  Plug 'https://github.com/ruchee/vim-polyglot'
-  Plug 'https://github.com/tpope/vim-surround.git'
-  Plug 'https://github.com/tpope/vim-unimpaired'
-  Plug 'https://github.com/tomtom/tcomment_vim.git'
-  Plug 'https://github.com/ervandew/supertab'
-  Plug 'https://github.com/mattn/emmet-vim'
-  Plug 'https://github.com/SirVer/ultisnips'
-  Plug 'https://github.com/honza/vim-snippets'
-  Plug 'https://github.com/janko-m/vim-test'
-  Plug 'https://github.com/sbdchd/neoformat'
-  Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"General Programming
+Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/w0rp/ale'
+Plug 'https://github.com/ruchee/vim-polyglot'
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-unimpaired'
+Plug 'https://github.com/tomtom/tcomment_vim.git'
+Plug 'https://github.com/ervandew/supertab'
+Plug 'https://github.com/mattn/emmet-vim'
+Plug 'https://github.com/SirVer/ultisnips'
+Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/janko-m/vim-test'
+Plug 'https://github.com/sbdchd/neoformat'
+Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-  "Ops
-  Plug 'http://github.com/docker/docker'
+"Ops
+Plug 'http://github.com/docker/docker'
 
-  "JS Plugins NeoVim
-  Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
-  Plug 'https://github.com/autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-  Plug 'https://github.com/Shougo/echodoc.vim'
-  Plug 'https://github.com/tpope/vim-db'
+"JS Plugins NeoVim
+Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
+Plug 'https://github.com/autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+Plug 'https://github.com/Shougo/echodoc.vim'
+Plug 'https://github.com/tpope/vim-db'
 
-  "Git
-  Plug  'https://github.com/lambdalisue/gina.vim'
-  Plug  'https://github.com/airblade/vim-gitgutter'
-  Plug  'https://github.com/Yggdroot/indentLine'
-  Plug  'https://github.com/tpope/vim-fugitive'
+"Git
+Plug  'https://github.com/lambdalisue/gina.vim'
+Plug  'https://github.com/airblade/vim-gitgutter'
+Plug  'https://github.com/Yggdroot/indentLine'
+Plug  'https://github.com/tpope/vim-fugitive'
 
-  "GoLang
-  Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
-  Plug  'https://github.com/godoctor/godoctor.vim', { 'for': 'go' }
-  Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
-  Plug  'zchee/deoplete-go', { 'do': 'make'}
+"GoLang
+Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+Plug  'https://github.com/godoctor/godoctor.vim', { 'for': 'go' }
+Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
+Plug  'zchee/deoplete-go', { 'do': 'make'}
 
-  "Ruby
-  Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
-  Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
-  Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
-  " Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-  Plug 'https://github.com/tpope/vim-endwise'
+"Ruby
+Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
+Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
+" Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
+Plug 'https://github.com/tpope/vim-endwise'
 
-  "Python
-  Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
-  "Plug 'https://github.com/davidhalter/jedi-vim'
+"Python
+Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
+"Plug 'https://github.com/davidhalter/jedi-vim'
 
 
 
@@ -125,7 +125,7 @@ hi Type    cterm=italic
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 if &term == "xterm"
-    set term=xterm-256color
+  set term=xterm-256color
 endif
 if (has("termguicolors"))
   set termguicolors
@@ -275,10 +275,10 @@ nmap <silent> <leader>tg :TestVisit<CR>
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
 let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'jsx',
-\  },
-\}
+      \  'javascript' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
 
 "NerdTree
 map <C-k>b :NERDTreeToggle<CR>
@@ -296,12 +296,12 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 " Open goto file
 command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '
-  \ . <q-args>, 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always '
+      \ . <q-args>, 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
 nnoremap <C-p>a :Rg
 nmap <C-p> :Files<cr>
 nmap <leader>r :BTags<cr>
@@ -313,18 +313,18 @@ let g:fzf_layout = { 'window': '-tabnew' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Comment lines with cmd+/
 map <C-/> :TComment<cr>
@@ -457,8 +457,8 @@ let g:delve_new_command = "new"
 
 "ViMux
 function! VimuxSlime()
-	call VimuxSendText(@v)
-	call VimuxSendKeys("Enter")
+  call VimuxSendText(@v)
+  call VimuxSendKeys("Enter")
 endfunction
 
 "If text is selected, save it in the v buffer and send that buffer it to tmux
@@ -477,9 +477,9 @@ map <Leader>vz :VimuxZoomRunner<CR>
 "DeoPlete
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
- \ 'tern#Complete',
- \ 'jspc#omni'
-\]
+      \ 'tern#Complete',
+      \ 'jspc#omni'
+      \]
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
@@ -525,28 +525,28 @@ endif
 "Ruby config
 if executable('ripper-tags')
   let g:tagbar_type_ruby = {
-      \ 'kinds'      : ['m:modules',
-                      \ 'c:classes',
-                      \ 'C:constants',
-                      \ 'F:singleton methods',
-                      \ 'f:methods',
-                      \ 'a:aliases'],
-      \ 'kind2scope' : { 'c' : 'class',
-                       \ 'm' : 'class' },
-      \ 'scope2kind' : { 'class' : 'c' },
-      \ 'ctagsbin'   : 'ripper-tags',
-      \ 'ctagsargs'  : ['-f', '-']
-      \ }
+        \ 'kinds'      : ['m:modules',
+        \ 'c:classes',
+        \ 'C:constants',
+        \ 'F:singleton methods',
+        \ 'f:methods',
+        \ 'a:aliases'],
+        \ 'kind2scope' : { 'c' : 'class',
+        \ 'm' : 'class' },
+        \ 'scope2kind' : { 'class' : 'c' },
+        \ 'ctagsbin'   : 'ripper-tags',
+        \ 'ctagsargs'  : ['-f', '-']
+        \ }
 endif
 
 "Language Servers
 " \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
 let g:LanguageClient_serverCommands = {
- 	 \ 'javascript': ['javascript-typescript-stdio'],
-   \ 'javascript.jsx': ['javascript-typescript-stdio'],
-   \ 'vue': ['vls'],
-   \ 'ruby': ['tcp://localhost:7658']
-   \ }
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['javascript-typescript-stdio'],
+      \ 'vue': ['vls'],
+      \ 'ruby': ['tcp://localhost:7658']
+      \ }
 
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
