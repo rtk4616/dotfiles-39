@@ -14,7 +14,8 @@ Plug  'https://github.com/bling/vim-airline.git'
 Plug  'https://github.com/christoomey/vim-tmux-navigator'
 Plug  'https://github.com/benmills/vimux'
 Plug  'https://github.com/edkolev/tmuxline.vim'
-Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+" Plug  'https://github.com/terryma/vim-multiple-cursors.git'
+Plug  'https://github.com//mg979/vim-visual-multi'
 Plug  'https://github.com/Valloric/MatchTagAlways.git'
 Plug  'https://github.com/Raimondi/delimitMate.git'
 Plug  'https://github.com/easymotion/vim-easymotion'
@@ -373,28 +374,31 @@ nnoremap <esc>^[ <esc>^[
 let g:indentLine_enabled = 1
 
 "Vim MultiCursors
-let g:multi_cursor_use_default_mapping = 0
-let g:multi_cursor_start_word_key      = '<C-d>'
-" let g:multi_cursor_select_all_word_key = '<A-d>'
-let g:multi_cursor_select_all_word_key = '<C-M-g>'
-let g:multi_cursor_start_key           = 'g<C-d>'
-let g:multi_cursor_select_all_key      = 'g<C-M-g>'
-let g:multi_cursor_next_key            = '<C-d>'
-let g:multi_cursor_prev_key            = '<C-u>'
-let g:multi_cursor_skip_key            = '<C-k>'
-let g:multi_cursor_quit_key            = '<Esc>'
+" let g:multi_cursor_use_default_mapping = 0
+" let g:multi_cursor_start_word_key      = '<C-d>'
+" " let g:multi_cursor_select_all_word_key = '<A-d>'
+" let g:multi_cursor_select_all_word_key = '<C-M-g>'
+" let g:multi_cursor_start_key           = 'g<C-d>'
+" let g:multi_cursor_select_all_key      = 'g<C-M-g>'
+" let g:multi_cursor_next_key            = '<C-d>'
+" let g:multi_cursor_prev_key            = '<C-u>'
+" let g:multi_cursor_skip_key            = '<C-k>'
+" let g:multi_cursor_quit_key            = '<Esc>'
+"
+" let g:multi_cursor_exit_from_visual_mode = 0
+" let g:multi_cursor_exit_from_insert_mode = 0
+"
+" function Multiple_cursors_before()
+"   let g:deoplete#disable_auto_complete = 1
+"   :ALEToggle
+" endfunction
+" function Multiple_cursors_after()
+"   let g:deoplete#disable_auto_complete = 0
+"   :ALEToggle
+" endfunction
 
-let g:multi_cursor_exit_from_visual_mode = 0
-let g:multi_cursor_exit_from_insert_mode = 0
-
-function Multiple_cursors_before()
-  let g:deoplete#disable_auto_complete = 1
-  :ALEToggle
-endfunction
-function Multiple_cursors_after()
-  let g:deoplete#disable_auto_complete = 0
-  :ALEToggle
-endfunction
+let g:VM_sublime_mappings = 1
+let g:VM_mouse_mappings = 1
 
 
 "Utilisnips
