@@ -384,6 +384,9 @@ let g:multi_cursor_prev_key            = '<C-u>'
 let g:multi_cursor_skip_key            = '<C-k>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+
 function Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
   :ALEToggle
