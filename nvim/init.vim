@@ -514,7 +514,7 @@ let g:nvim_typescript#javascript_support = 1
 let g:nvim_typescript#vue_support = 1
 
 " Typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
