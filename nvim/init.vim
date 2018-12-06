@@ -58,7 +58,7 @@ Plug  'https://github.com/tpope/vim-markdown.git'
 "General Programming
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/w0rp/ale'
-Plug 'https://github.com/ruchee/vim-polyglot'
+Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/tpope/vim-unimpaired'
 Plug 'https://github.com/tomtom/tcomment_vim.git'
@@ -69,6 +69,8 @@ Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" Plug 'https://github.com/zxqfl/tabnine-vim'
 
 "Ops
 Plug 'http://github.com/docker/docker'
@@ -248,6 +250,11 @@ nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <leader>lsr :call LanguageClient#textDocument_rename()<CR>
 
 "ALE
+"" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
       \  'javascript': ['eslint'],
       \  'typescript': ['tslint']
@@ -452,12 +459,34 @@ let g:jsx_ext_required = 0
 " let g:tigris#enabled = 1
 
 "Golang
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+" let g:go_highlight_build_constraints = 1
+" let g:go_highlight_extra_types = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_structs = 1
+" let g:go_highlight_types = 1
+
+ let g:go_highlight_array_whitespace_error = 1
+ let g:go_highlight_chan_whitespace_error = 1
+ let g:go_highlight_extra_types = 1
+ let g:go_highlight_space_tab_error = 1
+ let g:go_highlight_trailing_whitespace_error = 1
+ let g:go_highlight_operators = 1
+ let g:go_highlight_functions = 1
+ let g:go_highlight_function_arguments = 1
+ let g:go_highlight_function_calls = 1
+ let g:go_highlight_types = 1
+ let g:go_highlight_fields = 1
+ let g:go_highlight_build_constraints = 1
+ let g:go_highlight_generate_tags = 1
+ let g:go_highlight_string_spellcheck = 1
+ let g:go_highlight_format_strings = 1
+ let g:go_highlight_variable_declarations = 1
+ let g:go_highlight_variable_assignments = 1
+
+" let g:go_auto_sameids = 1
 let g:go_fmt_command = "goimports"
 " Open delve in horizontal split 
 let g:delve_new_command = "new"
@@ -514,7 +543,7 @@ let g:nvim_typescript#javascript_support = 1
 let g:nvim_typescript#vue_support = 1
 
 " Typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
