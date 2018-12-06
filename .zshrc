@@ -18,6 +18,8 @@ zplug "plugins/mosh", from:oh-my-zsh
 # zplug "plugins/per-directory-history", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
+zplug "plugins/shrink-path", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
 zplug "templates/zshrc.zsh-template", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
@@ -42,7 +44,6 @@ zplug "lukechilds/zsh-nvm"
 
 zplug load
 
-
 # if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
   DEFAULT_USER=$(whoami)
 # else
@@ -54,6 +55,15 @@ zplug load
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
     prompt_segment black default "%(!.%{%F{yellow}%}.)$USER"
+  fi
+}
+
+# enable shrink_path
+prompt_dir() {
+  if type shrink_path &>/dev/null; then
+    prompt_segment blue black "$(shrink_path -t -l)"
+  else
+    prompt_segment blue black '%~'
   fi
 }
 
