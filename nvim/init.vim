@@ -14,8 +14,7 @@ Plug  'https://github.com/bling/vim-airline.git'
 Plug  'https://github.com/christoomey/vim-tmux-navigator'
 Plug  'https://github.com/benmills/vimux'
 Plug  'https://github.com/edkolev/tmuxline.vim'
-" Plug  'https://github.com/terryma/vim-multiple-cursors.git'
-Plug  'https://github.com//mg979/vim-visual-multi'
+Plug  'https://github.com//mg979/vim-visual-multi', { 'branch': 'test',}
 Plug  'https://github.com/Valloric/MatchTagAlways.git'
 Plug  'https://github.com/Raimondi/delimitMate.git'
 Plug  'https://github.com/easymotion/vim-easymotion'
@@ -25,6 +24,7 @@ Plug  'https://github.com/vim-utils/vim-husk'
 Plug  'https://github.com/ryanoasis/vim-devicons'
 Plug  'https://github.com/djoshea/vim-autoread'
 Plug  'https://github.com/roxma/vim-tmux-clipboard'
+Plug  'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug  'https://github.com/tpope/vim-repeat'
 
 
@@ -381,31 +381,16 @@ nnoremap <esc>^[ <esc>^[
 let g:indentLine_enabled = 1
 
 "Vim MultiCursors
-" let g:multi_cursor_use_default_mapping = 0
-" let g:multi_cursor_start_word_key      = '<C-d>'
-" " let g:multi_cursor_select_all_word_key = '<A-d>'
-" let g:multi_cursor_select_all_word_key = '<C-M-g>'
-" let g:multi_cursor_start_key           = 'g<C-d>'
-" let g:multi_cursor_select_all_key      = 'g<C-M-g>'
-" let g:multi_cursor_next_key            = '<C-d>'
-" let g:multi_cursor_prev_key            = '<C-u>'
-" let g:multi_cursor_skip_key            = '<C-k>'
-" let g:multi_cursor_quit_key            = '<Esc>'
-"
-" let g:multi_cursor_exit_from_visual_mode = 0
-" let g:multi_cursor_exit_from_insert_mode = 0
-"
-" function Multiple_cursors_before()
-"   let g:deoplete#disable_auto_complete = 1
-"   :ALEToggle
-" endfunction
-" function Multiple_cursors_after()
-"   let g:deoplete#disable_auto_complete = 0
-"   :ALEToggle
-" endfunction
-
-let g:VM_sublime_mappings = 1
+" let g:VM_sublime_mappings = 1
 let g:VM_mouse_mappings = 1
+let g:VM_maps = {}
+let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
+let g:VM_maps['Find Subword Under'] = '<C-d>'           " replace visual C-n
+let g:VM_maps["Select l"]           = '<S-Right>'       " start selecting left
+let g:VM_maps["Select h"]           = '<S-Left>'        " start selecting right
+let g:VM_maps["Select Cursor Down"] = '<M-C-Down>'      " start selecting down
+let g:VM_maps["Select Cursor Up"]   = '<M-C-Up>'        " start selecting up<Paste>
+let g:VM_maps["Select All"] = '<C-S-l>'
 
 
 "Utilisnips
@@ -581,7 +566,7 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript.jsx': ['javascript-typescript-stdio'],
       \ 'vue': ['vls'],
-      \ 'ruby': ['tcp://localhost:7658']
+      \ 'ruby': ['solargraph', 'stdio']
       \ }
 
 " Automatically start language servers.
