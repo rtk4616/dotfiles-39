@@ -390,7 +390,7 @@ let g:VM_maps["Select l"]           = '<S-Right>'       " start selecting left
 let g:VM_maps["Select h"]           = '<S-Left>'        " start selecting right
 let g:VM_maps["Select Cursor Down"] = '<M-C-Down>'      " start selecting down
 let g:VM_maps["Select Cursor Up"]   = '<M-C-Up>'        " start selecting up<Paste>
-let g:VM_maps["Select All"] = '<C-S-l>'
+let g:VM_maps["Select All"] = '<M-C-g>'
 
 
 "Utilisnips
