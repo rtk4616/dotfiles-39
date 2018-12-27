@@ -23,6 +23,7 @@ Plug  'https://github.com/thaerkh/vim-workspace'
 Plug  'https://github.com/vim-utils/vim-husk'
 Plug  'https://github.com/ryanoasis/vim-devicons'
 Plug  'https://github.com/djoshea/vim-autoread'
+Plug  'https://github.com/inside/vim-search-pulse'
 Plug  'https://github.com/roxma/vim-tmux-clipboard'
 Plug  'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug  'https://github.com/tpope/vim-repeat'
@@ -44,13 +45,14 @@ Plug 'https://github.com/peitalin/vim-jsx-typescript'
 Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
-"Css
-Plug  'https://github.com/ap/vim-css-color.git'
-
+" Colors
+Plug  'https://github.com/lilydjwg/colorizer'
+Plug  'https://github.com/luochen1990/rainbow'
 Plug  'https://github.com/jlangston/vim-hybrid'
 Plug  'https://github.com/joshdick/onedark.vim'
 Plug  'https://github.com/vim-airline/vim-airline-themes'
 Plug  'https://github.com/chriskempson/base16-vim'
+Plug  'https://github.com/RRethy/vim-illuminate'
 
 "Prose
 Plug  'https://github.com/tpope/vim-markdown.git'
@@ -194,6 +196,9 @@ nmap :Q! :q!
 nmap :q1 :q!
 nmap :Q1 :q!
 nmap :Q :q
+
+"Rainbow parens/braces
+let g:rainbow_active = 1
 
 function! SetLightTheme()
   colorscheme base16-solarized-light
