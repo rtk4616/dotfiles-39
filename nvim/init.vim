@@ -262,7 +262,8 @@ let g:ale_sign_warning = '⚠'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
       \  'javascript': ['eslint'],
-      \  'typescript': ['tslint']
+      \  'typescript': ['tslint'],
+      \  'vue': ['eslint']
       \}
 let g:ale_fix_on_save = 1
 let g:ale_completion_enabled = 1
@@ -272,7 +273,8 @@ let g:ale_linters = {
       \  'vue': ['eslint'],
       \  'go': ['gometalinter', 'goimports']
       \}
-let g:ale_linter_aliases = {'vue': ['css', 'javascript', 'typescript']}
+" let g:ale_linter_aliases = {'vue': ['css', 'javascript', 'typescript']}
+let g:ale_linter_aliases = {'vue': 'typescript'}
 "keys
 imap jk <Esc>
 
@@ -508,7 +510,7 @@ let g:deoplete#omni#functions.javascript = [
       \]
 set completeopt=longest,menuone,preview
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs', 'ultisnips', 'buffer']
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
 " close the preview window when you're not using it
 let g:SuperTabClosePreviewOnPopupClose = 1
 " or just disable the preview entirely
