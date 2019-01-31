@@ -2,7 +2,16 @@
 # Essential
 if [[ ! -d ~/.zplug ]]; then
     git clone https://github.com/zplug/zplug ~/.zplug
-    source ~/.zplug/init.zsh && zplug update --self
+    source ~/.zplug/init.zsh
+    # Install plugins if there are plugins that have not been installed
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+    # Then, source plugins and add commands to $PATH
+    zplug load --verbose
 fi
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
@@ -20,6 +29,8 @@ zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/shrink-path", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
+zplug "akarzim/zsh-docker-aliases"
 zplug "templates/zshrc.zsh-template", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
@@ -85,10 +96,9 @@ case $HIST_STAMPS in
   *) alias history='fc -l 1' ;;
 esac
 
-setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
-setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
@@ -117,6 +127,7 @@ alias -s html=$BROWSER
 
 alias got='git '
 alias get='git '
+alias icat="kitty +kitten icat"
 
 if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
@@ -183,6 +194,13 @@ if type fzf  &> /dev/null  && type rg &> /dev/null; then
   # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
   # '
 fi
+
+function dedupHistory() {
+    cp ~/.zsh_history{,-old}
+    tmpFile=`mktemp`
+    awk -F ";" '!seen[$2]++' ~/.zsh_history > $tmpFile
+    mv $tmpFile ~/.zsh_history
+}
 
 export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
