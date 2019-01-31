@@ -116,7 +116,7 @@ fshow() {
 FZF-EOF"
 }
 
-frefshow() {
+fref() {
   git reflog --color=always \
       --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
   fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
