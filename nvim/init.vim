@@ -75,7 +75,7 @@ Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'https://github.com/zxqfl/tabnine-vim'
 
 "Ops
-Plug 'http://github.com/docker/docker'
+Plug 'http://github.com/ekalinin/Dockerfile.vim'
 
 "JS Plugins NeoVim
 Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
