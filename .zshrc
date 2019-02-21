@@ -202,7 +202,6 @@ function dedupHistory() {
     mv $tmpFile ~/.zsh_history
 }
 
-export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

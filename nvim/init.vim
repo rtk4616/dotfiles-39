@@ -31,8 +31,8 @@ Plug  'https://github.com/tpope/vim-repeat'
 
 "Javascript
 Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'yarn global add vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
-" Plug  'marijnh/tern_for_vim' , {'do': 'yarn; yarn global add jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
+Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'npm i -g vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
+" Plug  'marijnh/tern_for_vim' , {'do': 'npm i; npm -g i jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
 " Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
 Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
 Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
@@ -78,7 +78,7 @@ Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'http://github.com/ekalinin/Dockerfile.vim'
 
 "JS Plugins NeoVim
-Plug 'https://github.com/neovim/node-host', { 'do': 'yarn; yarn global add neovim' }
+Plug 'https://github.com/neovim/node-host', { 'do': 'npm i; npm -g i neovim' }
 Plug 'https://github.com/autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
