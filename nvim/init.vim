@@ -177,6 +177,7 @@ set showmatch                   " Do not show matching brackets by flickering
 set incsearch                   " Shows the match while typing
 set inccommand=nosplit
 set hlsearch                    " Highlight found searches
+hi  Search guibg=peru guifg=wheat
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
