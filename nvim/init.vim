@@ -47,7 +47,7 @@ Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 " Colors
 Plug  'https://github.com/lilydjwg/colorizer'
-Plug  'https://github.com/luochen1990/rainbow'
+Plug  'https://github.com/luochen1990/rainbow', { 'commit': '85d262156fd3c0556b91c88e2b72f93d7d00b729' }
 Plug  'https://github.com/jlangston/vim-hybrid'
 Plug  'https://github.com/joshdick/onedark.vim'
 Plug  'https://github.com/vim-airline/vim-airline-themes'
