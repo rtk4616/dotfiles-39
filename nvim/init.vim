@@ -69,10 +69,31 @@ Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/janko-m/vim-test'
-Plug 'https://github.com/sbdchd/neoformat'
+" Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plug 'https://github.com/zxqfl/tabnine-vim'
+
+Plug 'https://github.com/prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'branch': 'release/1.x',
+  \ 'for': [
+    \ 'javascript',
+    \ 'typescript',
+    \ 'css',
+    \ 'less',
+    \ 'scss',
+    \ 'json',
+    \ 'graphql',
+    \ 'markdown',
+    \ 'vue',
+    \ 'lua',
+    \ 'php',
+    \ 'python',
+    \ 'ruby',
+    \ 'html',
+    \ 'swift' ] }
+
 
 "Ops
 " Plug 'http://github.com/ekalinin/Dockerfile.vim'
@@ -207,6 +228,15 @@ function! SetLightTheme()
 endfunction
 
 nmap <Leader>cs :call SetLightTheme()<CR>
+
+
+function! SetOceanTheme()
+  colorscheme base16-ocean
+  AirlineTheme base16_ocean
+endfunction
+
+nmap <Leader>ot :call SetOceanTheme()<CR>
+
 nmap <Leader>fi mzgg=G`z
 
 "Ctrl S to save
@@ -290,6 +320,7 @@ nmap <silent> <leader>tg :TestVisit<CR>
 
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_mode='a'
 let g:user_emmet_settings = {
       \  'javascript' : {
       \      'extends' : 'jsx',
@@ -304,7 +335,7 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 "TagBar
 nmap <C-k>o :TagbarToggle<CR>
 
-"VimDiff
+"VimDif\
 nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
 nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
 vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
@@ -321,7 +352,7 @@ command! -bang -nargs=* Rg
 nnoremap <C-p>a :Rg
 nmap <C-p> :Files<cr>
 nmap <leader>r :BTags<cr>
-imap <leader><C-r> :Tags<cr>
+nmap <leader><C-r> :Tags<cr>
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
@@ -443,7 +474,9 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 nnoremap <leader>nf :NERDTreeFind<CR>
 
 "NeoFormat
-nnoremap <leader>fm :Neoformat<CR>
+nnoremap <leader>nfm :Neoformat<CR>
+" Prettier
+nmap <Leader>fm :Prettier<CR>
 
 "Common JS Libs
 let g:used_javascript_libs = 'jquery,react,lodash'
