@@ -69,10 +69,11 @@ Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/janko-m/vim-test'
-" Plug 'https://github.com/sbdchd/neoformat'
+Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " Plug 'https://github.com/zxqfl/tabnine-vim'
+Plug 'https://github.com/kana/vim-textobj-user'
 
 Plug 'https://github.com/prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -124,7 +125,9 @@ Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
 Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
 " Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
-Plug 'https://github.com/tpope/vim-endwise'
+Plug 'https://github.com/tpope/vim-endwise', { 'for': 'ruby' }
+Plug 'https://github.com/nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+
 
 "Python
 Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
