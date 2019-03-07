@@ -2,25 +2,25 @@
 
 touchTerm()
 {
-        wmctrl -r 'zsh' -e '0,0,0,1279,500'
-        wmctrl -r 'zsh' -b add,shaded
-        wmctrl -r 'zsh' -b add,below
+        wmctrl -r 'Alacritty' -e '0,0,0,1279,500'
+        wmctrl -r 'Alacritty' -b add,shaded
+        wmctrl -r 'Alacritty' -b add,below
         touch /tmp/.term.shaded
 }
 #
 # S1=`wmctrl -l|grep 'erminology'|wc -l`
 
 # if [ $S1 -eq '0' ]; then
-if ! pgrep -x "kitty" > /dev/null 
+if ! pgrep -x "alacritty" > /dev/null 
 then
-   kitty
-   wmctrl -r 'zsh' -e '0,0,0,1279,500'
+   alacritty
+   wmctrl -r 'Alacritty' -e '0,0,0,1279,500'
 fi
 # Unshade and bring to front
 if [ -f /tmp/.term.shaded ]; then
-    wmctrl -r 'zsh' -b remove,below
-    wmctrl -r 'zsh' -b remove,shaded
-    wmctrl -a 'zsh'
+    wmctrl -r 'Alacritty' -b remove,below
+    wmctrl -r 'Alacritty' -b remove,shaded
+    wmctrl -a 'Alacritty'
     rm /tmp/.term.shaded
 # Shade and send to back
 else
