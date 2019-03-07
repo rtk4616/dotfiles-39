@@ -27,6 +27,7 @@ Plug  'https://github.com/inside/vim-search-pulse'
 Plug  'https://github.com/roxma/vim-tmux-clipboard'
 Plug  'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug  'https://github.com/tpope/vim-repeat'
+Plug  'https://github.com/ConradIrwin/vim-bracketed-paste'
 
 
 "Javascript
@@ -98,6 +99,9 @@ Plug 'https://github.com/prettier/vim-prettier', {
 
 "Ops
 " Plug 'http://github.com/ekalinin/Dockerfile.vim'
+Plug 'https://github.com/Shougo/echodoc.vim'
+Plug 'https://github.com/tpope/vim-db'
+"
 
 "JS Plugins NeoVim
 Plug 'https://github.com/neovim/node-host', { 'do': 'npm i; npm -g i neovim' }
@@ -105,8 +109,6 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
-Plug 'https://github.com/Shougo/echodoc.vim'
-Plug 'https://github.com/tpope/vim-db'
 
 "Git
 Plug  'https://github.com/lambdalisue/gina.vim'

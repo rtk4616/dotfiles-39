@@ -28,6 +28,7 @@ zplug "plugins/mosh", from:oh-my-zsh
 zplug "plugins/zsh_reload", from:oh-my-zsh
 zplug "plugins/colorize", from:oh-my-zsh
 zplug "plugins/shrink-path", from:oh-my-zsh
+zplug "plugins/safe-paste", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "akarzim/zsh-docker-aliases"
