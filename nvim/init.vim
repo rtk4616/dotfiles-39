@@ -313,6 +313,9 @@ let g:ale_linters = {
       \}
 " let g:ale_linter_aliases = {'vue': ['css', 'javascript', 'typescript']}
 let g:ale_linter_aliases = {'vue': 'typescript'}
+
+autocmd FileType vue syntax sync fromstart
+
 "keys
 imap jk <Esc>
 
