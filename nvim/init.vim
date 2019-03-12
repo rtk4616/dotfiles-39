@@ -259,6 +259,8 @@ vnoremap <C-c> "*y
 vnoremap y "*y
 vnoremap <C-v> "+p
 vnoremap p "*p
+nnoremap ` <c-v>
+
 
 " Bubble single lines
 nmap <M-up> [e
