@@ -25,9 +25,9 @@ Plug  'https://github.com/ryanoasis/vim-devicons'
 Plug  'https://github.com/djoshea/vim-autoread'
 Plug  'https://github.com/inside/vim-search-pulse'
 Plug  'https://github.com/roxma/vim-tmux-clipboard'
-Plug  'https://github.com/tmux-plugins/vim-tmux-focus-events'
 Plug  'https://github.com/tpope/vim-repeat'
 Plug  'https://github.com/ConradIrwin/vim-bracketed-paste'
+Plug  'https://github.com/troydm/zoomwintab.vim'
 
 
 "Javascript
@@ -95,6 +95,7 @@ Plug 'https://github.com/prettier/vim-prettier', {
     \ 'ruby',
     \ 'html',
     \ 'swift' ] }
+Plug 'https://github.com/vim-scripts/selection_eval.vim'
 
 
 "Ops
@@ -111,10 +112,10 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
       \ }
 
 "Git
-Plug  'https://github.com/lambdalisue/gina.vim'
 Plug  'https://github.com/airblade/vim-gitgutter'
 Plug  'https://github.com/Yggdroot/indentLine'
 Plug  'https://github.com/tpope/vim-fugitive'
+Plug  'https://github.com/jreybert/vimagit'
 
 "GoLang
 Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
@@ -134,7 +135,6 @@ Plug 'https://github.com/nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 "Python
 Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
 "Plug 'https://github.com/davidhalter/jedi-vim'
-
 
 
 call plug#end()
@@ -170,8 +170,7 @@ set mousehide
 set modifiable
 
 set autoindent
-set clipboard+=unnamed  " use the clipboards of vim and win
-set go+=a               " Visual selection automatically copied to the clipboard
+set clipboard+=unnamedplus  " use the clipboards of vim and win
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set softtabstop=2 tabstop=2 shiftwidth=2
 set history=1000
@@ -250,16 +249,16 @@ vnoremap <silent> <C-S> <C-C>:update<CR>
 inoremap <silent> <C-S> <C-O>:update<CR>
 
 "Normal Copy/Paste
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <C-r><C-o>+
+" vmap <C-c> "+yi
+" vmap <C-x> "+c
+" vmap <C-v> c<ESC>"+p
+" imap <C-v> <C-r><C-o>+
 " Yanks and copies to system clipboard
-vnoremap <C-c> "*y
-vnoremap y "*y
-vnoremap <C-v> "+p
-vnoremap p "*p
-nnoremap ` <c-v>
+" vnoremap <C-c> "*y
+" vnoremap y "*y
+" vnoremap <C-v> "+p
+" vnoremap p "*p
+" nnoremap ` <c-v>
 
 
 " Bubble single lines
@@ -278,10 +277,12 @@ nnoremap <silent> vv <C-w>v
 :nnoremap <C-q> :bw<CR>
 nmap ; :Buffers<cr>
 
-
 "gita status
-nnoremap <leader>gs :Gina status<CR>
-nnoremap <leader>gc :Gina commit<CR>
+nnoremap <leader>g :Magit<CR>
+nnoremap <leader>gs :MagitOnly<CR>
+
+"Zoom WinTab
+nnoremap <C-w>z :ZoomWinTabToggle<CR>
 
 " Fix ctrl h neovim
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
@@ -413,6 +414,16 @@ let g:fzf_layout = { 'down': '40%' }
 
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors call fzf#vim#colors({'left': '15%'})
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>nt :call NumberToggle()<cr>
 
 "let g:session_autosave = 'yes'
 "let g:session_autoload = 'yes'
