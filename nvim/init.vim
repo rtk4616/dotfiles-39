@@ -38,7 +38,7 @@ Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'npm i -g vimdeb
 Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
 Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
 Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
-Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
+" Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
 Plug  'https://github.com/posva/vim-vue'
 
 "Typescript
@@ -96,6 +96,7 @@ Plug 'https://github.com/prettier/vim-prettier', {
     \ 'html',
     \ 'swift' ] }
 Plug 'https://github.com/vim-scripts/selection_eval.vim'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
 
 "Ops
@@ -362,8 +363,8 @@ command! -bang -nargs=* Rg
       \   <bang>0)
 nnoremap <C-p>a :Rg
 nmap <C-p> :Files<cr>
-nmap <leader>r :BTags<cr>
-nmap <leader><C-r> :Tags<cr>
+nnoremap t :BTags<cr>
+nnoremap T :Tags<cr>
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
