@@ -46,6 +46,11 @@ Plug 'https://github.com/peitalin/vim-jsx-typescript'
 Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
+"CSS
+Plug 'https://github.com/cakebaker/scss-syntax.vim'
+Plug 'https://github.com/JulesWang/css.vim'
+Plug 'https://github.com/hail2u/vim-css3-syntax'
+
 " Colors
 Plug  'https://github.com/lilydjwg/colorizer'
 Plug  'https://github.com/luochen1990/rainbow'
@@ -96,7 +101,6 @@ Plug 'https://github.com/prettier/vim-prettier', {
     \ 'html',
     \ 'swift' ] }
 Plug 'https://github.com/vim-scripts/selection_eval.vim'
-Plug 'https://github.com/ludovicchabant/vim-gutentags'
 
 
 "Ops
@@ -195,6 +199,7 @@ set splitbelow                  " Split horizontal windows below to the current 
 set encoding=utf8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
+set backupcopy=yes
 set laststatus=2
 
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
@@ -214,7 +219,7 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 "Enter Command Mode with space
-nmap <Space> :
+" nmap <Space> :
 " Sudo save
 cmap w!! w !sudo tee > /dev/null %
 
@@ -320,6 +325,7 @@ autocmd FileType vue syntax sync fromstart
 
 "keys
 imap jk <Esc>
+map <Space> <Leader>
 
 "Vim Test
 let test#strategy = "vimux"
