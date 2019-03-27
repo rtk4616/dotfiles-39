@@ -17,12 +17,13 @@ RUN apk add --update-cache \
     linux-headers alpine-sdk build-base cmake
 RUN apk add bash build-base curl file git gzip libc6-compat python-dev ncurses ruby ruby-dbm ruby-etc ruby-irb ruby-json sudo zsh
 
-RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
-	  && useradd -m -s /bin/bash linuxbrew \
+RUN gem install bigdecimal
+
+# RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
+RUN adduser -s /bin/bash -D linuxbrew \
 	  && echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 
 USER linuxbrew
-
 
 ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
   	SHELL=/bin/bash \
