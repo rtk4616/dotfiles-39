@@ -321,6 +321,8 @@ nmap <C-k>o :TagbarToggle<CR>
 
 "coc
 nmap <C-k>l :CocList<CR>
+nmap <silent> gd <Plug>(coc-definition)
+" nnoremap gd <Plug>(coc-definition)          
 
 "VimDif\
 nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
