@@ -32,18 +32,13 @@ Plug  'https://github.com/troydm/zoomwintab.vim'
 
 "Javascript
 Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
-Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'npm i -g vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
-" Plug  'marijnh/tern_for_vim' , {'do': 'npm i; npm -g i jsctags tern', 'for': ['javascript', 'javascript.jsx'] }
-" Plug  'https://github.com/pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
+" Plug  'https://github.com/sidorares/node-vim-debugger', { 'do': 'npm i -g vimdebug', 'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']}
 Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
 Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
-Plug  'https://github.com/othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx', ''] }
-" Plug  'billyvg/tigris.nvim', { 'do': './install.sh',  'for': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx'] }
 Plug  'https://github.com/posva/vim-vue'
 
 "Typescript
 Plug 'https://github.com/peitalin/vim-jsx-typescript'
-Plug 'https://github.com/mhartington/nvim-typescript', {'do': './install.sh' }
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 "CSS
@@ -64,6 +59,7 @@ Plug  'https://github.com/RRethy/vim-illuminate'
 Plug  'https://github.com/tpope/vim-markdown.git'
 
 "General Programming
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/sheerun/vim-polyglot'
@@ -76,9 +72,6 @@ Plug 'https://github.com/SirVer/ultisnips'
 Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/janko-m/vim-test'
 Plug 'https://github.com/sbdchd/neoformat'
-Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-" Plug 'https://github.com/zxqfl/tabnine-vim'
 Plug 'https://github.com/kana/vim-textobj-user'
 
 Plug 'https://github.com/prettier/vim-prettier', {
@@ -101,20 +94,8 @@ Plug 'https://github.com/prettier/vim-prettier', {
     \ 'html',
     \ 'swift' ] }
 Plug 'https://github.com/vim-scripts/selection_eval.vim'
-
-
-"Ops
-" Plug 'http://github.com/ekalinin/Dockerfile.vim'
-Plug 'https://github.com/Shougo/echodoc.vim'
 Plug 'https://github.com/tpope/vim-db'
-"
 
-"JS Plugins NeoVim
-Plug 'https://github.com/neovim/node-host', { 'do': 'npm i; npm -g i neovim' }
-Plug 'https://github.com/autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
 
 "Git
 Plug  'https://github.com/airblade/vim-gitgutter'
@@ -124,22 +105,13 @@ Plug  'https://github.com/jreybert/vimagit'
 
 "GoLang
 Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
-Plug  'https://github.com/godoctor/godoctor.vim', { 'for': 'go' }
-Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go' }
-Plug  'zchee/deoplete-go', { 'do': 'make'}
 
 "Ruby
 Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
 Plug  'https://github.com/vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug  'https://github.com/tpope/vim-bundler', { 'for': 'ruby' }
-" Plug  'fishbullet/deoplete-ruby', { 'for': 'ruby' }
 Plug 'https://github.com/tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
-
-
-"Python
-Plug 'zchee/deoplete-jedi',{'do': 'git submodule update --init --recursive;', 'for': 'python' }
-"Plug 'https://github.com/davidhalter/jedi-vim'
 
 
 call plug#end()
@@ -293,12 +265,6 @@ nnoremap <C-w>z :ZoomWinTabToggle<CR>
 " Fix ctrl h neovim
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
-nnoremap <leader>ls :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <leader>lsk :call LanguageClient#textDocument_hover()<CR>
-nnoremap <leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <leader>lsr :call LanguageClient#textDocument_rename()<CR>
-
 "ALE
 "" Error and warning signs.
 let g:ale_sign_error = '⤫'
@@ -352,6 +318,9 @@ nnoremap <leader>s :ToggleWorkspace<CR>
 
 "TagBar
 nmap <C-k>o :TagbarToggle<CR>
+
+"coc
+nmap <C-k>l :CocList<CR>
 
 "VimDif\
 nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
@@ -513,15 +482,6 @@ let g:jsx_ext_required = 0
 " let g:tigris#enabled = 1
 
 "Golang
-" let g:go_highlight_build_constraints = 1
-" let g:go_highlight_extra_types = 1
-" let g:go_highlight_fields = 1
-" let g:go_highlight_functions = 1
-" let g:go_highlight_methods = 1
-" let g:go_highlight_operators = 1
-" let g:go_highlight_structs = 1
-" let g:go_highlight_types = 1
-
  let g:go_highlight_array_whitespace_error = 1
  let g:go_highlight_chan_whitespace_error = 1
  let g:go_highlight_extra_types = 1
@@ -564,38 +524,6 @@ map <Leader>vz :VimuxZoomRunner<CR>
 " Zoom the tmux runner pane
 map <Leader>vz :VimuxZoomRunner<CR>
 
-"DeoPlete
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-      \ 'tern#Complete',
-      \ 'jspc#omni'
-      \]
-set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
-" close the preview window when you're not using it
-let g:SuperTabClosePreviewOnPopupClose = 1
-" or just disable the preview entirely
-set completeopt-=preview
-
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_camel_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 0
-let g:deoplete#max_menu_width = 0
-"let g:deoplete#omni#input_patterns = get(g:,'deoplete#omni#input_patterns',{})
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy'])
-
-"let g:tern_request_timeout = 1
-"let g:tern_request_timeout = 6000
-"let g:tern#command = ["tern"]
-"let g:tern#arguments = ["--persistent"]
-let g:deoplete#sources#tss#javascript_support = 1
-let g:nvim_typescript#javascript_support = 1
-let g:nvim_typescript#vue_support = 1
-
 " Typescript
 " autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
@@ -629,16 +557,5 @@ if executable('ripper-tags')
         \ }
 endif
 
-"Language Servers
-" \ 'javascript': ['/opt/javascript-typescript-langserver/lib/language-server-stdio.js'],
-let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'javascript.jsx': ['javascript-typescript-stdio'],
-      \ 'vue': ['vls'],
-      \ 'ruby': ['solargraph', 'stdio']
-      \ }
-
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
 
 
