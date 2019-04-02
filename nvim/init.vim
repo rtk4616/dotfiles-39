@@ -191,7 +191,7 @@ nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 "Enter Command Mode with space
-nmap \ :
+nmap <space> :
 " Sudo save
 cmap w!! w !sudo tee > /dev/null %
 
@@ -291,7 +291,7 @@ autocmd FileType vue syntax sync fromstart
 
 "keys
 imap jk <Esc>
-map <Space> <Leader>
+" map <Space> <Leader>
 
 "Vim Test
 let test#strategy = "vimux"
@@ -322,7 +322,7 @@ nmap <C-k>o :TagbarToggle<CR>
 "coc
 nmap <C-k>l :CocList<CR>
 nmap <silent> gd <Plug>(coc-definition)
-" nnoremap gd <Plug>(coc-definition)          
+" nnoremap gd <Plug>(coc-definition)
 
 "VimDif\
 nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
@@ -420,6 +420,7 @@ let g:indentLine_enabled = 1
 
 "Vim MultiCursors
 " let g:VM_sublime_mappings = 1
+let g:VM_leader = '\\'
 let g:VM_mouse_mappings = 1
 let g:VM_maps = {}
 let g:VM_maps['Find Under']         = '<C-d>'           " replace C-n
