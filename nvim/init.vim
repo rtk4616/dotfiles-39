@@ -185,6 +185,9 @@ set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
+" Stop quickfix from stealing focus
+autocmd QuickFixCmdPre * let g:mybufname=bufname('%')
+autocmd QuickFixCmdPost * botright copen 8 | exec bufwinnr(g:mybufname) . 'wincmd w'
 " Remove trailing whitespace
 nnoremap <Leader>rtw :%s/\s\+$//e<CR>
 " Quickly open/reload vim
@@ -507,6 +510,7 @@ let g:jsx_ext_required = 0
 let g:go_fmt_command = "goimports"
 " Open delve in horizontal split 
 let g:delve_new_command = "new"
+let g:go_fmt_fail_silently = 1
 
 "ViMux
 function! VimuxSlime()
