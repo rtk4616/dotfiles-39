@@ -36,6 +36,8 @@ Plug  'https://github.com/moll/vim-node', { 'for': 'javascript' }
 Plug  'https://github.com/othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx'] }
 Plug  'https://github.com/othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx', 'typescript.jsx']}
 Plug  'https://github.com/posva/vim-vue'
+Plug  'https://github.com/styled-components/vim-styled-components'
+Plug  'https://github.com/Quramy/vim-js-pretty-template'
 
 "Typescript
 Plug 'https://github.com/peitalin/vim-jsx-typescript'
@@ -540,6 +542,18 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+if has('autocmd')
+  augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
+  augroup END
+
+  call jspretmpl#register_tag('gql', 'graphql')
+  autocmd FileType javascript.jsx JsPreTmpl
+  autocmd FileType javascript JsPreTmpl
+endif
+
 
 
 "RipGrep
