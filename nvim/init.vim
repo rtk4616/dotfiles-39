@@ -65,7 +65,7 @@ Plug  'https://github.com/tpope/vim-markdown.git'
 
 "General Programming
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'https://github.com/majutsushi/tagbar.git'
+Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/sheerun/vim-polyglot'
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -339,8 +339,9 @@ map <C-k>b :NERDTreeToggle<CR>
 
 nnoremap <leader>s :ToggleWorkspace<CR>
 
-"TagBar
-nmap <C-k>o :TagbarToggle<CR>
+"Vista
+nmap <C-k>o :Vista!!<CR>
+let g:vista_default_executive = 'coc'
 
 "coc
 nmap <C-k>l :CocList<CR>
@@ -422,9 +423,9 @@ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> t :<C-u>Vista finder<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> T  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
@@ -448,8 +449,6 @@ command! -bang -nargs=* Rg
       \   <bang>0)
 nnoremap <C-p>a :Rg
 nmap <C-p> :Files<cr>
-nnoremap t :BTags<cr>
-nnoremap T :Tags<cr>
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'window': 'enew' }
@@ -663,23 +662,4 @@ endif
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
-
-"Ruby config
-if executable('ripper-tags')
-  let g:tagbar_type_ruby = {
-        \ 'kinds'      : ['m:modules',
-        \ 'c:classes',
-        \ 'C:constants',
-        \ 'F:singleton methods',
-        \ 'f:methods',
-        \ 'a:aliases'],
-        \ 'kind2scope' : { 'c' : 'class',
-        \ 'm' : 'class' },
-        \ 'scope2kind' : { 'class' : 'c' },
-        \ 'ctagsbin'   : 'ripper-tags',
-        \ 'ctagsargs'  : ['-f', '-']
-        \ }
-endif
-
-
 
