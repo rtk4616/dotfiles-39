@@ -114,10 +114,10 @@ setopt SHARE_HISTORY # SHARE COMMAND HISTORY DATA
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 alias diff='colordiff'
 
 alias -s gz='tar -xzvf'
@@ -136,12 +136,6 @@ if  [[ $('uname') == 'Darwin' ]]; then
  export REACT_EDITOR='subl';
  #source ~/.iterm2_shell_integration.zsh
   # export EDITOR='subl -w';
-fi
-LINUXBREW='/home/linuxbrew'
-if [ -d "$LINUXBREW" ]; then
-  export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-  export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-  export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
 fi
 
 alias vim='nvim';
@@ -171,13 +165,6 @@ case $HIST_STAMPS in
   *) alias history='fn_history' ;;
 esac
 
-
-# fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
-  source ~/dotfiles/fzf-snippets.zsh
-fi
 
 # fzf via local installation
 if [ -e ~/.fzf ]; then
