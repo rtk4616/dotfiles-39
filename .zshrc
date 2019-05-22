@@ -114,6 +114,7 @@ setopt SHARE_HISTORY # SHARE COMMAND HISTORY DATA
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 
+alias ls='lsd'
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'

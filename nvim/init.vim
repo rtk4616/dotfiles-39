@@ -14,7 +14,7 @@ Plug  'https://github.com/bling/vim-airline.git'
 Plug  'https://github.com/christoomey/vim-tmux-navigator'
 Plug  'https://github.com/benmills/vimux'
 Plug  'https://github.com/edkolev/tmuxline.vim'
-Plug  'https://github.com//mg979/vim-visual-multi', { 'branch': 'test',}
+Plug  'https://github.com/mg979/vim-visual-multi', { 'branch': 'test',}
 Plug  'https://github.com/Valloric/MatchTagAlways.git'
 Plug  'https://github.com/Raimondi/delimitMate.git'
 Plug  'https://github.com/easymotion/vim-easymotion'
