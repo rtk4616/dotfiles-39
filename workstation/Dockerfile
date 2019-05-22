@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM archlinux:base
 MAINTAINER Jeff Langston (https://jefflangston.me)
 
 # User with temporary password
@@ -7,35 +7,33 @@ RUN adduser -s /bin/zsh -D jefflangston && \
     echo "jefflangston:12345678!" | chpasswd && \
     echo "jefflangston ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-# Add alpine edge [ main, community, testing ]
-RUN echo -e \
-    'http://dl-cdn.alpinelinux.org/alpine/edge/main\nhttp://dl-cdn.alpinelinux.org/alpine/edge/community\nhttp://dl-cdn.alpinelinux.org/alpine/edge/testing' \
-    > /etc/apk/repositories
+RUN pacman -Syu \
+      docker \
+      docker-compose \
+      fd \
+      fzf \
+      go \
+      jq \
+      httpie \
+      kubernetes-cli \
+      mosh \
+      mycli \
+      neovim \
+      ncdu \
+      python \
+      ripgrep \
+      rustup \
+      tig \
+      tmux \
+      yarn \
 
-# base
-RUN apk add --update-cache \
-    linux-headers alpine-sdk build-base cmake
-RUN apk add bash build-base curl file git gzip libc6-compat python-dev ncurses ruby ruby-dbm ruby-etc ruby-irb ruby-json sudo zsh
+RUN curl -L get.rvm.io | bash
 
-RUN gem install bigdecimal
+# RUN mkdir -p /home/jefflangston/dev/github/aur
 
-# RUN localedef -i en_US -f UTF-8 en_US.UTF-8 \
-RUN adduser -s /bin/bash -D linuxbrew \
-	  && echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+# RUN cd /home/jefflangston/dev/github/aur
 
-USER linuxbrew
-
-ENV PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH \
-  	SHELL=/bin/bash \
-  	USER=linuxbrew
-
-WORKDIR /home/linuxbrew
-
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-
-ENV PATH=$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH
-
-RUN brew install chuby docker docker-compose fzf go htop httpie kubernetes-cli mosh mycli ndovim python ripgrep tig tmux yarn zplug
+# RUN git clone https://github.com/jlangston/dotfiles
 
 USER jefflangston
 
@@ -50,6 +48,10 @@ RUN pip3 install neovim && \
 		nvim --headless +PlugInstall +qa &> /dev/null
 
 RUN nvim --headless '+setf go' '+GoInstallBinaries' +qa &> /dev/null
+
+RUN chsh -s /usr/bin/zsh
+
+EXPOSE 3222 60000-60010/udp
 
 CMD [ "zsh" ]
 
