@@ -132,12 +132,6 @@ let g:onedark_terminal_italics=1
 highlight LineNr ctermfg=darkgrey ctermbg=none
 highlight NonText ctermbg=none
 syntax on
-hi htmlArg gui=italic
-hi Comment gui=italic
-hi Type    gui=italic
-hi htmlArg cterm=italic
-hi Comment cterm=italic
-hi Type    cterm=italic
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 if &term == "xterm"
@@ -191,6 +185,13 @@ set hlsearch                    " Highlight found searches
 hi  Search guibg=peru guifg=wheat
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
+
+hi htmlArg gui=italic
+hi Comment gui=italic
+hi Type    gui=italic
+hi htmlArg cterm=italic
+hi Comment cterm=italic
+hi Type    cterm=italic
 
 set switchbuf=usetab,newtab     " open new buffers always in new tabs
 " Stop quickfix from stealing focus
@@ -555,7 +556,7 @@ set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 " AirLine
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'
+let g:airline_theme='hybrid'
 let g:airline#extensions#branch#enabled     = 1
 let g:hybrid_custom_term_colors = 1
 "let g:hybrid_reduced_contrast = 1
