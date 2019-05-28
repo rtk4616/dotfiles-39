@@ -450,7 +450,7 @@ command! -bang -nargs=* Rg
       \   <bang>0 ? fzf#vim#with_preview('up:60%')
       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
       \   <bang>0)
-nnoremap <C-p>a :Rg
+nnoremap <Leader>f :Rg
 nmap <C-p> :Files<cr>
 
 " In Neovim, you can set up fzf window using a Vim command
