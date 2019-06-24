@@ -7,6 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 "Util
 Plug  'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug  'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/alok/notational-fzf-vim'
 Plug  'https://github.com/mileszs/ack.vim'
 Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
 Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
@@ -666,3 +667,7 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
+
+" example
+let g:nv_search_paths = ['~/Dropbox/notes']
+map <Leader>nv :NV<cr>
