@@ -36,6 +36,7 @@ zplug "templates/zshrc.zsh-template", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
+zplug "kiurchv/asdf.plugin.zsh", defer:2
 
 # Syntax highlighting for commands, load last
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -44,7 +45,7 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "themes/agnoster", from:oh-my-zsh
 
 #export NVM_LAZY_LOAD=true
-zplug "lukechilds/zsh-nvm"
+# zplug "lukechilds/zsh-nvm"
 
 # Actually install plugins, prompt user input
 # if !zplug check —verbose; then
