@@ -278,6 +278,8 @@ nnoremap <C-w>z :ZoomWinTabToggle<CR>
 " Fix ctrl h neovim
 nnoremap <silent> <BS> :TmuxNavigateLeft<cr>
 
+vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
+
 "ALE
 "" Error and warning signs.
 let g:ale_sign_error = '⤫'
@@ -314,6 +316,7 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
+"let g:test#ruby#rspec#executable = 'docker-compose run romwod rspec'
 
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
@@ -444,13 +447,13 @@ vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
 
 " Open goto file
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=always '
-      \ . <q-args>, 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
+" command! -bang -nargs=* Rg
+"       \ call fzf#vim#grep(
+"       \   'rg --column --line-number --no-heading --color=always '
+"       \ . <q-args>, 1,
+"       \   <bang>0 ? fzf#vim#with_preview('up:60%')
+"       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+"       \   <bang>0)
 nnoremap <Leader>f :Rg
 nmap <C-p> :Files<cr>
 
@@ -671,3 +674,4 @@ endif
 " example
 let g:nv_search_paths = ['~/Dropbox/notes']
 map <Leader>nv :NV<cr>
+
