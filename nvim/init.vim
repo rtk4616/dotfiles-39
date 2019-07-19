@@ -441,10 +441,15 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 "VimDif\
-nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
-nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
-vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
-vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
+ if &diff
+    nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
+    nnoremap <expr> <silent> cn (&diff ? "]c" : ":cnext\<CR>")
+    vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
+    vnoremap <expr> <silent> cp (&diff ? "[c" : ":cprev\<CR>")
+    map <leader>1 :diffget LOCAL<CR>
+    map <leader>2 :diffget BASE<CR>
+    map <leader>3 :diffget REMOTE<CR>
+ endif
 
 " Open goto file
 " command! -bang -nargs=* Rg

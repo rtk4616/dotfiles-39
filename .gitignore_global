@@ -1,0 +1,12 @@
+*~
+.DS_Store
+Session.vim
+.undodir
+.tern-project
+.tern-port
+.vscode
+.history
+tags
+tags.index
+tags.lock
+tags.temp

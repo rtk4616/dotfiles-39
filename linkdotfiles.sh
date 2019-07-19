@@ -8,4 +8,5 @@ ln -sf ~/dotfiles/.pgclirc ~/.config/pgcli/config;
 ln -sf ~/dotfiles/.myclirc ~/.myclirc
 ln -sf ~/dotfiles/i3/config ~/.config/i3/config
 ln -sf ~/dotfiles/.asdfrc ~/.asdfrc
+ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
 
