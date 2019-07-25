@@ -135,7 +135,7 @@ alias icat="kitty +kitten icat"
 if  [[ $('uname') == 'Darwin' ]]; then
  alias st3='~/Dropbox/Apps/st3'
  # export REACT_EDITOR='idea';
- export REACT_EDITOR='subl';
+ export REACT_EDITOR='nvim';
  #source ~/.iterm2_shell_integration.zsh
   # export EDITOR='subl -w';
 fi
