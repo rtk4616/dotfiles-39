@@ -30,6 +30,7 @@ Plug  'https://github.com/tpope/vim-repeat'
 Plug  'https://github.com/ConradIrwin/vim-bracketed-paste'
 Plug  'https://github.com/troydm/zoomwintab.vim'
 Plug  'https://github.com/mechatroner/rainbow_csv'
+Plug  'http://github.com/sjl/gundo.vim.git'
 
 
 "Javascript
