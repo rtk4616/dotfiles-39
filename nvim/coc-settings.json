@@ -1,4 +1,10 @@
 {
+  "suggest.autoTrigger": "trigger",
+  "suggest.floatEnable": true,
+  "suggest.enablePreview": true,
+  "suggest.echodocSupport": true,
+  "signature.enable": true,
+  "codeLens.enable": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
