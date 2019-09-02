@@ -43,6 +43,7 @@ Plug  'https://github.com/styled-components/vim-styled-components', {'branch': '
 Plug  'https://github.com/Quramy/vim-js-pretty-template'
 Plug  'https://github.com/MaxMEllon/vim-jsx-pretty'
 Plug  'https://github.com/jparise/vim-graphql'
+Plug  'https://github.com/delphinus/vim-firestore'
 
 "Typescript
 Plug 'https://github.com/leafgarland/typescript-vim'
@@ -416,8 +417,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>gr <Plug>(coc-rename)
 
 " Remap for format selected region
-vmap <leader>cfm  <Plug>(coc-format-selected)
-nmap <leader>cfm  <Plug>(coc-format-selected)
+vmap <leader>fm  <Plug>(coc-format-selected)
+nmap <leader>fm  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -616,7 +617,7 @@ nnoremap <leader>nf :NERDTreeFind<CR>
 "NeoFormat
 nnoremap <leader>nfm :Neoformat<CR>
 " Prettier
-nmap <Leader>fm :Prettier<CR>
+" nmap <Leader>fm :Prettier<CR>
 
 "Common JS Libs
 let g:used_javascript_libs = 'jquery,react,lodash'
