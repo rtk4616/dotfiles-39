@@ -27,6 +27,7 @@ font pango:OperatorMonoLig Nerd Font 10
 floating_modifier $mod
 
 # start a terminal
+set $term env KITTY_ENABLE_WAYLAND=1 kitty
 bindsym $mod+Return exec kitty
 
 # kill focused window
@@ -35,7 +36,8 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #  bindsym $mod+d exec bmenu_run
 
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rofi -show run | xargs swaymsg exec
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 bindsym $mod+d exec $menu
 
@@ -44,7 +46,8 @@ bindsym $mod+d exec $menu
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-bindsym $mod+Tab exec "rofi -show run"
+#bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi"
+bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi -theme onedark | xargs swaymsg exec"
 bindsym $mod+Shift+Tab exec "rofi -show drun"
 bindsym $mod+Shift+d   exec "rofi -show window"
 
@@ -149,7 +152,10 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id swaylock
+bindsym $mod+9 exec swaylock
+
+bindsym $mod+Print exec /usr/local/bin/grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
+bindsym $mod+Shift+Print exec /usr/local/bin/grim -g "$(/usr/local/bin/slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -198,10 +204,8 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	# i3bar_command i3bar
-	# status_command i3status
   # status_command swayC
-  # status_command i3status-rs ~/dotfiles/i3/status.toml
+  status_command i3status-rs ~/dotfiles/i3/status.toml
 	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
@@ -260,7 +264,7 @@ smart_gaps on
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gats. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -301,21 +305,18 @@ mode "$mode_gaps_outer" {
 # exec feh --bg-fill ~/Documents/mr-robot-3840x2160-hd-4k-8k-2528.jpg
 
 # Autostart applications
-# exec --no-startup-id compton -b
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-#exec --no-startup-id manjaro-hello
-# exec --no-startup-id nm-applet
-# exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
+# exec --no-startup-id manjaro-hello
+exec --no-startup-id nm-applet
+#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
 #exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
+#exec --no-startup-id blueman-applet
+#exec_always --no-startup-id dropbox
+#exec_always --no-startup-id sbxkb
+#exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
-#exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcursor
 # exec --no-startup-id nitrogen /usr/share/backgrounds --restore; sleep 1; compton -b
-# exec --no-startup-id ~/dotfiles/wallpaper.sh --restore; sleep 1;
 
- exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
+#exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
+#
