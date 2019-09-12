@@ -36,8 +36,9 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 #  bindsym $mod+d exec bmenu_run
 
-set $menu rofi -show run | xargs swaymsg exec
+# set $menu rofi -show run | xargs swaymsg exec
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
 
 bindsym $mod+d exec $menu
 
@@ -47,9 +48,10 @@ bindsym $mod+d exec $menu
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi"
-bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi -theme onedark | xargs swaymsg exec"
-bindsym $mod+Shift+Tab exec "rofi -show drun"
-bindsym $mod+Shift+d   exec "rofi -show window"
+# bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi -theme onedark | xargs swaymsg exec"
+bindsym $mod+Tab exec "wofi --show drun -i | xargs swaymsg exec --"
+bindsym $mod+Shift+Tab exec "wofi -show drun"
+bindsym $mod+Shift+d   exec "wofi -show window"
 
 # change focus
 bindsym $mod+h focus left
