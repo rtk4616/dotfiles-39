@@ -152,7 +152,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Lock screen
-bindsym $mod+9 exec swaylock
+bindsym $mod+9 exec swaylock --image /usr/share/backgrounds/bluemountain.jpgswaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
+
 
 bindsym $mod+Print exec /usr/local/bin/grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
 bindsym $mod+Shift+Print exec /usr/local/bin/grim -g "$(/usr/local/bin/slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
