@@ -323,4 +323,6 @@ exec --no-startup-id pamac-tray
 
 #exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
  exec --no-startup-id swaybg -i /usr/share/backgrounds/bluemountain.jpgswaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
-#
+exec swayidle -w \
+         timeout 90 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
+         resume 'swaymsg "output * dpms on"'

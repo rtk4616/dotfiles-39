@@ -145,6 +145,8 @@ alias vi='nvim';
 alias v='nvim';
 export EDITOR='nvim';
 
+alias r='ranger';
+
 # Customize to your needs...
 export TERM=xterm-256color
 

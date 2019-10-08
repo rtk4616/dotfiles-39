@@ -30,7 +30,7 @@ Plug  'https://github.com/tpope/vim-repeat'
 Plug  'https://github.com/ConradIrwin/vim-bracketed-paste'
 Plug  'https://github.com/troydm/zoomwintab.vim'
 Plug  'https://github.com/mechatroner/rainbow_csv'
-Plug  'http://github.com/sjl/gundo.vim.git'
+Plug 'https://github.com/simnalamburt/vim-mundo'
 
 
 "Javascript
@@ -116,6 +116,7 @@ Plug  'https://github.com/jreybert/vimagit'
 
 "GoLang
 Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go'}
 
 "Ruby
 Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
