@@ -151,6 +151,8 @@ set number
 set mouse=a
 set mousehide
 set modifiable
+set secure
+silent! so .vimlocal
 
 set autoindent
 set clipboard+=unnamedplus  " use the clipboards of vim and win
@@ -274,6 +276,7 @@ nmap ; :Buffers<cr>
 "gita status
 nnoremap <leader>g :Magit<CR>
 nnoremap <leader>gs :MagitOnly<CR>
+let g:magit_discard_untracked_do_delete=1
 
 "Zoom WinTab
 nnoremap <C-w>z :ZoomWinTabToggle<CR>
@@ -319,7 +322,6 @@ nmap <silent> <leader>ta :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tg :TestVisit<CR>
 
-"let g:test#ruby#rspec#executable = 'docker-compose run romwod rspec'
 
 "Emmet
 let g:user_emmet_expandabbr_key = '<Tab>'
