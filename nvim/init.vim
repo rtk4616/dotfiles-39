@@ -83,6 +83,7 @@ Plug 'https://github.com/sbdchd/neoformat'
 Plug 'https://github.com/rhysd/devdocs.vim'
 Plug 'https://github.com/kana/vim-textobj-user'
 Plug 'https://github.com/AndrewRadev/splitjoin.vim'
+Plug 'https://github.com/mattn/webapi-vim'
 
 
 Plug 'https://github.com/prettier/vim-prettier', {
