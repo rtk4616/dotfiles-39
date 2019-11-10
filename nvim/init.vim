@@ -477,20 +477,54 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
     map <leader>3 :diffget REMOTE<CR>
  endif
 
-" Open goto file
-" command! -bang -nargs=* Rg
-"       \ call fzf#vim#grep(
-"       \   'rg --column --line-number --no-heading --color=always '
-"       \ . <q-args>, 1,
-"       \   <bang>0 ? fzf#vim#with_preview('up:60%')
-"       \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-"       \   <bang>0)
-nnoremap <Leader>f :Rg
+" FZF
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+nnoremap <Leader>f :Rg<cr>
 nmap <C-p> :Files<cr>
 
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>,
+  \           <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \  <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Terminal buffer options for fzf
+autocmd! FileType fzf
+autocmd  FileType fzf set noshowmode noruler nonu
+
+if has('nvim') && exists('&winblend') && &termguicolors
+  set winblend=20
+
+  hi NormalFloat guibg=None
+  if exists('g:fzf_colors.bg')
+    call remove(g:fzf_colors, 'bg')
+  endif
+
+  if stridx($FZF_DEFAULT_OPTS, '--border') == -1
+    let $FZF_DEFAULT_OPTS .= ' --border'
+  endif
+
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.8)
+    let height = float2nr(&lines * 0.6)
+    let opts = { 'relative': 'editor',
+               \ 'row': (&lines - height) / 2,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+
+    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -531,9 +565,6 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-
-" Default fzf layout
-let g:fzf_layout = { 'down': '40%' }
 
 " Advanced customization using autoload functions
 autocmd VimEnter * command! Colors call fzf#vim#colors({'left': '15%'})
