@@ -360,7 +360,7 @@ let g:vista_default_executive = 'coc'
 
 "coc
 let g:coc_global_extensions = [
-  \ 'coc-lsp',
+  \ 'coc-vimlsp',
   \ 'coc-tsserver',
   \ 'coc-vetur',
   \ 'coc-rls',
