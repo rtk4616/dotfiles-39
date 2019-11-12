@@ -11,6 +11,8 @@ Plug 'https://github.com/alok/notational-fzf-vim'
 Plug  'https://github.com/mileszs/ack.vim'
 Plug  'https://github.com/scrooloose/nerdtree.git', { 'on': 'NERDTreeToggle' }
 Plug  'https://github.com/jistr/vim-nerdtree-tabs.git'
+Plug  'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight'
+Plug  'https://github.com/Xuyuanp/nerdtree-git-plugin'
 Plug  'https://github.com/bling/vim-airline.git'
 Plug  'https://github.com/christoomey/vim-tmux-navigator'
 Plug  'https://github.com/benmills/vimux'
@@ -357,6 +359,17 @@ nmap <C-k>o :Vista!!<CR>
 let g:vista_default_executive = 'coc'
 
 "coc
+let g:coc_global_extensions = [
+  \ 'coc-lsp',
+  \ 'coc-tsserver',
+  \ 'coc-vetur',
+  \ 'coc-rls',
+  \ 'coc-eslint', 
+  \ 'coc-prettier',
+  \ 'coc-json',
+  \ 'coc-solargraph',
+  \ 'coc-python',
+  \ ]
 nmap <C-k>l :CocList<CR>
 "
 " if hidden is not set, TextEdit might fail.
