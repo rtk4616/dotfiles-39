@@ -118,7 +118,7 @@ Plug  'https://github.com/tpope/vim-fugitive'
 Plug  'https://github.com/jreybert/vimagit'
 
 "GoLang
-Plug  'https://github.com/fatih/vim-go', { 'for': 'go' }
+Plug  'https://github.com/fatih/vim-go'
 Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go'}
 
 "Ruby
