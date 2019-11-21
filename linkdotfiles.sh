@@ -1,6 +1,7 @@
 #!/bin/zsh
 mkdir -p ~/.config
 mkdir -p ~/.config/rofi
+mkdir -p ~/.config/pgcli
 ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf

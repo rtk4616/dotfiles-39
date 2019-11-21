@@ -560,6 +560,13 @@ vmap <C-/> :TComment<cr>gv
 map <M-/> :TComment<cr>
 vmap <M-/> :TComment<cr>gv
 
+" terminal 
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
 "Easy Motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
@@ -696,6 +703,7 @@ let g:jsx_ext_required = 0
 let g:go_fmt_command = "goimports"
 " Open delve in horizontal split 
 let g:delve_new_command = "new"
+" let g:delve_use_vimux = 1
 let g:go_fmt_fail_silently = 1
 
 "ViMux
