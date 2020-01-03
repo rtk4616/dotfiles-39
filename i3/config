@@ -377,3 +377,4 @@ exec_always --no-startup-id fix_xcursor
  exec --no-startup-id ~/dotfiles/wallpaper.sh --restore; sleep 1; compton -b
 
 exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id /home/jefflangston/.screenlayouts/default.sh

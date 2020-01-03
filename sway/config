@@ -77,6 +77,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Moving workspaces between screens
+bindsym $mod+p move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+x split h
 
@@ -326,3 +329,7 @@ exec --no-startup-id pamac-tray
 exec swayidle -w \
          timeout 90 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
          resume 'swaymsg "output * dpms on"'
+
+output DP-3 pos 0 0 res 2560x1440 transform 90 transform 90
+output DP-4 pos 1440 200 res 3840x2160
+output HDMI-A-2 pos 5280 0 res 2650x1440 transform 270
