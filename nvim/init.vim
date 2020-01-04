@@ -32,7 +32,8 @@ Plug  'https://github.com/tpope/vim-repeat'
 Plug  'https://github.com/ConradIrwin/vim-bracketed-paste'
 Plug  'https://github.com/troydm/zoomwintab.vim'
 Plug  'https://github.com/mechatroner/rainbow_csv'
-Plug 'https://github.com/simnalamburt/vim-mundo'
+Plug  'https://github.com/simnalamburt/vim-mundo'
+Plug  'wincent/replay'
 
 
 "Javascript
@@ -71,6 +72,7 @@ Plug  'https://github.com/tpope/vim-markdown.git'
 
 "General Programming
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'puremourning/vimspector', {'branch': 'neovim'}
 Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/sheerun/vim-polyglot'
@@ -119,7 +121,7 @@ Plug  'https://github.com/jreybert/vimagit'
 
 "GoLang
 Plug  'https://github.com/fatih/vim-go'
-Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go'}
+" Plug  'https://github.com/sebdah/vim-delve', { 'for': 'go'}
 
 "Ruby
 Plug  'https://github.com/tpope/vim-rails', { 'for': 'ruby' }
@@ -478,6 +480,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 
 "VimDif\
  if &diff

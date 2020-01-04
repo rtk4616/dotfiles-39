@@ -8,6 +8,7 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
 
 set $mod Mod4
 
@@ -42,6 +43,8 @@ set $menu dmenu_path | wofi --show drun -i | xargs swaymsg exec --
 
 bindsym $mod+d exec $menu
 
+bindsym $mod+u exec clipman pick --tool=wofi
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -49,7 +52,7 @@ bindsym $mod+d exec $menu
 
 #bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi"
 # bindsym $mod+Tab exec "rofi -combi-modi window#run -show combi -modi combi -theme onedark | xargs swaymsg exec"
-bindsym $mod+Tab exec "wofi --show drun -i | xargs swaymsg exec --"
+bindsym $mod+Tab exec "wofi --show drun -I | xargs swaymsg exec --"
 bindsym $mod+Shift+Tab exec "wofi -show drun"
 bindsym $mod+Shift+d   exec "wofi -show window"
 
@@ -86,8 +89,15 @@ bindsym $mod+x split h
 # split in vertical orientation
 bindsym $mod+v split v
 
-# enter fullscreen mode for the focused container
+# enter fullscreen mode for the focused containe
 bindsym $mod+f fullscreen
+
+# global fullscreen: across all monitors
+bindsym $mod+shift+f fullscreen toggle global
+bindsym $mod+shift+i fullscreen toggle worspace
+
+#print screen
+bindsym Print exec sway-interactive-screenshot
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -312,9 +322,9 @@ mode "$mode_gaps_outer" {
 
 # Autostart applications
 # exec --no-startup-id manjaro-hello
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 #exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
+# exec --no-startup-id pamac-tray
 #exec --no-startup-id clipit
 #exec --no-startup-id blueman-applet
 #exec_always --no-startup-id dropbox
@@ -329,6 +339,7 @@ exec --no-startup-id pamac-tray
 exec swayidle -w \
          timeout 90 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
          resume 'swaymsg "output * dpms on"'
+exec wl-paste -t text --watch clipman store
 
 output DP-3 pos 0 0 res 2560x1440 transform 90 transform 90
 output DP-4 pos 1440 200 res 3840x2160
