@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
 
-set $mod Mod4
+set $mod Alt
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -28,8 +28,8 @@ font pango:OperatorMonoLig Nerd Font 10
 floating_modifier $mod
 
 # start a terminal
-set $term env KITTY_ENABLE_WAYLAND=1 kitty
-bindsym $mod+Return exec kitty
+#set $term env KITTY_ENABLE_WAYLAND=1 kitty
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
