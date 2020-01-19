@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
 
-set $mod Alt
+set $mod Mod4 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -335,5 +335,5 @@ output DP-4 pos 1440 200 res 3840x2160
 output HDMI-A-2 pos 5280 0 res 2650x1440 transform 270
 
 input 9610:30:HAILUCK_CO.,LTD_USB_KEYBOARD {
-  xkb_options ctrl:nocaps 
+  xkb_options ctrl:swap_lalt_lctl,caps:escape
 }
