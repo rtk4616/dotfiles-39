@@ -34,6 +34,7 @@ Plug  'https://github.com/troydm/zoomwintab.vim'
 Plug  'https://github.com/mechatroner/rainbow_csv'
 Plug  'https://github.com/simnalamburt/vim-mundo'
 Plug  'wincent/replay'
+Plug  'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 
 "Javascript
@@ -72,7 +73,7 @@ Plug  'https://github.com/tpope/vim-markdown.git'
 
 "General Programming
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'puremourning/vimspector', {'branch': 'neovim'}
+Plug 'puremourning/vimspector'
 Plug 'https://github.com/liuchengxu/vista.vim'
 Plug 'https://github.com/w0rp/ale'
 Plug 'https://github.com/sheerun/vim-polyglot'
