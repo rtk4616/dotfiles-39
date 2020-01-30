@@ -186,7 +186,11 @@ set encoding=utf8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
 set backupcopy=yes
-set laststatus=2
+if exists('g:started_by_firenvim')
+  set laststatus=0
+else
+  set laststatus=2
+endif
 
 set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
 
@@ -764,4 +768,18 @@ endif
 " example
 let g:nv_search_paths = ['~/Dropbox/notes']
 map <Leader>nv :NV<cr>
+
+let g:firenvim_config = { 
+    \ 'globalSettings': {
+        \ 'alt': 'all',
+    \  },
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'cmdline': 'firenvim',
+            \ 'priority': 0,
+            \ 'selector': 'textarea',
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }
 
