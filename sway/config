@@ -335,11 +335,12 @@ mode "$mode_gaps_outer" {
 # exec --no-startup-id nitrogen /usr/share/backgrounds --restore; sleep 1; compton -b
 
 #exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
- exec --no-startup-id swaybg -i /usr/share/backgrounds/bluemountain.jpgswaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
+exec --no-startup-id swaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
 exec swayidle -w \
          timeout 90 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
          resume 'swaymsg "output * dpms on"'
 exec wl-paste -t text --watch clipman store
+exec mako --background-color $background --text-color $foreground --border-color $color2 --icons 1 --default-timeout 5000 --max-visible 6
 
 output DP-3 pos 0 0 res 2560x1440 transform 90 transform 90
 output DP-4 pos 1440 200 res 3840x2160
