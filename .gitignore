@@ -1,6 +1,6 @@
 .DS_Store
-nvim/.netrwhist
-nvim/plugged/
-kakoune/
-kakoune/plugins
-!kakoune/plugins/plug.kak
+.config/nvim/.netrwhist
+.config/nvim/plugged/
+.config/kakoune/
+.config/kakoune/plugins
+!.config/kakoune/plugins/plug.kak
