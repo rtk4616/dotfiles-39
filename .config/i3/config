@@ -201,7 +201,7 @@ bar {
 	# i3bar_command i3bar
 	# status_command i3status
 
-  status_command i3status-rs ~/dotfiles/i3/status.toml
+  status_command i3status-rs ~/dotfiles/.config/i3/status.toml
 	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'

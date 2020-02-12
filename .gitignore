@@ -4,3 +4,6 @@
 .config/kakoune/
 .config/kakoune/plugins
 !.config/kakoune/plugins/plug.kak
+.config/pgcli/history
+.config/pgcli/log
+.config/pgcli/log

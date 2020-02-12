@@ -169,10 +169,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Lock screen
 bindsym $mod+9 exec swaylock --image /usr/share/backgrounds/bluemountain.jpgswaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
 
-
-bindsym $mod+Print exec /usr/local/bin/grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
-bindsym $mod+Shift+Print exec /usr/local/bin/grim -g "$(/usr/local/bin/slurp)" $(xdg-user-dir PICTURES)/$(date +'%Y-%m-%d-%H%M%S_grim.png')
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -221,7 +217,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
   # status_command swayC
-  status_command i3status-rs ~/dotfiles/i3/status.toml
+  status_command i3status-rs ~/dotfiles/.config/sway/status.toml
 	position top
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
@@ -322,25 +318,16 @@ mode "$mode_gaps_outer" {
 
 # Autostart applications
 # exec --no-startup-id manjaro-hello
-# exec --no-startup-id nm-applet
-#exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
-#exec --no-startup-id clipit
 #exec --no-startup-id blueman-applet
 #exec_always --no-startup-id dropbox
-#exec_always --no-startup-id sbxkb
-#exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
-# exec --no-startup-id xautolock -time 10 -locker blurlock
-# exec --no-startup-id nitrogen /usr/share/backgrounds --restore; sleep 1; compton -b
 
 #exec --no-startup-id /home/jefflangston/dev/github/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id swaybg -i /usr/share/backgrounds/`ls /usr/share/backgrounds | shuf -n 1`
+exec --no-startup-id swaybg -m stretch -i /usr/share/backgrounds/$(ls /usr/share/backgrounds | shuf -n 1)
 exec swayidle -w \
          timeout 90 'if pgrep -x swaylock; then swaymsg "output * dpms off"; fi' \
          resume 'swaymsg "output * dpms on"'
 exec wl-paste -t text --watch clipman store
-exec mako --background-color $background --text-color $foreground --border-color $color2 --icons 1 --default-timeout 5000 --max-visible 6
 
 output DP-3 pos 0 0 res 2560x1440 transform 90 transform 90
 output DP-4 pos 1440 200 res 3840x2160

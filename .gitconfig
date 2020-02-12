@@ -47,6 +47,7 @@
     cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [core]
 	excludesfile = ~/dotfiles/.gitignore_global
+  pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme="1337"
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
