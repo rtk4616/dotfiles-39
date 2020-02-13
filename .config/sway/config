@@ -313,6 +313,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+default_border pixel
 #feh --bg-scale /home/jeffl
 # exec feh --bg-fill ~/Documents/mr-robot-3840x2160-hd-4k-8k-2528.jpg
 
