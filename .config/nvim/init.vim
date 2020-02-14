@@ -534,19 +534,7 @@ if has('nvim') && exists('&winblend') && &termguicolors
     let $FZF_DEFAULT_OPTS .= ' --border'
   endif
 
-  function! FloatingFZF()
-    let width = float2nr(&columns * 0.8)
-    let height = float2nr(&lines * 0.6)
-    let opts = { 'relative': 'editor',
-               \ 'row': (&lines - height) / 2,
-               \ 'col': (&columns - width) / 2,
-               \ 'width': width,
-               \ 'height': height }
-
-    call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-  endfunction
-
-  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 endif
 
 " Customize fzf colors to match your color scheme
