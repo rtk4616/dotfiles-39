@@ -35,6 +35,7 @@ Plug  'https://github.com/mechatroner/rainbow_csv'
 Plug  'https://github.com/simnalamburt/vim-mundo'
 Plug  'wincent/replay'
 Plug  'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'kevinhwang91/rnvimr', {'do': 'make install'}
 
 
 "Javascript
@@ -604,6 +605,10 @@ endfunction
 
 " REQUIRED FOR LAZYGIT
 nnoremap <silent> <Leader>lg :call ToggleLazyGit()<CR>
+
+tnoremap <silent> <M-i> <C-\><C-n>:RnvimrResize<CR>
+nnoremap <silent> <M-o> :RnvimrToggle<CR>
+tnoremap <silent> <M-o> <C-\><C-n>:RnvimrToggle<CR>
 
 
 " Comment lines with cmd+/
