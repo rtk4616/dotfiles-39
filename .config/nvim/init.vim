@@ -57,8 +57,8 @@ Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 
 "CSS
 Plug 'https://github.com/cakebaker/scss-syntax.vim'
-Plug 'https://github.com/JulesWang/css.vim'
-Plug 'https://github.com/hail2u/vim-css3-syntax'
+" Plug 'https://github.com/JulesWang/css.vim'
+" Plug 'https://github.com/hail2u/vim-css3-syntax'
 
 " Colors
 Plug  'https://github.com/lilydjwg/colorizer'
@@ -320,6 +320,7 @@ let g:ale_linters = {
 let g:ale_linter_aliases = {'vue': 'typescript'}
 
 autocmd FileType vue syntax sync fromstart
+autocmd FileType *.scss syntax sync fromstart
 
 "keys
 imap jk <Esc>
