@@ -97,12 +97,12 @@ prompt_dir() {
 #options
 setopt autocd
 ## Command history configuration
-# if [ -z "$HISTFILE" ]; then
-#     HISTFILE=$HOME/.zsh_history
-# fi
-#
-# HISTSIZE=10000
-# SAVEHIST=10000
+if [ -z "$HISTFILE" ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
+
+HISTSIZE=1000000
+SAVEHIST=1000000
 
 # # Show history
 case $HIST_STAMPS in
@@ -113,7 +113,6 @@ case $HIST_STAMPS in
 esac
 #
 setopt EXTENDED_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
@@ -159,7 +158,7 @@ alias vi='nvim';
 alias v='nvim';
 export EDITOR='nvim';
 
-alias r='ranger';
+alias r='xterm-256kitty ranger';
 
 # Customize to your needs...
 # export TERM=xterm-kitty
@@ -178,7 +177,18 @@ export TERM='xterm-256color'
 
 if [ -f $HOME/.zplug/repos/larkery/zsh-histdb/histdb-interactive.zsh ]; then
   source $HOME/.zplug/repos/larkery/zsh-histdb/histdb-interactive.zsh
-  bindkey '^h' _histdb-isearch
+  bindkey '^o' _histdb-isearch
+  bindkey -M histdb-isearch '' _histdb-isearch-up
+  bindkey -M histdb-isearch '^[[A' _histdb-isearch-up
+
+  bindkey -M histdb-isearch '' _histdb-isearch-down
+  bindkey -M histdb-isearch '^[[B' _histdb-isearch-down
+
+  bindkey -M histdb-isearch '^[j' _histdb-isearch-cd
+
+  bindkey -M histdb-isearch '^[h' _histdb-isearch-toggle-host
+  bindkey -M histdb-isearch '^[d' _histdb-isearch-toggle-dir
+
 
   _zsh_autosuggest_strategy_histdb_top_here() {
       local query="select commands.argv from
@@ -221,8 +231,6 @@ function dedupHistory() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-# HSTR configuration - add this to ~/.zshrc
 alias hh=hstr                    # hh to be alias for hstr
 setopt histignorespace           # skip cmds w/ leading space from history
 export HSTR_CONFIG=hicolor       # get more colors
