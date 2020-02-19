@@ -148,7 +148,8 @@ export EDITOR='nvim';
 alias r='ranger';
 
 # Customize to your needs...
-export TERM=xterm-kitty
+# export TERM=xterm-kitty
+export TERM='xterm-256color'
 
 #Key Bindings
 #bindkey -M viins 'jj' vi-cmd-mode;

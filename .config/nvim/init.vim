@@ -231,7 +231,7 @@ nmap :Q1 :q!
 nmap :Q :q
 
 "Rainbow parens/braces
-let g:rainbow_active = 1
+let g:rainbow_active = 0
 
 function! SetLightTheme()
   colorscheme base16-solarized-light
