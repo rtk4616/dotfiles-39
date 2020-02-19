@@ -13,8 +13,13 @@ if [[ ! -d ~/.zplug ]]; then
     # Then, source plugins and add commands to $PATH
     zplug load --verbose
 fi
+
+HISTDB_TABULATE_CMD=(sed -e $'s/\x1f/\t/g')
+
 export ZPLUG_HOME=~/.zplug
 source $ZPLUG_HOME/init.zsh
+
+
 
 # Load completion library for those sweet [tab] squares
 zplug "lib/completion", from:oh-my-zsh
@@ -35,8 +40,10 @@ zplug "akarzim/zsh-docker-aliases"
 zplug "templates/zshrc.zsh-template", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-history-substring-search"
+#zplug "zsh-users/zsh-history-substring-search"
 zplug "kiurchv/asdf.plugin.zsh", defer:2
+
+zplug "larkery/zsh-histdb"
 
 # Syntax highlighting for commands, load last
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -56,6 +63,13 @@ zplug "themes/agnoster", from:oh-my-zsh
 # fi
 
 zplug load
+
+
+if [ -f $HOME/.zplug/repos/larkery/sqllight-history ]; then
+  source $HOME/.zplug/repos/larkery
+  autoload -Uz add-zsh-hook
+  add-zsh-hook precmd histdb-update-outcome
+fi
 
 # if [ "$TERM" = "screen" ] && [ -n "$TMUX" ]; then
   DEFAULT_USER=$(whoami)
@@ -83,25 +97,25 @@ prompt_dir() {
 #options
 setopt autocd
 ## Command history configuration
-if [ -z "$HISTFILE" ]; then
-    HISTFILE=$HOME/.zsh_history
-fi
+# if [ -z "$HISTFILE" ]; then
+#     HISTFILE=$HOME/.zsh_history
+# fi
+#
+# HISTSIZE=10000
+# SAVEHIST=10000
 
-HISTSIZE=10000
-SAVEHIST=10000
-
-# Show history
+# # Show history
 case $HIST_STAMPS in
   "mm/dd/yyyy") alias history='fc -fl 1' ;;
   "dd.mm.yyyy") alias history='fc -El 1' ;;
   "yyyy-mm-dd") alias history='fc -il 1' ;;
   *) alias history='fc -l 1' ;;
 esac
-
+#
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
@@ -155,21 +169,29 @@ export TERM='xterm-256color'
 #bindkey -M viins 'jj' vi-cmd-mode;
 #bindkey -M viins \C-R history-incremental-search-backward
 #bindkey -M vicmd \C-R history-incremental-search-backward
-bindkey "^R" history-incremental-search-backward
+# bindkey "^R" history-incremental-search-backward
 
 # if [ -f ~/.comp_zshrc ]; then
  [ -f ~/.comp_zshrc ] && source ~/.comp_zshrc
 # fi
 
 
-# Timestamp format
-case $HIST_STAMPS in
-  "mm/dd/yyyy") alias history='fn_history -f' ;;
-  "dd.mm.yyyy") alias history='fn_history -E' ;;
-  "yyyy-mm-dd") alias history='fn_history -i' ;;
-  *) alias history='fn_history' ;;
-esac
+if [ -f $HOME/.zplug/repos/larkery/zsh-histdb/histdb-interactive.zsh ]; then
+  source $HOME/.zplug/repos/larkery/zsh-histdb/histdb-interactive.zsh
+  bindkey '^h' _histdb-isearch
 
+  _zsh_autosuggest_strategy_histdb_top_here() {
+      local query="select commands.argv from
+  history left join commands on history.command_id = commands.rowid
+  left join places on history.place_id = places.rowid
+  where places.dir LIKE '$(sql_escape $PWD)%'
+  and commands.argv LIKE '$(sql_escape $1)%'
+  group by commands.argv order by count(*) desc limit 1"
+      suggestion=$(_histdb_query "$query")
+  }
+
+  ZSH_AUTOSUGGEST_STRATEGY=histdb_top_here
+fi
 
 # fzf via local installation
 if [ -e ~/.fzf ]; then
@@ -198,4 +220,11 @@ function dedupHistory() {
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
 
