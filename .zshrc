@@ -234,7 +234,7 @@ function dedupHistory() {
 histdb-fzf-widget() {
   local selected num
   setopt localoptions noglobsubst noposixbuiltins pipefail 2> /dev/null
-  selected=( $(histdb --sep 999 | awk -F'999' '{print $4}' |
+  selected=( $(histdb --sep 10000 | awk -F'999' '{print $4}' |
     FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
 
   LBUFFER=$selected
@@ -245,10 +245,10 @@ histdb-fzf-widget() {
 }
 
 zle     -N   histdb-fzf-widget
-bindkey '^R' histdb-fzf-widget
+bindkey '^e' histdb-fzf-widget
 
 alias hh=hstr                    # hh to be alias for hstr
 setopt histignorespace           # skip cmds w/ leading space from history
-export HSTR_CONFIG=hicolor       # get more colors
-bindkey -s "\C-e" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+export HSTR_CONFIG=hicolor,prompt-bottom       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
 
